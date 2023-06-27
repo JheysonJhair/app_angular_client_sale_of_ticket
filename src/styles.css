@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	transition:.3s ease all;
+    background: linear-gradient(to bottom,
+    rgba(96, 162, 205, 0.6),
+    rgba(29, 241, 230, 0.6),
+    rgba(76, 129, 161, 0.45)
+    ), url('https://i.pinimg.com/originals/db/0c/e4/db0ce461255cb21f91a2f70c139a38a5.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+

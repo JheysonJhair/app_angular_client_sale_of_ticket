@@ -1,0 +1,44 @@
+a{
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+.far{
+  cursor: pointer;
+}
+.bol {
+  font-weight:600;
+}
+td{
+  font-weight:400;
+}
+.card{
+  background-color:  rgba(240, 248, 255, 0.818);
+  border-radius: 20px;
+  padding: 20px;
+  margin-top: 80px;
+}
+
+/*contenedor izqueirda*/
+.contenedor_izquierda{
+  margin-top: 130px;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+/*logo user*/
+.contenedor_izquierda img{
+  height: 180px;
+  margin-left: 0px;
+}
+/*titulos */
+h2{
+  font-size: 17px;
+  margin-left: 20px;
+}
+.contenedor_izquierda h2{
+  margin: 10px;
+ text-align: center;
+  padding-bottom: 10px;
+}
+

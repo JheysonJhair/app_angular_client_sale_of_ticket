@@ -1,0 +1,449 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+/* ----------------------------------------------*/
+/*                     BODY                      */
+/* ----------------------------------------------*/
+
+/*encabezado*/
+header{
+width: 100%;
+height:80px;
+background-attachment: fixed;
+background-position: center;
+background-size: cover;
+  background: #bccfcec3;
+}
+
+/* Contenedor de navegacion*/
+.contenedor-nav{
+  display: flex;
+  margin: auto;
+  width: 76%;
+  justify-content: space-between;
+  align-items: center;
+  max-width:1500px;
+  height:inherit;
+  overflow: hidden;
+}
+/* Logotipo*/
+.logo, .logo img{
+  height:90px;
+}
+/* Logotipo:hover*/
+.logo, .logo img:hover{
+  cursor: pointer;
+}
+/*Contendor enlaces*/
+.header_enlaces {
+  margin-left: 100px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+align-content: center;
+  text-align: center;
+flex-wrap: wrap;
+}
+/*tamaño icon*/
+.header_enlaces img {
+  height: 35px;
+}
+/* ----------------------------------------------*/
+/*                     MAIN                      */
+/* ----------------------------------------------*/
+
+/* Contenedor exterior*/
+.c-exterior{
+  height: auto;
+  width: 100%;
+  position: relative;
+}
+/*contenedor divs*/
+.cont{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+/*contenedor izqueirda*/
+.contenedor_izquierda{
+  background: #ffffffa8;
+
+  height: 510px;
+  width: 400px;
+  padding: 15px;
+  margin: 20px;
+  border-radius: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/*yape*/
+.contenedor_izquierda .yap img{
+  height: 70px;
+
+
+}
+/*qr*/
+.contenedor_izquierda .qr img{
+  height: 230px;
+
+}
+.contenedor_izquierda .qr{
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+}
+/*target*/
+.contenedor_izquierda .target img{
+  height: 90px;
+
+}
+/*subtitulos*/
+.contenedor_izquierda h2{
+  font-size: 25px;
+  margin-bottom: 10px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+
+}
+/*contenedores yape qr y target*/
+.contenedor_izquierda .cc{
+  margin: 6px;
+  border-color: rgba(0, 0, 0, 0.618);
+  border-width: 3px;
+  border-style:groove;
+  border-radius: 10px;
+  background: #ffffff;
+}
+
+/*contenedor derecha*/
+.contenedor_derecha{
+  background: #ffffffc3;
+  height: 510px;
+  width: 550px;
+  padding: 15px;
+  margin: 20px;
+  border-radius: 20px;
+}
+/*titulos*/
+.contenedor_derecha h2{
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+/*subtitulos*/
+.contenedor_derecha h3{
+  font-size: 15px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif  ;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+/*panel titulo*/
+fieldset{
+  color: #000000;
+  font-size: 15px;
+  padding: 5px;
+  font-family:sans-serif;
+  cursor: pointer;
+  margin-bottom: 0px;
+}
+/*leyenda panel*/
+legend{
+  color: #2f2d2d;
+  font-size: 17px;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+}
+/*comntenedor estudiante*/
+.contenedor_derecha .es{
+  padding: 5px;
+}
+/*linea separadora*/
+.contenedor_derecha img{
+  height: 4.4px;
+}
+/*contenedor fechas*/
+.date{
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  margin-top: 5px;
+}
+/*fecha 1*/
+.date .dt2{
+  margin-left: 180px;
+  display: flex;
+}
+.date .dt2 p{
+  margin-left: 10px;
+}
+/*fecha2*/
+.date .dt1{
+  margin-left: 10px;
+  display: flex;
+}
+.date .dt1 p{
+  margin-left: 10px;
+}
+/*contenedor total*/
+.to{
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+/*precio*/
+.price {
+  margin-left: 400px;
+  font-size: 17px;
+  font-weight: bold;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+/*label precio*/
+.lblprice{
+  font-size: 17px;
+  font-weight: bold;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+/*boton subir contenedor*/
+.btn_subir{
+  background: #116C80;
+  padding: 5px;
+  font-family:Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  width: 200px;
+  margin-top: 3px;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 7px;
+  margin-bottom: 10px;
+  align-self: center;
+}
+
+/*boton subir*/
+.btn_subir button{
+  cursor: pointer;
+  background-color: #116c80;
+  border-style: none;
+  color: #ffffff;
+}
+
+.btn_subir input{
+  position: relative;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.btn_subir p{
+  align-content: center;
+  z-index: 0;
+}
+
+#imagen::before{
+  content: "Subir";
+}
+/*enlace subir*/
+.btn_subir a{
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/*Botones*/
+.btns{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+/*boton imprimir contenedor*/
+.btn_i{
+
+  background: #ffffff;
+  padding: 6px;
+  font-family: 'Courier New', Courier, monospace;
+  cursor: pointer;
+  width: 230px;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 7px;
+  border-color: rgb(0, 0, 0);
+  border-width: 3px;
+  border-style:groove;
+  margin-top: 10px;
+  display: flex;
+
+}
+/*enlace boton imprimir*/
+.btn_i a{
+  text-decoration: none;
+  color: #000000;
+  font-size: 18px;
+  font-weight: bold;
+}
+/*contenedor comprar ticket y logo*/
+.inp{
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 0px;
+  display: flex;
+  justify-content: left;
+  align-items:left;
+
+}
+/*icono comedor*/
+.icon-comed{
+  background-image: url('../../../assets/img/come.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 25px;
+  height: 25px;
+  margin-left: 10px;
+  margin-right: 13px;
+  padding-bottom: 10px;
+}
+/*icono imprimir*/
+.icon-i{
+  background-image: url('https://w7.pngwing.com/pngs/172/859/png-transparent-computer-icons-printing-printer-paper-check-print-rectangle-black-interface-thumbnail.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 25px;
+  height: 25px;
+  margin-left: 10px;
+  margin-right: 13px;
+  padding-bottom: 10px;
+}
+/* ----------------------------------------------*/
+/*                    FOOTER                     */
+/* ----------------------------------------------*/
+/* ...........Contactos..........*/
+/* Contenedor contacto*/
+footer  {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+/*contenedor de contactos*/
+.content-contact{
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  color: #000000;
+}
+/* Items contacto*/
+.item__contact{
+  width: 25%;
+  padding: 5px 0;
+  text-align: center;
+  background: #90cdcf6d;
+}
+/* Items contacto iconos*/
+.contact__icon{
+  font-size: 24px;
+  color: #113138;
+  line-height: 20px;
+  margin-right: 4px;
+}
+
+/* Items titulo*/
+.contact__title{
+  font-size: 16px;
+  line-height: 20px;
+}
+
+/*Contenedor enlaces FB Instagram Youtube */
+footer .item__contact--gold {
+display: flex;
+align-content: center;
+  text-align: center;
+flex-wrap: wrap;
+justify-content: center;
+}
+
+/* Contenedor enlaces FB Instagram Youtube*/
+.item__contact--gold img {
+  height: 34px;
+}
+/* Contenedor iconos redes*/
+.contenedor-icono{
+margin: 10px 20px 0px 0px;
+}
+/* Contenedor iconos hover*/
+.contenedor-icono:hover a {
+animation: icono .5s ease;
+}
+@keyframes icono {
+from {
+  transform: rotate3d(0,0,0,0);
+}
+to {
+  transform: rotate3d(0,.5,0, 360deg);
+}
+}
+/* iconos a*/
+.item__contact--gold a {
+display: block;
+transition: .3s ease all;
+}
+/* ----------------------------------------------*/
+/*                  PANTALLA                     */
+/* ----------------------------------------------*/
+/* ANDROID*/
+@media screen and (max-width: 900px){
+.cont{
+  height: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0px;
+  margin-bottom: 90px;
+  padding-top: 100px;
+}
+.contenedor_izquierda{
+  width: 450px;
+}
+.contenedor_derecha{
+  width: 450px;
+  height: 540px;
+}
+.contenedor_derecha img{
+  height: 3.57px;
+}
+.contenedor-nav{
+  width: 90%;
+}
+.item__contact{
+  width: 33.3%;
+}
+.item__contact--gold{
+  display:none !important;
+}
+header{
+  position: fixed;
+  z-index: 1;
+}
+footer{
+  background-color: #7f8184;
+}
+.price {
+  margin-left: 290px;
+}
+fieldset{
+  font-size: 16px;
+}
+
+legend{
+  font-size: 17px;
+}
+}

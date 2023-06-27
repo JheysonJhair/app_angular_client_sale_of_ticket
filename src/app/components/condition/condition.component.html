@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+<section class="c-exterior">
+  <section  class="cont" >
+
+      <div class="contenedor_izquierda">
+        <img src="../../../assets/img/usuer 1.png" alt="" class="contenido-imagen-about">
+        <div *ngIf="student !== undefined" class="h22">
+          <h2 class="titulo">{{student[0].name}} {{student[0].lastName}}</h2>
+        </div>
+        <div class="content_btn">
+            <div class="b">
+                <a href="">Listar</a>
+            </div>
+            <div class="b">
+                <a href="">Historial</a>
+            </div>
+        </div>
+    </div>
+    <div class="contenedor_derecha">
+        <h2>COMEDOR UNAMBA - 2022 II</h2>
+        <h3>Condicion socio - económica</h3>
+        <div *ngIf="student !== undefined" class="btn_condicionPobreNopobre">
+          {{ student[0].condition ===  false ? 'Pobre' : 'No pobre' }}
+        </div>
+        <img src="../../../assets/img/LineSep2.png" alt="">
+        <h3>Condicion FINAL</h3>
+        <div *ngIf="student !== undefined " class="btn_condicionFinal">
+          {{student[0].studentState == true? 'No apto' : 'Apto'}}
+        </div>
+        <div *ngIf="opening !== undefined">
+          <div *ngIf="student !== undefined ">
+            <button (click)="onButtonClick()" [disabled]="student[0].studentState == true || opening[0].openState == false " class="btn btn-primary float-end">Siguiente</button>
+          </div>
+        </div>
+    </div>
+  </section>
+</section>

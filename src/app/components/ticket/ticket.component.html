@@ -1,0 +1,44 @@
+<div class="vaucher">
+  <p id="p1">UNIVERSIDAD NACIONAL</p>
+  <p id="p2">MICAELA BASTIDAS</p>
+  <p id="p3">Direccion</p>
+  <p id="p4">Abancay-Av. Inca Garcilazo de la Vega</p>
+  <p id="p5">RUC: 20527056579 </p>
+  <p id="p6">BOLETA DE VENTA ELECTRONICA</p>
+  <p id="p7">Fecha</p>
+  <p id="p8">24/07/2018</p>
+  <table >
+      <thead>
+          <tr >
+              <th class="producto">Cliente</th>
+              <th class="importe">Código</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let student of listStudent ">
+              <td class="producto">{{student.name}}</td>
+              <td class="importe">{{student.code}}</td>
+          </tr>
+      </tbody>
+  </table>
+  <table>
+      <thead>
+          <tr>
+              <th class="producto">Descripcion</th>
+              <th class="importe">Importe</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td class="producto">Total</td>
+              <td class="importe">S/ 10.00</td>
+          </tr>
+      </tbody>
+  </table>
+  <p id="p15">¡GRACIAS POR SU COMPRA!</p>
+  <p id="p16">CONSERVE ESTE COMPROVANTE</p>
+  <p id="p17">EN CASO DE RECLAMO</p>
+
+  <button class="oculto-impresion1"  (click)="aler()">Imprimir</button>
+</div>
+

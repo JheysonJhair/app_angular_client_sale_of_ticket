@@ -1,0 +1,152 @@
+/* Contenedor exterior*/
+.c-exterior{
+
+  height: auto;
+  width: 100%;
+  position: relative;
+}
+/*contenedor divs*/
+.cont{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+/*contenedor izqueirda*/
+.contenedor_izquierda{
+
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 45%;
+}
+/*logo user*/
+.contenedor_izquierda img{
+  height: 200px;
+  margin-left: 130px;
+}
+/*titulos */
+.contenedor_izquierda h2{
+  margin: 15px;
+  padding-bottom: 10px;
+  font-size: 26px
+}
+/*contenedor boton*/
+.contenedor_izquierda .content_btn{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #d4d6d1c3;
+  height: 140px;
+  width: 50%;
+  margin-left: 90px;
+  border-radius: 20px;
+}
+/*botones div HISTORIAL Y LISTA*/
+.b{
+  background: #30a390;
+  padding: 10px;
+  margin: 10px;
+  margin-left: 55px;
+  font-family: 'Courier New', Courier, monospace;
+  cursor: pointer;
+  width: 150px;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 7px;
+}
+/*links a*/
+.b a{
+  text-decoration: none;
+  font-size: 20px;
+  color: #ffffff;
+  font-weight: bold;
+  margin: 10px;
+  padding: 10px;
+}
+/*contenedor derecha*/
+.contenedor_derecha{
+  background: #c9d5d4;
+  height: 420px;
+  width: 40%;
+  padding: 15px;
+  margin: 20px;
+  border-radius: 20px;
+}
+.h22{
+  width: 480px;
+  text-align: center;
+}
+/*titulo */
+.contenedor_derecha h2{
+  text-align: left;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: 400;
+  margin: 0px;
+}
+/*letras */
+.contenedor_derecha h3{
+
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 400;
+  margin: 10px;
+}
+/*botones condicion*/
+.btn_condicionFinal{
+
+  background: #30a390;
+  padding: 10px;
+  margin: 10px;
+  font-family: 'Courier New', Courier, monospace;
+  width: 120px;
+  font-size: 20px;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 7px;
+}
+.btn_condicionPobreNopobre{
+
+  background: #2985cb;
+  padding: 10px;
+  margin: 10px;
+  font-family: 'Courier New', Courier, monospace;
+  width: 120px;
+  font-size: 20px;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 7px;
+}
+
+.btn_condicion a{
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+}
+/*boton siguiente*/
+.butt{
+
+  background: #f9f9f9;
+  padding: 10px;
+  margin-top: 0px;
+  margin-left: 320px;
+  font-family: 'Courier New', Courier, monospace;
+  cursor: pointer;
+  width: 160px;
+  text-align: center;
+  color: #000000;
+  border-color: rgb(0, 0, 0);
+  border-width: 3px;
+  border-style:groove;
+  border-radius: 7px;
+}
+/*enlace boton siguiente*/
+.butt a{
+  text-decoration: none;
+  color: #222222;
+  font-size: 20px;
+  font-weight: bold;
+}
+.contenedor_derecha img{
+  height: 4.1px;
+}

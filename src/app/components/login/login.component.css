@@ -1,0 +1,105 @@
+/*--------------Exagono--------------------*/
+
+.boddy{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 96vh;
+}
+.hexagon{
+  position: absolute;
+  justify-content: center;
+  text-align: center;
+  width: 250px;
+  height: 360px;
+  background-color: rgb(85, 169, 178);
+  border-radius: 0px;
+  z-index: 2;
+  max-width: 600px;
+}
+.hexagon::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -92px;
+  width: 0;
+  height: 0;
+  border-right: 92px solid rgb(85, 169, 178);
+  border-top: 180px solid transparent;
+  border-bottom: 180px solid transparent;
+
+}
+.hexagon::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -92px;
+  width: 0;
+  height: 0;
+  border-left: 92px solid rgb(85, 169, 178);
+  border-top: 180px solid transparent;
+  border-bottom: 180px solid transparent;
+
+}
+
+/*Titulo registro*/
+h2{
+  margin-top: 35px;
+  color: #ffffff;
+  opacity: none;
+  z-index: 1;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  Font-style: 900;
+  Font-size: 45px;
+  Line-height: 72px;
+  Line-height: 100%;
+  padding-bottom: 25px;
+
+}
+.bb{
+  width: 200px;
+  margin-left: 40px;
+
+  width: 60%;
+  height: 50px;
+  margin-left: 49px;
+  border: none;
+  font-size: 22px;
+  background: #116C80;
+  cursor: pointer;
+  border-radius: 10px;
+  color: white;
+  outline: none;
+}
+
+.bb:hover{
+  box-shadow: inset 0 0 20px rgba(110, 154, 172, 0.5), 0 0 20px rgba(141, 160, 168, 0.4);
+  outline-color: rgba(49, 138, 172, 0);
+  outline-offset: 80px;
+}
+/*Enlace cambiar contraseña*/
+.hexagon a{
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+}
+.hexagon a:hover{
+  text-decoration:underline;
+}
+/*logo*/
+.log{
+  position: absolute;
+  left: 74px;
+  top: -85px;
+  z-index: 1;
+
+}
+.log img{
+  height: 100px;
+  color: #116C80;
+}
+
+.ccc{
+  margin-top: 16px;
+}

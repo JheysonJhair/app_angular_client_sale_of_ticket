@@ -1,0 +1,52 @@
+.headee{
+	width: 100%;
+	height:80px;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+    background: #bccfcec3;
+}
+
+/* Contenedor de navegacion*/
+.contenedor-nav{
+    display: flex;
+    margin: auto;
+    width: 76%;
+    justify-content: space-between;
+    align-items: center;
+
+    height:inherit;
+    overflow: hidden;
+}
+/* Logotipo*/
+.logo, .logo img{
+  display: flex;
+    height:50px;
+}
+.logo h3{
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  padding-left: 10px;
+}
+  /* Logotipo:hover*/
+.logo, .logo img:hover{
+    cursor: pointer;
+}
+/*Contendor enlaces*/
+.header_enlaces {
+    margin-left: 100px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	align-content: center;
+    text-align: center;
+	flex-wrap: wrap;
+}
+/*iconos espacio*/
+.contenedor-icono{
+    margin: 10px 20px 0px 0px;
+}
+/*tamaño icon*/
+.header_enlaces img {
+    height: 25px;
+}

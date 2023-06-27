@@ -1,0 +1,130 @@
+<app-navbar></app-navbar>
+<div class="row mt -4">
+  <div class="col-lg-4">
+    <div class="contenedor_izquierda">
+      <img src="https://cdn-icons-png.flaticon.com/512/78/78948.png" alt="" class="contenido-imagen-about">
+      <h2 class="titulo">ADMINISTRADOR</h2>
+    </div>
+  </div>
+  <div class="col-lg-8">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="mt-3">{{accion}} Estudiante</h3>
+        <form class="ro" [formGroup]="addStudent"  (ngSubmit)="addEditStudent()">
+           <div class="row">
+            <div class="col-lg-6">
+              <span class="tran" *ngIf="this.addStudent.get('lastName')?.invalid && addStudent.get('lastName')?.touched">.</span>
+              <span class="red-icon" *ngIf="this.addStudent.get('name')?.invalid && addStudent.get('name')?.touched"><b>Este campo es requerido</b></span>
+              <div class="input-group mb-3 input-group-lg">
+                <span class="input-group-text" >
+                  <i  class="fa-solid fa-user"
+                  [class.green-icon]="this.addStudent.get('name')?.valid"
+                  [class.red-icon]="addStudent.get('name')?.invalid && addStudent.get('name')?.touched "
+                  >
+                </i></span>
+                <input pattern="^[a-zA-ZÀ-ÖØ-öø-ÿ]+\.?(( |\-)[a-zA-ZÀ-ÖØ-öø-ÿ]+\.?)*$"  formControlName="name" type="text" class="form-control" placeholder="Nombres" aria-label="Nombres" aria-describedby="basic-addon1">
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <span class="tran" *ngIf="this.addStudent.get('name')?.invalid && addStudent.get('name')?.touched">.</span>
+              <span class="red-icon" *ngIf="this.addStudent.get('lastName')?.invalid && addStudent.get('lastName')?.touched"><b>Este campo es requerido</b></span>
+              <div class="input-group mb-3 input-group-lg">
+                <span class="input-group-text">
+                <i class="fa-solid fa-user"
+                [class.green-icon]="this.addStudent.get('lastName')?.valid"
+                [class.red-icon]="addStudent.get('lastName')?.invalid && addStudent.get('lastName')?.touched "
+                ></i></span>
+                <input  pattern="^[a-zA-ZÀ-ÖØ-öø-ÿ]+\.?(( |\-)[a-zA-ZÀ-ÖØ-öø-ÿ]+\.?)*$" formControlName="lastName" type="text" class="form-control" placeholder="Apellidos" aria-label="Apellidos" aria-describedby="basic-addon1">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4">
+              <span class="tran" *ngIf="this.addStudent.get('phone')?.invalid && addStudent.get('phone')?.touched || this.addStudent.get('sex')?.invalid && addStudent.get('sex')?.touched">.</span>
+              <span class="red-icon" *ngIf="this.addStudent.get('dni')?.invalid && addStudent.get('dni')?.touched"><b>Este campo es requerido</b></span>
+              <div class="input-group mb-3 input-group-lg">
+                <span class="input-group-text" ><i class="fa-regular fa-address-card"
+                  [class.green-icon]="this.addStudent.get('dni')?.valid"
+                  [class.red-icon]="addStudent.get('dni')?.invalid && addStudent.get('dni')?.touched "
+                  ></i></span>
+                <input pattern="^[0-9]{8}$" maxlength="8" formControlName="dni" type="text" class="form-control" placeholder="Dni" aria-label="Dni" aria-describedby="basic-addon1">
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <span class="tran" *ngIf="this.addStudent.get('dni')?.invalid && addStudent.get('dni')?.touched || this.addStudent.get('sex')?.invalid && addStudent.get('sex')?.touched">.</span>
+              <span class="red-icon" *ngIf="this.addStudent.get('phone')?.invalid && addStudent.get('phone')?.touched"><b>Este campo es requerido</b></span>
+              <div class="input-group mb-3 input-group-lg">
+                <span class="input-group-text" ><i class="fa-solid fa-phone-volume"
+                  [class.green-icon]="this.addStudent.get('phone')?.valid"
+                  [class.red-icon]="addStudent.get('phone')?.invalid && addStudent.get('phone')?.touched "
+                  ></i></span>
+                <input pattern="^(9)[0-9]{8}$"  maxlength="9" formControlName="phone" type="text" class="form-control" placeholder="Teléfono" aria-label="Telefono" aria-describedby="basic-addon1">
+                </div>
+              </div>
+            <div class="col-lg-3">
+              <span class="tran" *ngIf="this.addStudent.get('dni')?.invalid && addStudent.get('dni')?.touched || this.addStudent.get('phone')?.invalid && addStudent.get('phone')?.touched">.</span>
+              <span class="red-icon" *ngIf="this.addStudent.get('sex')?.invalid && addStudent.get('sex')?.touched"><b>Campo requerido</b></span>
+              <div class="input-group mb-3 input-group-lg">
+                <span class="input-group-text" ><i class="fa-solid fa-venus-mars"
+                  [class.green-icon]="this.addStudent.get('sex')?.valid"
+                  [class.red-icon]="addStudent.get('sex')?.invalid && addStudent.get('sex')?.touched "
+                  ></i></span>
+                <input  pattern="^((M||F)||(m||f))$" maxlength="1" formControlName="sex" type="text" class="form-control" placeholder="M/F" aria-label="Sexo" aria-describedby="basic-addon1">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-7">
+              <span class="tran" *ngIf="this.addStudent.get('faculty')?.invalid && addStudent.get('faculty')?.touched">.</span>
+              <span class="red-icon" *ngIf="this.addStudent.get('school')?.invalid && addStudent.get('school')?.touched"><b>Este campo es requerido</b></span>
+              <div class="input-group mb-3 input-group-lg">
+                <span class="input-group-text" ><i class="fa-solid fa-user-tie"
+                  [class.green-icon]="this.addStudent.get('school')?.valid"
+                  [class.red-icon]="addStudent.get('school')?.invalid && addStudent.get('school')?.touched "
+                  ></i></span>
+                <input  pattern="^(([Ñña-zA-ZÁ-Úá-ú]){2,30}\.?)(((\s)[Ñña-zA-ZÁ-Úá-ú]{1,30})?){1,4}$" formControlName="school" type="text" class="form-control" placeholder="Escuela Profesional" aria-label="Carrera Profesional" aria-describedby="basic-addon1">
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <span class="tran" *ngIf="this.addStudent.get('school')?.invalid && addStudent.get('school')?.touched">.</span>
+              <span class="red-icon" *ngIf="this.addStudent.get('faculty')?.invalid && addStudent.get('faculty')?.touched"><b>Este campo es requerido</b></span>
+              <div class="input-group mb-3 input-group-lg">
+                <span class="input-group-text" ><i class="fa-solid fa-graduation-cap"
+                  [class.green-icon]="this.addStudent.get('faculty')?.valid"
+                  [class.red-icon]="addStudent.get('faculty')?.invalid && addStudent.get('faculty')?.touched "
+                  ></i></span>
+                <input  pattern="^(([Ñña-zA-ZÁ-Úá-ú]){2,30}\.?)(((\s)[Ñña-zA-ZÁ-Úá-ú]{1,30})?){1,4}$" formControlName="faculty" type="text" class="form-control" placeholder="Facultad" aria-label="Facultad" aria-describedby="basic-addon1">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-4">
+                <span class="tran" *ngIf="this.addStudent.get('address')?.invalid && addStudent.get('address')?.touched">.</span>
+                <span class="red-icon" *ngIf="this.addStudent.get('code')?.invalid && addStudent.get('code')?.touched"><b>Este campo es requerido</b></span>
+                <div class="input-group mb-3 input-group-lg">
+                  <span class="input-group-text" ><i class="fa-solid fa-code-compare"
+                    [class.green-icon]="this.addStudent.get('code')?.valid"
+                    [class.red-icon]="addStudent.get('code')?.invalid && addStudent.get('code')?.touched "
+                    ></i></span>
+                  <input  pattern="^[0-9]{6}$" maxlength="6" formControlName="code" type="text" class="form-control" placeholder="Código" aria-label="Codigo" aria-describedby="basic-addon1">
+                </div>
+              </div>
+              <div class="col-lg-8">
+                <span class="tran" *ngIf="this.addStudent.get('code')?.invalid && addStudent.get('code')?.touched">.</span>
+                <span class="red-icon" *ngIf="this.addStudent.get('address')?.invalid && addStudent.get('address')?.touched"><b>Este campo es requerido</b></span>
+                <div class="input-group mb-3 input-group-lg">
+                  <span class="input-group-text" ><i class="fa-sharp fa-solid fa-location-dot"
+                    [class.green-icon]="this.addStudent.get('address')?.valid"
+                    [class.red-icon]="addStudent.get('address')?.invalid && addStudent.get('address')?.touched "
+                    ></i></span>
+                  <input pattern="^([0-9Ñña-zA-ZÁ-Úá-ú-/:°,]{1,30}\.?)((((\s|\-)[0-9Ñña-zA-ZÁ-Úá-ú-/:°,]{1,30})?)*)$" formControlName="address" type="text" class="form-control" placeholder="Dirección" aria-label="Direccion" aria-describedby="basic-addon1">
+                </div>
+              </div>
+            </div>
+          </div>
+          <button  type="submit" [disabled]="addStudent.invalid" class="btn btn-primary float-end">Aceptar</button>
+          <button  type="button " routerLink="/getall" class="btn btn-secondary">Lista de estudiantes</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

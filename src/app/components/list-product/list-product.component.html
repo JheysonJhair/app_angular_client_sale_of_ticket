@@ -1,0 +1,32 @@
+<div class="row mt -4">
+  <div class="col-lg-2">
+    <div class="contenedor_izquierda">
+      <img src="https://cdn-icons-png.flaticon.com/512/78/78948.png" alt="" class="contenido-imagen-about">
+  </div>
+  </div>
+  <div class="col-lg-10">
+    <div class="card">
+      <div class="card-body">
+      <h3>Listado de Productos</h3>
+      <button routerLink="/insert" class="btn btn-primary float-end ">Nuevo Producto</button>
+      <table *ngIf="listProduct.length > 0" class="table table-hover mt-3">
+        <thead>
+            <tr>
+                <td class="bol">NOMBRE PRODUCTO</td>
+                <td class="bol">PRECIO</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of listProduct">
+              <td>{{product.name}}</td>
+              <td>{{product.price}}</td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+    <div *ngIf="listProduct.length == 0" class="row mt-5">
+      <h5>No existe Productos.</h5>
+    </div>
+    </div>
+  </div>
+</div>

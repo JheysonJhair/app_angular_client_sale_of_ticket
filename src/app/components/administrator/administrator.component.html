@@ -1,0 +1,61 @@
+<app-navbar></app-navbar>
+<div class="row mt -4">
+  <div class="col-lg-3">
+    <div class="contenedor_izquierda">
+      <img src="https://cdn-icons-png.flaticon.com/512/78/78948.png" alt="" class="contenido-imagen-about">
+      <h2 >ADMINISTRADOR</h2>
+      <div class="content_btn">
+          <div  *ngIf="opening !== undefined " class="bbb">
+            <button (click)="opening[0].openState = true" [disabled]="opening[0].openState == true " type="button" class="bvb bi btn btn-success" >APERTURA</button>
+          </div>
+          <div *ngIf="opening !== undefined " class="bbb">
+            <button (click)="opening[0].openState = false" type="button "  class="bvb bi btn btn-danger">CIERRE</button>
+          </div>
+      </div>
+  </div>
+  </div>
+  <div class="col-lg-9">
+    <div class="card">
+      <div class="card-body">
+        <div class="stock">
+          <input type="text" class="float-end" [value]="inputValue" [disabled]="true" [(ngModel)]="inputValue">
+        </div>
+        <button  type="button "  class="bi btn btn-primary">ESTUDIANTES CON COMEDOR</button>
+        <button  type="button " routerLink="/getall" class="bi btn btn-info">Listar Estudiantes</button>
+        <button  type="button " routerLink="/insert" class="bi btn btn-info">Registar estudiante</button>
+      <h3>Lista recibo de voucher</h3>
+      <table *ngIf="listStudentAdmin.length > 0" class="table table-hover mt-3">
+        <thead>
+            <tr>
+                <th class="bol">VOUCHER</th>
+                <th class="bol">CODIGO</th>
+                <th class="bol">ESCUELA PROFESIONAL</th>
+                <th class="bol">NOMBRES Y APELLIDOS</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let studentAdmin of listStudentAdmin">
+              <td>img/voucher2pagoyape</td>
+              <td>{{studentAdmin.code}}</td>
+              <td>{{studentAdmin.school}}</td>
+              <td>{{studentAdmin.name}} {{studentAdmin.lastName}}</td>
+              <td>
+                <i (click)="changeValue()" class="fa-solid fa-square-check text-success far"></i>
+              </td>
+              <td>
+                <i (click)="discardStudent(studentAdmin.idStudent)" class="fa-sharp fa-solid fa-square-xmark text-danger far"></i>
+              </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+    <div *ngIf="listStudentAdmin.length == 0" class="row mt-5">
+      <h5>No hay Estudiantes por mostrar.</h5>
+    </div>
+    </div>
+  </div>
+</div>
+
+

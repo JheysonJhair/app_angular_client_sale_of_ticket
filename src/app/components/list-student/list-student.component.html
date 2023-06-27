@@ -1,0 +1,59 @@
+<app-navbar></app-navbar>
+<div class="row mt -4">
+  <div class="col-lg-2">
+    <div class="contenedor_izquierda">
+      <img src="https://cdn-icons-png.flaticon.com/512/78/78948.png" alt="" class="contenido-imagen-about">
+      <h2 class="titulo">ADMINISTRADOR</h2>
+  </div>
+  </div>
+  <div class="col-lg-10">
+    <div class="card">
+      <div class="card-body">
+      <h3>Listado de Estudiantes</h3>
+      <button routerLink="/insert" class="btn btn-primary float-end ">Nuevo Registro</button>
+      <table *ngIf="listStudent.length > 0" class="table table-hover mt-3">
+        <thead>
+            <tr>
+                <th class="bol">DNI</th>
+                <th class="bol">NOMBRES</th>
+                <th class="bol">APELLIDOS</th>
+                <th class="bol">ESCUELA</th>
+                <th class="bol">FACULTAD</th>
+                <th class="bol">TELÉFONO</th>
+                <th class="bol">SEXO</th>
+                <th class="bol">CÓDIGO</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let student of listStudent">
+              <td>
+                <a [routerLink]="['/see', student.idStudent]">{{student.dni}}
+                </a>
+              </td>
+              <td>{{student.name}}</td>
+              <td>{{student.lastName}}</td>
+              <td>{{student.school}}</td>
+              <td>{{student.faculty}}</td>
+              <td>{{student.phone}}</td>
+              <td>{{student.sex}}</td>
+              <td>{{student.code}}</td>
+              <td>
+                <i [routerLink]="['/update',student.idStudent]" class="far fa-solid fa-pen-to-square text-info"></i>
+              </td>
+              <td>
+                <i (click)="deleteStudent(student.idStudent)" class="far fa-solid fa-trash-can text-danger"></i>
+              </td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+    <div *ngIf="listStudent.length == 0" class="row mt-5">
+      <h5>No hay Estudiantes por mostrar.</h5>
+    </div>
+    </div>
+  </div>
+</div>
+
+
