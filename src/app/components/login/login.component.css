@@ -50,10 +50,10 @@ h2{
   opacity: none;
   z-index: 1;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  Font-style: 900;
-  Font-size: 45px;
-  Line-height: 72px;
-  Line-height: 100%;
+  font-style: 900;
+  font-size: 45px;
+  line-height: 72px;
+  line-height: 100%;
   padding-bottom: 25px;
 
 }
