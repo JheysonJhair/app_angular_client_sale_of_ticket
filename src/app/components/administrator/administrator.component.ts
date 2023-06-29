@@ -3,6 +3,9 @@ import { ToastrService } from 'ngx-toastr';
 import { dtoOpening } from 'src/app/interfaces/opening';
 import { dtoStudent } from 'src/app/interfaces/Student';
 import { AdministratorService } from 'src/app/services/administrator.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ImageDialogComponent } from '../image-dialog/image-dialog.component';
+
 
 @Component({
   selector: 'app-administrator',
@@ -14,14 +17,15 @@ export class AdministratorComponent {
   inputValue: number = 90;
   opening: dtoOpening[] | undefined;
 
+
   dtoStudent: dtoStudent | undefined;
   listStudentAdmin: dtoStudent[] = [
-    {dni:'7777777',code:'201054',name:'Jhaircito',lastName:'Arone Angeles',school:'Ingenieria sistemas',faculty:'ing',phone:'999999999',address:'Av apurimac',sex:''},
-    {dni:'7777777',code:'201054',name:'Jhaircito',lastName:'Arone Angeles',school:'Ingenieria sistemas',faculty:'ing',phone:'999999999',address:'Av apurimac',sex:''},
-    {dni:'7777777',code:'201054',name:'Jhaircito',lastName:'Arone Angeles',school:'Ingenieria sistemas',faculty:'ing',phone:'999999999',address:'Av apurimac',sex:''},
-    {dni:'7777777',code:'201054',name:'Jhaircito',lastName:'Arone Angeles',school:'Ingenieria sistemas',faculty:'ing',phone:'999999999',address:'Av apurimac',sex:''}
+    {dni:'7777777',code:'201054',name:'Jhaircito',lastName:'Arone Angeles',school:'Ingenieria sistemas',faculty:'ing',phone:'999999999',address:'Av apurimac',sex:'',imagenUrl:'../../../assets/img/yape.jpeg'},
+    {dni:'7777777',code:'201054',name:'Jhaircito',lastName:'Arone Angeles',school:'Ingenieria sistemas',faculty:'ing',phone:'999999999',address:'Av apurimac',sex:'',imagenUrl:'../../../assets/img/yape.jpeg'},
+    {dni:'7777777',code:'201054',name:'Jhaircito',lastName:'Arone Angeles',school:'Ingenieria sistemas',faculty:'ing',phone:'999999999',address:'Av apurimac',sex:'',imagenUrl:'../../../assets/img/yape.jpeg'},
+    {dni:'7777777',code:'201054',name:'Jhaircito',lastName:'Arone Angeles',school:'Ingenieria sistemas',faculty:'ing',phone:'999999999',address:'Av apurimac',sex:'',imagenUrl:'../../../assets/img/IconSalir.png'}
   ]
-  constructor(private _administratorService: AdministratorService,
+  constructor(public dialog: MatDialog, private _administratorService: AdministratorService,
     private toastr: ToastrService){
 
   }
@@ -29,6 +33,14 @@ export class AdministratorComponent {
     this.acceptStudent();
     this.getOpening();
   }
+  openImageDialog(event: Event,studentAdmin: any) {
+    event.preventDefault();
+    this.dialog.open(ImageDialogComponent, {
+      data: { imageUrl: studentAdmin.imagenUrl },
+      panelClass: 'image-dialog-container'
+    });
+  }
+
   acceptStudent(){
     /*let formData = new FormData();
     formData.append("dtoStudent.dni","");
@@ -64,6 +76,3 @@ export class AdministratorComponent {
     this.isDisabled = true;
   }
 }
-
-
-

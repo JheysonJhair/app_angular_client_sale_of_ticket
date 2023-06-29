@@ -37,7 +37,9 @@
         </thead>
         <tbody>
             <tr *ngFor="let studentAdmin of listStudentAdmin">
-              <td>img/voucher2pagoyape</td>
+              <td>
+                <a href="#" (click)="openImageDialog($event, studentAdmin)">{{studentAdmin.imagenUrl}}</a>
+              </td>
               <td>{{studentAdmin.code}}</td>
               <td>{{studentAdmin.school}}</td>
               <td>{{studentAdmin.name}} {{studentAdmin.lastName}}</td>
@@ -57,5 +59,3 @@
     </div>
   </div>
 </div>
-
-

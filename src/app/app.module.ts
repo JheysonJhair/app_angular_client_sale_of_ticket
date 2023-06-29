@@ -8,6 +8,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HttpClientModule} from '@angular/common/http';
 
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AddEditStudentComponent } from './components/add-edit-student/add-edit-student.component';
@@ -21,6 +23,7 @@ import { AdministratorComponent } from './components/administrator/administrator
 import { PaymentComponent } from './components/payment/payment.component';
 import { ListProductComponent } from './components/list-product/list-product.component';
 import { TicketComponent } from './components/ticket/ticket.component';
+import { ImageDialogComponent } from './components/image-dialog/image-dialog.component';
 
 
 @NgModule({
@@ -37,9 +40,12 @@ import { TicketComponent } from './components/ticket/ticket.component';
     AdministratorComponent,
     PaymentComponent,
     ListProductComponent,
-    TicketComponent
+    TicketComponent,
+    ImageDialogComponent
   ],
   imports: [
+    MatIconModule,
+    MatDialogModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
