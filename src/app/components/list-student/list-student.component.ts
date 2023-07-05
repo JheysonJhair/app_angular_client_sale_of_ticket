@@ -19,7 +19,9 @@ export class ListStudentComponent {
   }
   getStudent(){
     this._studentService.getListStudent().subscribe(data =>{
+
       this.listStudent = data.listDtoStudent;
+      console.log(this.listStudent);
     },error =>{
       this.toastr.error('Opss ocurrio un error', 'Error');
       console.log(error);

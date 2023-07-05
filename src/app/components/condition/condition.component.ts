@@ -19,7 +19,6 @@ export class ConditionComponent implements OnInit {
   student: dtoStudent[] | undefined;
   opening: dtoOpening[] | undefined;
 
-
   constructor(private router: Router,private _studentService: StudentService,private _administratorService: AdministratorService,private aRoute:ActivatedRoute,
     private toastr: ToastrService,){
 
@@ -32,6 +31,8 @@ export class ConditionComponent implements OnInit {
     this.getOpening();
 
   }
+
+
   getStudentCondition(){
     this._studentService.getStudent(this.idPasar).subscribe(data =>{
       this.student = data;

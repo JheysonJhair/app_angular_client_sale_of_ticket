@@ -14,5 +14,5 @@ export interface dtoStudent{
   password?:		  string,
   mail?:	 		    string,
   code:	 		    string,
-  imagenUrl?: string,
+  profileImg? : string
 }

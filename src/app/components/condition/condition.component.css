@@ -5,6 +5,16 @@
   width: 100%;
   position: relative;
 }
+
+/*imagen del estudiante*/
+.contenido-imagen-about{
+  width:200px;
+  height: 200px;
+  border-radius: 50%;
+  justify-self: center;
+  background-size: cover;
+}
+
 /*contenedor divs*/
 .cont{
   display: flex;

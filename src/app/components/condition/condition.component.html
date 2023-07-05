@@ -3,7 +3,9 @@
   <section  class="cont" >
 
       <div class="contenedor_izquierda">
-        <img src="../../../assets/img/usuer 1.png" alt="" class="contenido-imagen-about">
+        <!--<img [src]="student[0]?.imagenUrl" alt="ddd" class="contenido-imagen-about">-->
+        <img *ngIf="student && student.length > 0" [src]="student[0].profileImg" alt="imagen de perfil" class="contenido-imagen-about">
+        <!--<img src="https://www.dzoom.org.es/wp-content/uploads/2010/09/retrato-fondo-profundidad-campo-734x489.jpg" alt="ddd" class="contenido-imagen-about">-->
         <div *ngIf="student !== undefined" class="h22">
           <h2 class="titulo">{{student[0].name}} {{student[0].lastName}}</h2>
         </div>

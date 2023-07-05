@@ -20,10 +20,10 @@ export class AdministratorComponent {
 
   dtoStudent: dtoStudent | undefined;
   listStudentAdmin: dtoStudent[] = [
-    {dni:'7777777',code:'201054',name:'Jhaircito',lastName:'Arone Angeles',school:'Ingenieria sistemas',faculty:'ing',phone:'999999999',address:'Av apurimac',sex:'',imagenUrl:'../../../assets/img/yape.jpeg'},
-    {dni:'7777777',code:'201054',name:'Jhaircito',lastName:'Arone Angeles',school:'Ingenieria sistemas',faculty:'ing',phone:'999999999',address:'Av apurimac',sex:'',imagenUrl:'../../../assets/img/yape.jpeg'},
-    {dni:'7777777',code:'201054',name:'Jhaircito',lastName:'Arone Angeles',school:'Ingenieria sistemas',faculty:'ing',phone:'999999999',address:'Av apurimac',sex:'',imagenUrl:'../../../assets/img/yape.jpeg'},
-    {dni:'7777777',code:'201054',name:'Jhaircito',lastName:'Arone Angeles',school:'Ingenieria sistemas',faculty:'ing',phone:'999999999',address:'Av apurimac',sex:'',imagenUrl:'../../../assets/img/IconSalir.png'}
+    {dni:'7777777',code:'201054',name:'Jhaircito',lastName:'Arone Angeles',school:'Ingenieria sistemas',faculty:'ing',phone:'999999999',address:'Av apurimac',sex:'',profileImg:'../../../assets/img/yape.jpeg'},
+    {dni:'7777777',code:'201054',name:'Jhaircito',lastName:'Arone Angeles',school:'Ingenieria sistemas',faculty:'ing',phone:'999999999',address:'Av apurimac',sex:'',profileImg:'../../../assets/img/yape.jpeg'},
+    {dni:'7777777',code:'201054',name:'Jhaircito',lastName:'Arone Angeles',school:'Ingenieria sistemas',faculty:'ing',phone:'999999999',address:'Av apurimac',sex:'',profileImg:'../../../assets/img/yape.jpeg'},
+    {dni:'7777777',code:'201054',name:'Jhaircito',lastName:'Arone Angeles',school:'Ingenieria sistemas',faculty:'ing',phone:'999999999',address:'Av apurimac',sex:'',profileImg:'../../../assets/img/IconSalir.png'}
   ]
   constructor(public dialog: MatDialog, private _administratorService: AdministratorService,
     private toastr: ToastrService){
