@@ -5,6 +5,7 @@ import { dtoOpening } from 'src/app/interfaces/opening';
 import { dtoStudent } from 'src/app/interfaces/Student';
 import { AdministratorService } from 'src/app/services/administrator.service';
 import { StudentService } from 'src/app/services/student.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-condition',
@@ -12,7 +13,7 @@ import { StudentService } from 'src/app/services/student.service';
   styleUrls: ['./condition.component.css']
 })
 export class ConditionComponent implements OnInit {
-  file:any;
+  selectedFile: File;
   idPasar: string;
   codeAdmi:string = " ";
   public static idS:string;
@@ -20,7 +21,7 @@ export class ConditionComponent implements OnInit {
   student: dtoStudent[] | undefined;
   opening: dtoOpening[] | undefined;
 
-  constructor(private router: Router,private _studentService: StudentService,private _administratorService: AdministratorService,private aRoute:ActivatedRoute,
+  constructor(private http: HttpClient,private router: Router,private _studentService: StudentService,private _administratorService: AdministratorService,private aRoute:ActivatedRoute,
     private toastr: ToastrService,){
 
       this.aRoute.snapshot.paramMap.get('id');
@@ -33,11 +34,9 @@ export class ConditionComponent implements OnInit {
 
   }
 
-
   getStudentCondition(){
     this._studentService.getStudent(this.idPasar).subscribe(data =>{
       this.student = data;
-      console.log(this.idPasar);
     })
   }
   getOpening(){
@@ -52,19 +51,24 @@ export class ConditionComponent implements OnInit {
     this.router.navigate(['/payment',this.idPasar]);
   }
 
-  ImgUpload(event: any) {
-    this.file = event.target.files[0];
+  handleFileInput(event: any): void {
+    this.selectedFile = event.target.files[0];
+    this.uploadFile();
   }
-  uploadFile() {
-    if (this.file) {
-      this.file.uploadFile(this.file)
-        .then(response => {
-          console.log('Archivo subido correctamente');
-          // Hacer algo con la respuesta del backend si es necesario
-        })
-        .catch(error => {
-          console.error('Error al subir el archivo', error);
-        });
+
+  uploadFile(): void {
+    if (this.selectedFile) {
+      const formData: FormData = new FormData();
+      formData.append('file', this.selectedFile);
+      console.log("algo"+formData);
+      this.http.post('https://localhost:7282/Student/SubirImagen', formData).subscribe(
+        (response) => {
+          console.log('Archivo enviado exitosamente al backend', response);
+        },
+        (error) => {
+          console.error('Error al enviar el archivo al backend', error);
+        }
+      );
     }
   }
 }

@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <main>
   <section class="c-exterior">
-    <form class="cont" (submit)="uploadImage($event)">
+    <form class="cont">
         <div class="contenedor_izquierda">
             <h2>MÉTODO DE PAGO</h2>
             <div class="cc yap">
@@ -23,14 +23,10 @@
             <img src="../../../assets/img/LineSep2.png" alt="">
                 <fieldset>
                     <legend>Pago a realizar</legend>
-                    <!--<div *ngFor="let product of listProduct">
+                    <div *ngFor="let product of listProduct">
                       <input type="checkbox" id="" name="option" value="{{product.price}}" (change)="onCheckboxChange($event)"/>
                       <label for="">{{product.name}} S./{{product.price}}</label>
-                    </div>-->
-
-                    <label *ngFor="let product of listProduct">
-                      <input type="checkbox" [(ngModel)]="product.selected" name="selectedProducts">{{ product.name }} S./{{ product.price }}
-                    </label>
+                    </div>
                 </fieldset>
                 <img src="../../../assets/img/LineSep2.png" alt="">
             <div *ngIf="student !== undefined">
@@ -66,7 +62,7 @@
               <div class="btns">
                 <div class="">
                     <!--<input type="file" accept=".jpg" name="imagen">-->
-                    <input type="file" (change)="onFileSelected($event)" accept="image/*">
+                    <input type="file"  accept="image/png, image/jpeg" (change)="handleFileInput($event)">
                 </div>
                 <div class="btn btn-primary">
                   <button type="submit" [disabled]="!hasSelectedProduct() || !selectedFile">Enviar</button>

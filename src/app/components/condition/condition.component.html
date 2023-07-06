@@ -7,7 +7,7 @@
         <div class="perfil">
           <img *ngIf="student && student.length > 0" [src]="student[0].profileImg" alt="imagen de perfil" class="contenido-imagen-about">
           <label for="upload-btn" class="upload-btn-label">
-          <input type="file" (change)="ImgUpload($event)" id="upload-btn" accept="image/png, image/jpeg">
+            <input type="file" id="upload-btn" accept="image/png, image/jpeg" (change)="handleFileInput($event)">
           <i class="fas fa-pencil-alt"></i>
         </label>
         </div>
@@ -37,7 +37,7 @@
         </div>
         <div *ngIf="opening !== undefined">
           <div *ngIf="student !== undefined ">
-            <button (click)="onButtonClick()" [disabled]="student[0].studentState == true || opening[0].openState == false " class="btn btn-primary float-end">Siguiente</button>
+            <button (click)="onButtonClick()" [disabled]="student[0].studentState == true" class="btn btn-primary float-end">Siguiente</button>
           </div>
         </div>
     </div>
