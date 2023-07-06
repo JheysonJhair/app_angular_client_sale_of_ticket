@@ -20,6 +20,7 @@ export class StudentService {
   private myUrlGetId = 'student/getbyid?id=';
   private myUrlGetIdProduct = 'product/getbyid?id=';
 
+  private myUrlImage = 'student/SubirImagen';
 
   constructor(private http: HttpClient) { }
 
@@ -46,5 +47,12 @@ export class StudentService {
   }
   getLoginAdmin(mail: any, pass: any): Observable<any>{
     return this.http.get(this.myAppUrl + this.myUrlLoginMailAdmin + mail + this.myUrlLoginPassAdmin + pass);
+  }
+  getSubirImagen(file:File):Promise<any>{
+    const formData: FormData = new FormData();
+    formData.append('file', file);
+
+    return this.http.post(this.myAppUrl+this.myUrlImage, formData).toPromise();
+
   }
 }

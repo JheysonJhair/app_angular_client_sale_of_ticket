@@ -6,6 +6,13 @@
   position: relative;
 }
 
+/*div perfil*/
+.perfil{
+  height: 200px;
+  width: 200px;
+  position: relative;
+}
+
 /*imagen del estudiante*/
 .contenido-imagen-about{
   width:200px;
@@ -13,6 +20,24 @@
   border-radius: 50%;
   justify-self: center;
   background-size: cover;
+}
+
+/*boton editar*/
+.upload-btn-label {
+  position: absolute;
+  top: 170px;
+  left: 280px;
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+.upload-btn-label input[type="file"] {
+  display: none;
 }
 
 /*contenedor divs*/

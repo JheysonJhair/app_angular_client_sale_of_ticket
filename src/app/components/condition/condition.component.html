@@ -4,7 +4,13 @@
 
       <div class="contenedor_izquierda">
         <!--<img [src]="student[0]?.imagenUrl" alt="ddd" class="contenido-imagen-about">-->
-        <img *ngIf="student && student.length > 0" [src]="student[0].profileImg" alt="imagen de perfil" class="contenido-imagen-about">
+        <div class="perfil">
+          <img *ngIf="student && student.length > 0" [src]="student[0].profileImg" alt="imagen de perfil" class="contenido-imagen-about">
+          <label for="upload-btn" class="upload-btn-label">
+          <input type="file" (change)="ImgUpload($event)" id="upload-btn" accept="image/png, image/jpeg">
+          <i class="fas fa-pencil-alt"></i>
+        </label>
+        </div>
         <!--<img src="https://www.dzoom.org.es/wp-content/uploads/2010/09/retrato-fondo-profundidad-campo-734x489.jpg" alt="ddd" class="contenido-imagen-about">-->
         <div *ngIf="student !== undefined" class="h22">
           <h2 class="titulo">{{student[0].name}} {{student[0].lastName}}</h2>

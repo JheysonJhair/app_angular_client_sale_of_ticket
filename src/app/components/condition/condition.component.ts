@@ -12,6 +12,7 @@ import { StudentService } from 'src/app/services/student.service';
   styleUrls: ['./condition.component.css']
 })
 export class ConditionComponent implements OnInit {
+  file:any;
   idPasar: string;
   codeAdmi:string = " ";
   public static idS:string;
@@ -49,5 +50,21 @@ export class ConditionComponent implements OnInit {
   onButtonClick(){
     this.toastr.success('Bienvenido!', 'Acceso!');
     this.router.navigate(['/payment',this.idPasar]);
+  }
+
+  ImgUpload(event: any) {
+    this.file = event.target.files[0];
+  }
+  uploadFile() {
+    if (this.file) {
+      this.file.uploadFile(this.file)
+        .then(response => {
+          console.log('Archivo subido correctamente');
+          // Hacer algo con la respuesta del backend si es necesario
+        })
+        .catch(error => {
+          console.error('Error al subir el archivo', error);
+        });
+    }
   }
 }
