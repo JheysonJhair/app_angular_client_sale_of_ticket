@@ -60,15 +60,18 @@ export class ConditionComponent implements OnInit {
     if (this.selectedFile) {
       const formData: FormData = new FormData();
       formData.append('file', this.selectedFile);
-      console.log("algo"+formData);
-      this.http.post('https://localhost:7282/Student/SubirImagen', formData).subscribe(
-        (response) => {
-          console.log('Archivo enviado exitosamente al backend', response);
-        },
-        (error) => {
-          console.error('Error al enviar el archivo al backend', error);
-        }
-      );
+
+        const url = `https://localhost:7282/student/SubirImagen?id=${this.idPasar}`;
+        this.http.post(url, formData).subscribe(
+          (response) => {
+            location.reload();
+            console.log('Archivo enviado exitosamente al backend', response);
+          },
+          (error) => {
+            console.error('Error al enviar el archivo al backend', error);
+          }
+        );
+      }
     }
-  }
+
 }
