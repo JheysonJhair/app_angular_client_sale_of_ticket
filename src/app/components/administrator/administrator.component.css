@@ -1,44 +1,44 @@
-.stock input{
+.stock input {
   width: 28px;
   border-radius: 50%;
   font-weight: bold;
   text-align: center;
   height: 28px;
 }
-a{
+a {
   text-decoration: none;
   color: black;
   font-weight: 500;
 }
-.far{
+.far {
   cursor: pointer;
 }
 .bol {
-  font-weight:600;
+  font-weight: 600;
 }
-td{
-  font-weight:400;
+td {
+  font-weight: 400;
 }
-.card{
-  background-color:  rgba(240, 248, 255, 0.818);
+.card {
+  background-color: rgba(240, 248, 255, 0.818);
   border-radius: 20px;
   padding: 20px;
   margin-top: 80px;
 }
 
-.bi{
+.bi {
   margin-right: 20px;
 }
 /*contenedor izqueirda*/
-.contenedor_izquierda{
-  margin-top: 130px;
+.contenedor_izquierda {
+  margin-top: 40px;
   justify-content: center;
   align-items: center;
   padding: 20px;
 }
 
 /*titulos */
-h3{
+h3 {
   margin-top: 30px;
   font-size: 32px;
   margin-left: 20px;
@@ -47,33 +47,33 @@ h3{
 }
 
 /*logo user*/
-.contenedor_izquierda img{
+.contenedor_izquierda img {
   height: 180px;
   margin-left: 82px;
 }
 /*titulos */
-h2{
+h2 {
   font-size: 25px;
   margin-left: 50px;
 }
-.contenedor_izquierda h2{
+.contenedor_izquierda h2 {
   margin: 20px;
   padding-bottom: 0px;
   padding-left: 39px;
 }
 /*contenedor boton*/
-.contenedor_izquierda .content_btn{
+.contenedor_izquierda .content_btn {
   display: flex;
   flex-direction: column;
   justify-content: center;
   background-color: #d6d1d1ae;
   height: 140px;
-  width: 80%;
+  width: 67%;
   margin-left: 57px;
   border-radius: 20px;
 }
 /*botones div HISTORIAL Y LISTA*/
-.btnn{
+.btnn {
   text-decoration: none;
   border: none;
   background-color: #1f675b;
@@ -82,13 +82,15 @@ h2{
   font-weight: bold;
   cursor: pointer;
 }
-
-.bvb{
-
+/*espacio boostrap*/
+.row {
+  margin: 0;
+}
+/*content boton*/
+.bvb {
   margin: 10px;
   margin-left: 28px;
-  font-family: 'Courier New', Courier, monospace;
-
+  font-family: "Courier New", Courier, monospace;
   width: 156px;
   text-align: center;
   color: #ffffff;

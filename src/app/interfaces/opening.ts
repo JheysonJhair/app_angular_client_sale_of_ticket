@@ -1,7 +1,7 @@
 export interface dtoOpening {
   idOpening?:string,
-  idPeriod?:string,
   priorityQuantity:number,
-  quanty:number,
+  quantity:number,
   openState:boolean,
+  idPeriod:string,
 }

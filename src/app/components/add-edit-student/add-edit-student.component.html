@@ -12,6 +12,7 @@
   </div>
   <div class="col-lg-8">
     <div class="card">
+      <button [routerLink]="['/administrator','09e3995b-c3d8-4be6-a532-074eba3fc5f4']" class="btn btn-secondary">Admin</button>
       <div class="card-body">
         <h3 class="mt-3">{{ accion }} Estudiante</h3>
         <form class="ro" [formGroup]="addStudent" (ngSubmit)="addEditStudent()">

@@ -12,6 +12,8 @@ export class AdministratorService {
   private myApiInsert = 'administrator/accept/';
   private myUrlDelete = 'administrator/delete?idstudent=';
   private myUrlGetId = 'administrator/getbyid?id=';
+
+  private myUrlPut = 'opening/update/';
   private myUrlGetIdOpe = 'opening/getbyid?id=';
   private myUrlGetIdPeriod = 'period/getbyid?id=';
 
@@ -30,8 +32,12 @@ export class AdministratorService {
     return this.http.delete(this.myAppUrl + this.myUrlDelete + id)
   }
 
+
   getOpening(id: string): Observable<any>{
     return this.http.get(this.myAppUrl + this.myUrlGetIdOpe + id);
+  }
+  updateOpening(dtoOpening: FormData ): Observable<any>{
+    return this.http.post(this.myAppUrl + this.myUrlPut, dtoOpening);
   }
   getPeriod(id: string): Observable<any>{
     return this.http.get(this.myAppUrl + this.myUrlGetIdPeriod + id);
