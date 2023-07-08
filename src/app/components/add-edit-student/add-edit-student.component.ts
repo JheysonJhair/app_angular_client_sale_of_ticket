@@ -78,12 +78,10 @@ export class AddEditStudentComponent implements OnInit {
   }
   addEditStudent() {
     if (this.dtoStudent == undefined) {
-      //Agregamos estudiante
       let formData = new FormData();
       formData.append('dtoStudent.dni', this.addStudent.get('dni')?.value);
       formData.append('dtoStudent.name', this.addStudent.get('name')?.value);
-      formData.append(
-        'dtoStudent.lastName',
+      formData.append('dtoStudent.lastName',
         this.addStudent.get('lastName')?.value
       );
       formData.append(
@@ -116,7 +114,7 @@ export class AddEditStudentComponent implements OnInit {
         }
       );
     } else {
-      //Editamos Student
+
       let formData = new FormData();
       formData.append('dtoStudent.idStudent', this.id);
       formData.append('dtoStudent.dni', this.addStudent.get('dni')?.value);
