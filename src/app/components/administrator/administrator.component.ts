@@ -7,6 +7,7 @@ import { AdministratorService } from 'src/app/services/administrator.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ImageDialogComponent } from '../image-dialog/image-dialog.component';
 import { dtoAdministrator } from 'src/app/interfaces/administrator';
+import { dtoSaleDetail } from 'src/app/interfaces/saleDetail';
 
 @Component({
   selector: 'app-administrator',
@@ -22,56 +23,8 @@ export class AdministratorComponent {
   opening: dtoOpening[] | undefined;
 
   dtoStudent: dtoStudent | undefined;
-  listSaleDetail: dtoStudent[] = [
-    {
-      dni: '7777777',
-      code: '201054',
-      name: 'Jhaircito',
-      lastName: 'Arone Angeles',
-      school: 'Ingenieria sistemas',
-      faculty: 'ing',
-      phone: '999999999',
-      address: 'Av apurimac',
-      sex: '',
-      profileImg: '../../../assets/yape.jpeg',
-    },
-    {
-      dni: '7777777',
-      code: '201054',
-      name: 'Jhaircito',
-      lastName: 'Arone Angeles',
-      school: 'Ingenieria sistemas',
-      faculty: 'ing',
-      phone: '999999999',
-      address: 'Av apurimac',
-      sex: '',
-      profileImg: '../../../assets/yape.jpeg',
-    },
-    {
-      dni: '7777777',
-      code: '201054',
-      name: 'Jhaircito',
-      lastName: 'Arone Angeles',
-      school: 'Ingenieria sistemas',
-      faculty: 'ing',
-      phone: '999999999',
-      address: 'Av apurimac',
-      sex: '',
-      profileImg: '../../../assets/yape.jpeg',
-    },
-    {
-      dni: '7777777',
-      code: '201054',
-      name: 'Jhaircito',
-      lastName: 'Arone Angeles',
-      school: 'Ingenieria sistemas',
-      faculty: 'ing',
-      phone: '999999999',
-      address: 'Av apurimac',
-      sex: '',
-      profileImg: '../../../assets/img/yape.jpeg',
-    },
-  ];
+  listSaleDetail: dtoSaleDetail[] = [];
+
   constructor(
     public dialog: MatDialog,
     private _administratorService: AdministratorService,
@@ -83,6 +36,18 @@ export class AdministratorComponent {
   ngOnInit(): void {
     this.getOpening();
     this.getAdmin();
+    this.getSale();
+  }
+  getSale() {
+    this._administratorService.getSaleDetail().subscribe(
+      (data) => {
+        this.listSaleDetail = data;
+      },
+      (error) => {
+        this.toastr.error('Opss ocurrio un error', 'Error');
+        console.log(error);
+      }
+    );
   }
   getAdmin() {
     this._administratorService.getAdmin(this.idPasar).subscribe((data) => {
@@ -103,7 +68,7 @@ export class AdministratorComponent {
 
   getOpening() {
     this._administratorService
-      .getOpening('3fb8ce38-50b9-4ca8-873e-bbb0c5f4d196')
+      .getOpening('b454687f-048d-4c02-8255-885b52c33633')
       .subscribe((data) => {
         this.opening = data;
         console.log(this.opening![0].openState);

@@ -62,23 +62,23 @@
           <thead>
             <tr>
               <th class="bol">VOUCHER</th>
+              <th class="bol">NOMBRES Y AEPLLIDOS</th>
               <th class="bol">CODIGO</th>
-              <th class="bol">ESCUELA PROFESIONAL</th>
-              <th class="bol">NOMBRES Y APELLIDOS</th>
+              <th class="bol">ESCUELA</th>
               <th></th>
               <th></th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let studentAdmin of listSaleDetail">
+            <tr *ngFor="let venta of listSaleDetail">
               <td>
-                <a href="#" (click)="openImageDialog($event, studentAdmin)">{{
+                <a href="#" (click)="openImageDialog($event, venta.couponImg)">{{
                   "Imagen url"
                 }}</a>
               </td>
-              <td>{{ studentAdmin.code }}</td>
-              <td>{{ studentAdmin.school }}</td>
-              <td>{{ studentAdmin.name }} {{ studentAdmin.lastName }}</td>
+              <td>{{ venta.names }}</td>
+              <td>{{ venta.code }}</td>
+              <td>{{ venta.school }}</td>
               <td>
                 <i
                   (click)="changeValue()"

@@ -9,14 +9,13 @@ import { LoginComponent } from '../components/login/login.component';
 export class AdministratorService {
 
   private myAppUrl = 'https://localhost:7282/';
-  private myApiInsert = 'administrator/accept/';
-  private myUrlDelete = 'administrator/delete?idstudent=';
   private myUrlGetId = 'administrator/getbyid?id=';
 
   private myUrlPut = 'opening/update/';
   private myUrlGetIdOpe = 'opening/getbyid?id=';
   private myUrlGetIdPeriod = 'period/getbyid?id=';
 
+  private myUrlGet = 'sale/getsale/';
   constructor(private http: HttpClient) { }
 
   getAdmin(id: string): Observable<any>{
@@ -25,13 +24,6 @@ export class AdministratorService {
   });
   return this.http.get(this.myAppUrl + this.myUrlGetId + id, { headers });
   }
-  acceptStudent(dtoStudentAdmin: Body): Observable<any>{
-    return this.http.post(this.myAppUrl + this.myApiInsert,dtoStudentAdmin);
-  }
-  discardStudent(id: string): Observable<any>{
-    return this.http.delete(this.myAppUrl + this.myUrlDelete + id)
-  }
-
 
   getOpening(id: string): Observable<any>{
     return this.http.get(this.myAppUrl + this.myUrlGetIdOpe + id);
@@ -41,5 +33,9 @@ export class AdministratorService {
   }
   getPeriod(id: string): Observable<any>{
     return this.http.get(this.myAppUrl + this.myUrlGetIdPeriod + id);
+  }
+
+  getSaleDetail(): Observable<any>{
+    return this.http.get(this.myAppUrl + this.myUrlGet);
   }
 }
