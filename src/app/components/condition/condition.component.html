@@ -1,45 +1,61 @@
 <app-navbar></app-navbar>
 <section class="c-exterior">
-  <section  class="cont" >
-
-      <div class="contenedor_izquierda">
-        <!--<img [src]="student[0]?.imagenUrl" alt="ddd" class="contenido-imagen-about">-->
-        <div class="perfil">
-          <img *ngIf="student && student.length > 0" [src]="student[0].profileImg" alt="imagen de perfil" class="contenido-imagen-about">
-          <label for="upload-btn" class="upload-btn-label">
-            <input type="file" id="upload-btn" accept="image/png, image/jpeg" (change)="handleFileInput($event)">
+  <section class="cont">
+    <div class="contenedor_izquierda">
+      <div class="perfil">
+        <img
+          *ngIf="student && student.length > 0"
+          [src]="student[0].profileImg"
+          alt="Perfil"
+          class="contenido-imagen-about"
+        />
+        <label for="upload-btn" class="upload-btn-label">
+          <input
+            type="file"
+            id="upload-btn"
+            accept="image/png, image/jpeg"
+            (change)="handleFileInput($event)"
+          />
           <i class="fas fa-pencil-alt"></i>
         </label>
+      </div>
+      <div *ngIf="student !== undefined" class="h22">
+        <h2 class="titulo">{{ student[0].name | titlecase }} {{ student[0].lastName | titlecase }}</h2>
+      </div>
+      <div class="content_btn">
+        <div class="b">
+          <a href="">Listar</a>
         </div>
-        <!--<img src="https://www.dzoom.org.es/wp-content/uploads/2010/09/retrato-fondo-profundidad-campo-734x489.jpg" alt="ddd" class="contenido-imagen-about">-->
-        <div *ngIf="student !== undefined" class="h22">
-          <h2 class="titulo">{{student[0].name}} {{student[0].lastName}}</h2>
+        <div class="b">
+          <a href="">Historial</a>
         </div>
-        <div class="content_btn">
-            <div class="b">
-                <a href="">Listar</a>
-            </div>
-            <div class="b">
-                <a href="">Historial</a>
-            </div>
-        </div>
+      </div>
     </div>
     <div class="contenedor_derecha">
-        <h2>COMEDOR UNAMBA - 2022 II</h2>
-        <h3>Condicion socio - económica</h3>
-        <div *ngIf="student !== undefined" class="btn_condicionPobreNopobre">
-          {{ student[0].condition ===  false ? 'Pobre' : 'No pobre' }}
+      <div *ngIf="period !== undefined">
+        <h2>COMEDOR UNAMBA - {{period[0].name}}</h2>
+      </div>
+      <h3>Condicion socio - económica</h3>
+      <div *ngIf="student !== undefined" class="btn_condicionPobreNopobre">
+        {{ student[0].condition === false ? "Pobre" : "No pobre" }}
+      </div>
+      <img src="../../../assets/img/LineSep2.png" alt="" />
+      <h3>Condicion FINAL</h3>
+      <div *ngIf="student !== undefined" class="btn_condicionFinal">
+        {{ student[0].studentState == true ? "No apto" : "Apto" }}
+      </div>
+      <img src="../../../assets/img/LineSep2.png" alt="" />
+      <div *ngIf="opening !== undefined">
+        <div *ngIf="student !== undefined">
+          <button
+            (click)="onButtonClick()"
+            [disabled]="student[0].studentState == true"
+            class="btn btn-primary float-end mr"
+          >
+            Siguiente
+          </button>
         </div>
-        <img src="../../../assets/img/LineSep2.png" alt="">
-        <h3>Condicion FINAL</h3>
-        <div *ngIf="student !== undefined " class="btn_condicionFinal">
-          {{student[0].studentState == true? 'No apto' : 'Apto'}}
-        </div>
-        <div *ngIf="opening !== undefined">
-          <div *ngIf="student !== undefined ">
-            <button (click)="onButtonClick()" [disabled]="student[0].studentState == true" class="btn btn-primary float-end">Siguiente</button>
-          </div>
-        </div>
+      </div>
     </div>
   </section>
 </section>

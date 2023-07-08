@@ -1,13 +1,13 @@
-/*--------------Exagono--------------------*/
-
-.boddy{
+/*Cuerpo principal*/
+.boddy {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 96vh;
 }
-.hexagon{
+/*EXAGONO*/
+.hexagon {
   position: absolute;
   justify-content: center;
   text-align: center;
@@ -18,8 +18,8 @@
   z-index: 2;
   max-width: 600px;
 }
-.hexagon::before{
-  content: '';
+.hexagon::before {
+  content: "";
   position: absolute;
   top: 0;
   left: -92px;
@@ -28,10 +28,9 @@
   border-right: 92px solid rgb(85, 169, 178);
   border-top: 180px solid transparent;
   border-bottom: 180px solid transparent;
-
 }
-.hexagon::after{
-  content: '';
+.hexagon::after {
+  content: "";
   position: absolute;
   top: 0;
   right: -92px;
@@ -40,24 +39,22 @@
   border-left: 92px solid rgb(85, 169, 178);
   border-top: 180px solid transparent;
   border-bottom: 180px solid transparent;
-
 }
-
 /*Titulo registro*/
-h2{
+h2 {
   margin-top: 35px;
   color: #ffffff;
   opacity: none;
   z-index: 1;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-style: 900;
   font-size: 45px;
   line-height: 72px;
   line-height: 100%;
   padding-bottom: 25px;
-
 }
-.bb{
+/*Contenedor boton*/
+.bb {
   width: 200px;
   margin-left: 40px;
 
@@ -66,40 +63,49 @@ h2{
   margin-left: 49px;
   border: none;
   font-size: 22px;
-  background: #116C80;
+  background: #116c80;
   cursor: pointer;
   border-radius: 10px;
   color: white;
   outline: none;
 }
-
-.bb:hover{
-  box-shadow: inset 0 0 20px rgba(110, 154, 172, 0.5), 0 0 20px rgba(141, 160, 168, 0.4);
+/*Boton hover*/
+.bb:hover {
+  box-shadow: inset 0 0 20px rgba(140, 199, 222, 0.5),
+    0 0 20px rgba(141, 160, 168, 0.4);
   outline-color: rgba(49, 138, 172, 0);
   outline-offset: 80px;
 }
 /*Enlace cambiar contraseña*/
-.hexagon a{
+.hexagon a {
   color: #ffffff;
   text-decoration: none;
   font-weight: 500;
 }
-.hexagon a:hover{
-  text-decoration:underline;
+/*Cambiar contraseña hover*/
+.hexagon a:hover {
+  text-decoration: underline;
 }
 /*logo*/
-.log{
+.log {
   position: absolute;
   left: 74px;
   top: -85px;
   z-index: 1;
-
 }
-.log img{
+/*Logo encabezado*/
+.log img {
   height: 100px;
-  color: #116C80;
+  color: #116c80;
 }
-
-.ccc{
+/*div cambiar contraseña*/
+.cambiar_contra {
   margin-top: 16px;
+}
+/*clases de ayuda*/
+.red-icon{
+  color: rgb(241, 38, 38);
+}
+.green-icon{
+  color: rgb(2, 156, 158);
 }

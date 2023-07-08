@@ -1,67 +1,65 @@
-.footerr  {
+/*  Contenedor*/
+.footerr {
   width: 100%;
   position: fixed;
   bottom: 0;
 }
 /*contenedor de contactos*/
-.content-contact{
+.content-contact {
   display: flex;
   width: 100%;
   flex-wrap: wrap;
   color: #000000;
 }
 /* Items contacto*/
-.item__contact{
+.item__contact {
   width: 25%;
   padding: 5px 0;
   text-align: center;
   background: #90cdcf6d;
 }
 /* Items contacto iconos*/
-.contact__icon{
+.contact__icon {
   font-size: 24px;
   color: #113138;
   line-height: 20px;
   margin-right: 4px;
 }
-
 /* Items titulo*/
-.contact__title{
+.contact__title {
   font-size: 16px;
   line-height: 20px;
 }
-
 /*Contenedor enlaces FB Instagram Youtube */
 .footerr .item__contact--gold {
-display: flex;
-align-content: center;
+  display: flex;
+  align-content: center;
   text-align: center;
-flex-wrap: wrap;
-justify-content: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-
 /* Contenedor enlaces FB Instagram Youtube*/
 .item__contact--gold img {
   height: 26px;
 }
 /* Contenedor iconos redes*/
-.contenedor-icono{
-margin: 10px 20px 0px 0px;
+.contenedor-icono {
+  margin: 10px 20px 0px 0px;
 }
 /* Contenedor iconos hover*/
 .contenedor-icono:hover a {
-animation: icono .5s ease;
+  animation: icono 0.5s ease;
 }
 @keyframes icono {
-from {
-  transform: rotate3d(0,0,0,0);
-}
-to {
-  transform: rotate3d(0,.5,0, 360deg);
-}
+  from {
+    transform: rotate3d(0, 0, 0, 0);
+  }
+  to {
+    transform: rotate3d(0, 0.5, 0, 360deg);
+  }
 }
 /* iconos a*/
 .item__contact--gold a {
-display: block;
-transition: .3s ease all;
+  display: block;
+  transition: 0.3s ease all;
 }

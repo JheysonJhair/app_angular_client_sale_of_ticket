@@ -13,6 +13,7 @@ export class AdministratorService {
   private myUrlDelete = 'administrator/delete?idstudent=';
   private myUrlGetId = 'administrator/getbyid?id=';
   private myUrlGetIdOpe = 'opening/getbyid?id=';
+  private myUrlGetIdPeriod = 'period/getbyid?id=';
 
   constructor(private http: HttpClient) { }
 
@@ -28,7 +29,11 @@ export class AdministratorService {
   discardStudent(id: string): Observable<any>{
     return this.http.delete(this.myAppUrl + this.myUrlDelete + id)
   }
+
   getOpening(id: string): Observable<any>{
     return this.http.get(this.myAppUrl + this.myUrlGetIdOpe + id);
+  }
+  getPeriod(id: string): Observable<any>{
+    return this.http.get(this.myAppUrl + this.myUrlGetIdPeriod + id);
   }
 }

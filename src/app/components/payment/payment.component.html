@@ -2,77 +2,93 @@
 <main>
   <section class="c-exterior">
     <form class="cont">
-        <div class="contenedor_izquierda">
-            <h2>MÉTODO DE PAGO</h2>
-            <div class="cc yap">
-                <img src="../../../assets/img/Yape.png" alt="">
-            </div>
-            <div class="cc qr ">
-                <img src="../../../assets/img/Group 1.png" alt="">
-            </div>
-            <div class="cc target">
-                <img src="../../../assets/img/Yape2.png" alt="">
-            </div>
+      <div class="contenedor_izquierda">
+        <h2>MÉTODO DE PAGO</h2>
+        <div class="cc yap">
+          <img src="../../../assets/img/Yape.png" alt="" />
         </div>
-        <div class="contenedor_derecha" >
-            <h2>Resumen</h2>
-            <div class="inp">
-                <span class="icon-comed"></span>
-                <h3>Compra de ticket para el comedor</h3>
-            </div>
-            <img src="../../../assets/img/LineSep2.png" alt="">
-                <fieldset>
-                    <legend>Pago a realizar</legend>
-                    <div *ngFor="let product of listProduct">
-                      <input type="checkbox" id="" name="option" value="{{product.price}}" (change)="onCheckboxChange($event)"/>
-                      <label for="">{{product.name}} S./{{product.price}}</label>
-                    </div>
-                </fieldset>
-                <img src="../../../assets/img/LineSep2.png" alt="">
-            <div *ngIf="student !== undefined">
-                <div  class="es">
-                    <label style="margin-right:20px;font-weight: bold;" >Estudiante: </label>
-                    <label for="estudiante"> {{student[0].name}} {{student[0].lastName}}</label>
-                </div>
-                <div class="es">
-                    <label style="margin-right:45px;font-weight: bold;" >Codigo: </label>
-                    <label  for="codigo">  {{student[0].code}}</label>
-                </div>
-            </div>
-              <img src="../../../assets/img/LineSep2.png" alt="">
-              <div *ngIf="periodo !== undefined" class="date">
-                <div class="dt1">
-                  <label for="fInicio">Fecha fin:</label>
-                  <p>{{periodo[0].startDate | date:'yyyy-MM-dd'}}</p>
-              </div>
-              <div class="dt2">
-                  <label for="fInicio">Fecha fin:</label>
-                  <p>{{periodo[0].endDate | date:'yyyy-MM-dd'}}</p>
-              </div>
-              </div>
-              <img src="../../../assets/img/LineSep2.png" alt="">
-              <div class="to">
-                <div class="lblprice">
-                    <label  >TOTAL: </label>
-                </div>
-                <div class="price">
-                    <label for="estudiante">{{total}}</label>
-                </div>
-              </div>
-              <div class="btns">
-                <div class="">
-                    <!--<input type="file" accept=".jpg" name="imagen">-->
-                    <input type="file"  accept="image/png, image/jpeg" (change)="handleFileInput($event)">
-                </div>
-                <div class="btn btn-primary">
-                  <button type="submit" [disabled]="!hasSelectedProduct() || !selectedFile">Enviar</button>
-              </div>
-              </div>
-              <div class="btn_i">
-                <span class="icon-i"></span>
-                <a (click)="enviarTicket()">Emitir ticket</a>
-              </div>
+        <div class="cc qr">
+          <img src="../../../assets/img/Group 1.png" alt="" />
         </div>
+        <div class="cc target">
+          <img src="../../../assets/img/Yape2.png" alt="" />
+        </div>
+      </div>
+      <div class="contenedor_derecha">
+        <h2>Resumen</h2>
+        <div class="inp">
+          <span class="icon-comed"></span>
+          <h3>Compra de ticket para el comedor</h3>
+        </div>
+        <img src="../../../assets/img/LineSep2.png" alt="" />
+        <fieldset>
+          <legend>Pago a realizar</legend>
+          <div *ngFor="let product of listProduct">
+            <input
+              type="checkbox"
+              id=""
+              name="option"
+              value="{{ product.price }}"
+              (change)="onCheckboxChange($event)"
+            />
+            <label for="">{{ product.name }} S./{{ product.price }}</label>
+          </div>
+        </fieldset>
+        <img src="../../../assets/img/LineSep2.png" alt="" />
+        <div *ngIf="student !== undefined">
+          <div class="es">
+            <label style="margin-right: 20px; font-weight: bold"
+              >Estudiante:
+            </label>
+            <label for="estudiante">
+              {{ student[0].name | titlecase }}
+              {{ student[0].lastName | titlecase }}</label
+            >
+          </div>
+          <div class="es">
+            <label style="margin-right: 45px; font-weight: bold"
+              >Codigo:
+            </label>
+            <label for="codigo"> {{ student[0].code }}</label>
+          </div>
+        </div>
+        <img src="../../../assets/img/LineSep2.png" alt="" />
+        <div *ngIf="periodo !== undefined" class="date">
+          <div class="dt1">
+            <label for="fInicio">Fecha fin:</label>
+            <p>{{ periodo[0].startDate | date : "yyyy-MM-dd" }}</p>
+          </div>
+          <div class="dt2">
+            <label for="fInicio">Fecha fin:</label>
+            <p>{{ periodo[0].endDate | date : "yyyy-MM-dd" }}</p>
+          </div>
+        </div>
+        <img src="../../../assets/img/LineSep2.png" alt="" />
+        <div class="to">
+          <div class="lblprice">
+            <label>TOTAL: </label>
+          </div>
+          <div class="price">
+            <label for="estudiante">{{ total }}</label>
+          </div>
+        </div>
+        <div class="btns">
+          <div class="archivo">
+            <input
+              type="file"
+              accept="image/png, image/jpeg"
+              (change)="handleFileInput($event)"
+            />
+          </div>
+          <div>
+            <button class="btn btn-primary"  (click)="Cargar()" type="submit" [disabled]="total == 0 || !selectedFile">Enviar</button>
+          </div>
+        </div>
+        <!--<div class="btn_i">
+          <span class="icon-i"></span>
+          <a (click)="enviarTicket()">Emitir ticket</a>
+        </div>-->
+      </div>
     </form>
-</section>
+  </section>
 </main>
