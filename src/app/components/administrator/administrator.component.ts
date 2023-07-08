@@ -49,15 +49,30 @@ export class AdministratorComponent {
       }
     );
   }
+  deleteSale(id: any) {
+    this._administratorService.deleteSaleDetail(id).subscribe(
+      (data) => {
+        this.getSale();
+        this.toastr.error(
+          'El registro fue eliminado con exito',
+          'Registro eliminado!'
+        );
+      },
+      (error) => {
+        this.toastr.error('Opss ocurrio un error', 'Error');
+        console.log(error);
+      }
+    );
+  }
   getAdmin() {
     this._administratorService.getAdmin(this.idPasar).subscribe((data) => {
       this.admin = data;
     });
   }
-  openImageDialog(event: Event, studentAdmin: any) {
+  openImageDialog(event: Event, imagen: any) {
     event.preventDefault();
     this.dialog.open(ImageDialogComponent, {
-      data: { imageUrl: studentAdmin.imagenUrl },
+      data: { imageUrl: imagen},
       panelClass: 'image-dialog-container',
     });
   }
