@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { ActivatedRoute } from '@angular/router';
 import { dtoOpening } from 'src/app/interfaces/opening';
 import { dtoStudent } from 'src/app/interfaces/Student';
 import { AdministratorService } from 'src/app/services/administrator.service';
@@ -140,7 +141,7 @@ export class AdministratorComponent {
     location.reload();
     this._administratorService.updateOpening(formData).subscribe(
       (data) => {
-        this.toastr.info('Mensaje', 'Aertura!');
+        this.toastr.info('Mensaje', 'Apertura!');
       },
       (error) => {
         this.toastr.error('Opss ocurrio un error', 'Error');
