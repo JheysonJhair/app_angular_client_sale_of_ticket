@@ -115,7 +115,7 @@ export class AdministratorComponent {
     location.reload();
     this._administratorService.updateOpening(formData).subscribe(
       (data) => {
-        this.toastr.info('Mensaje', 'Aertura!');
+        this.toastr.info('Mensaje', 'Apertura!');
       },
       (error) => {
         this.toastr.error('Opss ocurrio un error', 'Error');
