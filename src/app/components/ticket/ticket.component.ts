@@ -8,35 +8,40 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-ticket',
   templateUrl: './ticket.component.html',
-  styleUrls: ['./ticket.component.css']
+  styleUrls: ['./ticket.component.css'],
 })
 export class TicketComponent implements OnInit {
+  fechaActual: string;
   idPasar: string;
-  listStudent: dtoStudent[] = []
+  totalPasar: string;
+  listStudent: dtoStudent[] = [];
 
-  constructor(private _studentService: StudentService,
+  constructor(
+    private _studentService: StudentService,
     private toastr: ToastrService,
-    private formBuilder: FormBuilder,
-    private aRoute:ActivatedRoute){
-
-      this.aRoute.snapshot.paramMap.get('id');
-      this.idPasar = this.aRoute.snapshot.paramMap.get('id')!;
+    private aRoute: ActivatedRoute
+  ) {
+    const fecha = new Date();
+    this.fechaActual = fecha.toLocaleDateString();
+    this.aRoute.snapshot.paramMap.get('id');
+    this.idPasar = this.aRoute.snapshot.paramMap.get('id')!;
+    this.totalPasar = this.aRoute.snapshot.paramMap.get('total')!;
   }
-  ngOnInit(){
+  ngOnInit() {
     this.getStudent(this.idPasar);
   }
-  getStudent(id: any){
-      this._studentService.getStudent(id).subscribe(data =>{
+  getStudent(id: any) {
+    this._studentService.getStudent(id).subscribe(
+      (data) => {
         this.listStudent = data;
-      },error =>{
+      },
+      (error) => {
         this.toastr.error('Opss ocurrio un error', 'Error');
         console.log(error);
-      })
-
+      }
+    );
   }
   aler() {
     window.print();
   }
-
 }
-

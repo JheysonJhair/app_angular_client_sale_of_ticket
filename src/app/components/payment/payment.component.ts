@@ -104,7 +104,7 @@ export class PaymentComponent implements OnInit {
             'Pago realizado  con exito',
             'Completado!'
           );
-          this.router.navigate(['/ticket', this.idPasar]);
+          this.router.navigate(['/ticket', this.idPasar, this.total]);
         },
         (error) => {
           this.toastr.error('Opss ocurrio un error', 'Error');

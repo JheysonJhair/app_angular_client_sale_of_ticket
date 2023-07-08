@@ -6,6 +6,7 @@ import { dtoStudent } from 'src/app/interfaces/Student';
 import { AdministratorService } from 'src/app/services/administrator.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ImageDialogComponent } from '../image-dialog/image-dialog.component';
+import { dtoAdministrator } from 'src/app/interfaces/administrator';
 
 @Component({
   selector: 'app-administrator',
@@ -13,13 +14,15 @@ import { ImageDialogComponent } from '../image-dialog/image-dialog.component';
   styleUrls: ['./administrator.component.css'],
 })
 export class AdministratorComponent {
+  idPasar: string;
   stateFinal: boolean;
 
+  admin: dtoAdministrator[] | undefined;
   inputValue: number = 90;
   opening: dtoOpening[] | undefined;
 
   dtoStudent: dtoStudent | undefined;
-  listStudentAdmin: dtoStudent[] = [
+  listSaleDetail: dtoStudent[] = [
     {
       dni: '7777777',
       code: '201054',
@@ -72,10 +75,19 @@ export class AdministratorComponent {
   constructor(
     public dialog: MatDialog,
     private _administratorService: AdministratorService,
+    private aRoute: ActivatedRoute,
     private toastr: ToastrService
-  ) {}
+  ) {
+    this.idPasar = this.aRoute.snapshot.paramMap.get('id')!;
+  }
   ngOnInit(): void {
     this.getOpening();
+    this.getAdmin();
+  }
+  getAdmin() {
+    this._administratorService.getAdmin(this.idPasar).subscribe((data) => {
+      this.admin = data;
+    });
   }
   openImageDialog(event: Event, studentAdmin: any) {
     event.preventDefault();

@@ -1,14 +1,11 @@
-p, h2, h3{
+p,
+h2,
+h3 {
   text-align: center;
 }
-p{
+p {
   margin: 3px 0;
 }
-/*
-.ticket .t2 {
-  width: 90%;
-}
-*/
 .vaucher table {
   width: 90%;
 }
@@ -17,41 +14,25 @@ p{
   margin-bottom: 10px;
   margin-left: 5px;
 }
-.oculto-impresion1:hover{
+.oculto-impresion1:hover {
   background-color: rgb(216, 210, 202);
 }
-/*
-.oculto-impresion2 {
-  margin-top: 20px;
-  margin-left: 150px;
+.container {
+  padding-top: 60px;
 }
-*/
-.vaucher{
-  margin-top: 45px;
+.vaucher {
   border: 2px solid black;
   width: 290px;
   background: rgba(255, 255, 255, 0.748);
   text-align: center;
   margin-left: 500px;
-
 }
 #p1,
 #p2,
-#p5{
+#p5 {
   font-weight: bold;
 }
-/*
-.ticket{
-  float: right;
-  border: 2px solid black;
-  width: 30%;
-  margin-top: 200px;
-  text-decoration: underline;
-  padding-bottom: 10px;
-  background: rgba(255, 255, 255, 0.634);
-  margin-right: 300px;
-}
-*/
+
 td,
 th,
 tr,
@@ -69,22 +50,21 @@ th.producto {
   text-align: left;
 }
 td.importe,
-th.importe{
+th.importe {
   width: 70px;
   max-width: 70px;
   text-align: center;
 }
 
 @media print {
-
-  .vaucher{
-     margin: 150px 200px;
+  .vaucher {
+    margin: 150px 200px;
   }
 
   .oculto-impresion1,
   .contenedor-nav,
-  .contenedor-nav * ,
+  .contenedor-nav *,
   .oculto-impresion1 * {
-      display: none !important;
+    display: none !important;
   }
 }
