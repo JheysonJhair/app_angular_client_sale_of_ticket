@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+<div class="row mt -4">
+  <div class="col-lg-2">
+    <div class="contenedor_izquierda">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/78/78948.png"
+        alt=""
+        class="contenido-imagen-about"
+      />
+      <h2 class="titulo">ADMINISTRADOR</h2>
+    </div>
+  </div>
+  <div class="col-lg-10">
+    <div class="card">
+      <button [routerLink]="['/administrator','3fb8ce38-50b9-4ca8-873e-bbb0c5f4d196']" class="btn btn-secondary">Admin</button>
+      <div class="card-body">
+        <h3>Listado de Estudiantes con comedor</h3>
+        <table *ngIf="listSaleDetail.length > 0" class="table table-hover mt-3">
+          <thead>
+            <tr>
+              <th class="bol">CÓDIGO</th>
+              <th class="bol">NOMBRES Y APELLIDOS</th>
+              <th class="bol">ESCUELA PROFESIONAL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let venta of listSaleDetail">
+            <tr *ngIf="venta.saleState">
+              <td>{{ venta.code }}</td>
+              <td>{{ venta.names | titlecase }}</td>
+              <td>{{ venta.school | titlecase }}</td>
+            </tr>
+          </ng-container>
+          </tbody>
+        </table>
+      </div>
+      <div *ngIf="listSaleDetail.length == 0" class="row mt-5">
+        <h5>No hay Estudiantes por mostrar.</h5>
+      </div>
+    </div>
+  </div>
+</div>

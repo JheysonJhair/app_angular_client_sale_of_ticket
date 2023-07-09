@@ -38,7 +38,7 @@ export class LoginComponent {
     this.accessLogin = this.formBuil.group({
       mail: [
         '',
-        [Validators.required, Validators.pattern(/^(201054@unamba\.edu\.pe|.*@gmail\.com)$/)],
+        [Validators.required, Validators.pattern(/^(\d{6}@unamba\.edu\.pe|.*@gmail\.com)$/)],
       ],
       password: ['', Validators.required],
     });

@@ -77,8 +77,15 @@ export class AdministratorComponent {
     });
   }
 
-  changeValue() {
+  changeValue(id: any) {
     this.inputValue -= 1;
+    let formData = new FormData();
+    formData.append('id', id);
+    this._administratorService
+    .stateChange(formData)
+    .subscribe((data) => {
+      location.reload();
+    });
   }
 
   getOpening() {
@@ -86,7 +93,6 @@ export class AdministratorComponent {
       .getOpening('b454687f-048d-4c02-8255-885b52c33633')
       .subscribe((data) => {
         this.opening = data;
-        console.log(this.opening![0].openState);
       });
   }
   updateState() {

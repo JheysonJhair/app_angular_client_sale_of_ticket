@@ -17,6 +17,8 @@ export class AdministratorService {
 
   private myUrlGet = 'sale/getsale/';
   private myUrlDelete = 'sale/delete?id=';
+
+  private myUrlCheck = 'sale/checkstate';
   constructor(private http: HttpClient) { }
 
   getAdmin(id: string): Observable<any>{
@@ -40,6 +42,9 @@ export class AdministratorService {
     return this.http.get(this.myAppUrl + this.myUrlGet);
   }
   deleteSaleDetail(id: string): Observable<any>{
-    return this.http.delete(this.myAppUrl + this.myUrlDelete + id)
+    return this.http.delete(this.myAppUrl + this.myUrlDelete + id);
+  }
+  stateChange(id: FormData): Observable<any>{
+      return this.http.post(this.myAppUrl + this.myUrlCheck, id);
   }
 }

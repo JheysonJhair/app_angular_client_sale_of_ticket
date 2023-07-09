@@ -1,0 +1,59 @@
+/* ver student*/
+a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+/*iconos*/
+.far {
+  cursor: pointer;
+}
+/* tabla*/
+.bol {
+  font-weight: 600;
+}
+/* filas*/
+td {
+  font-weight: 400;
+}
+/*boostrap*/
+.row {
+  margin: 0;
+}
+/*titulo*/
+h3 {
+  font-size: 24px;
+  font-weight: bolder;
+}
+/*tabla lista*/
+.card {
+  background-color: rgba(240, 248, 255, 0.818);
+  border-radius: 20px;
+  padding: 20px;
+  margin-top: 80px;
+  margin-right: 50px;
+}
+
+/*contenedor izqueirda*/
+.contenedor_izquierda {
+  margin-top: 80px;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  margin-left: 30px;
+}
+/*logo user*/
+.contenedor_izquierda img {
+  height: 180px;
+  margin-left: 0px;
+}
+/*titulos */
+h2 {
+  font-size: 17px;
+  margin-left: 20px;
+}
+.contenedor_izquierda h2 {
+  margin: 10px;
+  text-align: center;
+  padding-bottom: 10px;
+}

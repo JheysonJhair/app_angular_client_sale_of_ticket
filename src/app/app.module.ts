@@ -24,6 +24,7 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { ListProductComponent } from './components/list-product/list-product.component';
 import { TicketComponent } from './components/ticket/ticket.component';
 import { ImageDialogComponent } from './components/image-dialog/image-dialog.component';
+import { ApprovedStudentsComponent } from './components/approved-students/approved-students.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { ImageDialogComponent } from './components/image-dialog/image-dialog.com
     PaymentComponent,
     ListProductComponent,
     TicketComponent,
-    ImageDialogComponent
+    ImageDialogComponent,
+    ApprovedStudentsComponent
   ],
   imports: [
     MatIconModule,

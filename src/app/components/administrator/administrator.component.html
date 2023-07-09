@@ -45,7 +45,7 @@
             [(ngModel)]="inputValue"
           />
         </div>
-        <button type="button " class="bi btn btn-primary">
+        <button routerLink="/comedor" type="button " class="bi btn btn-primary">
           ESTUDIANTES CON COMEDOR
         </button>
         <button type="button " routerLink="/getall" class="bi btn btn-info">
@@ -70,7 +70,8 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let venta of listSaleDetail">
+            <ng-container *ngFor="let venta of listSaleDetail">
+              <tr *ngIf="!venta.saleState">
               <td>
                 <a href="#" (click)="openImageDialog($event, venta.couponImg)">{{
                   "YAPE: Voucher de pago"
@@ -81,7 +82,7 @@
               <td>{{ venta.school }}</td>
               <td>
                 <i
-                  (click)="changeValue()"
+                (click)="changeValue(venta.idSale)"
                   class="fa-solid fa-square-check text-success far"
                 ></i>
               </td>
@@ -92,6 +93,7 @@
                 ></i>
               </td>
             </tr>
+          </ng-container>
           </tbody>
         </table>
       </div>

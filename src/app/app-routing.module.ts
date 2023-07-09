@@ -9,6 +9,7 @@ import { ConditionComponent } from './components/condition/condition.component';
 import { AdministratorComponent } from './components/administrator/administrator.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { TicketComponent } from './components/ticket/ticket.component';
+import { ApprovedStudentsComponent } from './components/approved-students/approved-students.component';
 
 const routes: Routes =[
   { path: '' , component: LoginComponent},
@@ -21,6 +22,7 @@ const routes: Routes =[
   { path: 'payment/:id', component: PaymentComponent},
   { path: 'ticket/:id/:total', component: TicketComponent},
   { path: 'administrator/:id', component: AdministratorComponent},
+  { path: 'comedor', component: ApprovedStudentsComponent},
   { path: '**', redirectTo: '/', pathMatch:'full'}
 ];
 @NgModule({
