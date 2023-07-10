@@ -1,6 +1,8 @@
 export interface dtoSale{
   idSale?: 		string,
+  idStudent?: string,
   idPeriod: string,
   couponImg: string,
-  total: number
+  total: number,
+  saleState: boolean
 }

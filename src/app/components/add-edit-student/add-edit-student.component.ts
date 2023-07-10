@@ -48,6 +48,7 @@ export class AddEditStudentComponent implements OnInit {
       ],
     });
     this.id = this.aRoute.snapshot.paramMap.get('id')!;
+    console.log(this.id)
   }
   ngOnInit(): void {
     this.esEdit();

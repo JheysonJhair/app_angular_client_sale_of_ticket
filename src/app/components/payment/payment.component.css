@@ -25,6 +25,17 @@
   flex-direction: column;
   justify-content: center;
 }
+.compra_realizada{
+  color: rgb(225, 60, 60);
+  font-weight: 600;
+}
+.btn_imp{
+  background-color: #116c80;
+  border: none;
+  padding: 5px;
+  color: #ffffff;
+  border-radius: 5px;
+}
 /*yape*/
 .contenedor_izquierda .yap img {
   height: 70px;

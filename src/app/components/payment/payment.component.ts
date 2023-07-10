@@ -10,6 +10,7 @@ import { StudentService } from 'src/app/services/student.service';
 import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { SaleService } from 'src/app/services/sale.service';
+import { dtoSale } from 'src/app/interfaces/sale';
 
 @Component({
   selector: 'app-payment',
@@ -25,6 +26,7 @@ export class PaymentComponent implements OnInit {
   total: number = 0;
   student: dtoStudent[] | undefined;
   periodo: dtoPeriod[] | undefined;
+  saleSateHelp:boolean = true;
   //listProduct: dtoProduct[] = []
   listProduct = [
     { name: 'Desayuno', price: 10, selected: false },
@@ -67,6 +69,9 @@ export class PaymentComponent implements OnInit {
     this._studentService.getStudent(this.idPasar).subscribe((data) => {
       this.student = data;
     });
+  }
+  getSaleAll(){
+
   }
   onCheckboxChange(event: any) {
     if (event.target.checked) {

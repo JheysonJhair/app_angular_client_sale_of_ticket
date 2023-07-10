@@ -80,14 +80,14 @@
               (change)="handleFileInput($event)"
             />
           </div>
-          <div>
-            <button class="btn btn-primary"  (click)="Cargar()" type="submit" [disabled]="total == 0 || !selectedFile">Enviar</button>
+          <div *ngIf="student !== undefined ">
+            <button class="btn btn-primary"  (click)="Cargar()" type="submit" [disabled]="total == 0 || !selectedFile || saleSateHelp === false">Enviar</button>
           </div>
         </div>
-        <!--<div class="btn_i">
-          <span class="icon-i"></span>
-          <a (click)="enviarTicket()">Emitir ticket</a>
-        </div>-->
+        <div *ngIf="saleSateHelp !== false ">
+          <p class="compra_realizada">Usted ya realizo la compra, por favor verifique su voucher</p>
+          <button class="btn_imp" (click)="Cargar()">IMPRIMIR</button>
+        </div>
       </div>
     </form>
   </section>

@@ -7,25 +7,18 @@
 
 /*div perfil*/
 .perfil {
-  height: 200px;
+
   width: 200px;
   position: relative;
 }
 
-/*imagen del estudiante*/
-.contenido-imagen-about {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  justify-self: center;
-  background-size: cover;
-}
+
 
 /*boton editar*/
 .upload-btn-label {
   position: absolute;
-  top: 170px;
-  left: 280px;
+  top: 220px;
+  left: 300px;
   width: 30px;
   height: 30px;
   padding: 5px;
@@ -52,11 +45,14 @@
   align-items: center;
   padding: 20px;
   width: 45%;
+
 }
 /*logo user*/
 .contenedor_izquierda img {
-  height: 200px;
-  margin-left: 130px;
+  height: 248px;
+  width: 260px;
+  margin-left: 115px;
+  border-radius: 50%;
 }
 /*titulos */
 .contenedor_izquierda h2 {

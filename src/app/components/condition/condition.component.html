@@ -3,12 +3,11 @@
   <section class="cont">
     <div class="contenedor_izquierda">
       <div class="perfil">
-        <img
-          *ngIf="student && student.length > 0"
-          [src]="student[0].profileImg"
-          alt="Perfil"
-          class="contenido-imagen-about"
-        />
+        <div *ngIf="student">
+          <img [src]="student[0].profileImg || 'https://i.blogs.es/66b2a4/photo-1511367461989-f85a21fda167/1366_2000.jpeg'"
+               alt="Perfil"
+               class="contenido-imagen-about" />
+        </div>
         <label for="upload-btn" class="upload-btn-label">
           <input
             type="file"
@@ -20,7 +19,10 @@
         </label>
       </div>
       <div *ngIf="student !== undefined" class="h22">
-        <h2 class="titulo">{{ student[0].name | titlecase }} {{ student[0].lastName | titlecase }}</h2>
+        <h2 class="titulo">
+          {{ student[0].name | titlecase }}
+          {{ student[0].lastName | titlecase }}
+        </h2>
       </div>
       <div class="content_btn">
         <div class="b">
@@ -33,7 +35,7 @@
     </div>
     <div class="contenedor_derecha">
       <div *ngIf="period !== undefined">
-        <h2>COMEDOR UNAMBA - {{period[0].name}}</h2>
+        <h2>COMEDOR UNAMBA - {{ period[0].name }}</h2>
       </div>
       <h3>Condicion socio - económica</h3>
       <div *ngIf="student !== undefined" class="btn_condicionPobreNopobre">
