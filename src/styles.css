@@ -1,4 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+:root{
+  ---primry-color: #042354;
+  ---secondary-color: #F2C33E;
+  ---tertiary-color: #166BF3;
+  ---background-color: #FFFFFF;
+  ---foreground-color: #010813;
+}
+
+/*
 body{
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -14,10 +24,17 @@ body{
     background-position: center;
     background-size: cover;
 }
-
+*/
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(---background-color);
+  color: var(---foreground-color);
+}
+
 .image-dialog-container {
   background: none;
 }

@@ -1,111 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&family=Montserrat&display=swap');
+:root{
+  ---primry-color: #042354;
+  ---secondary-color: #F2C33E;
+  ---tertiary-color: #166BF3;
+  ---background-color: #ffffff;
+  ---foreground-color: #010813;
+  ---color-gray: #721b1b;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+html{
+  font-size: 62.5%;
+}
+
+.arito1{
+  position: absolute;
+  top: -10.5rem;
+  left: 80%;
+  width: 28.4rem;
+  height: 28.4rem;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.475);
+  z-index: 2;
+}
+
+.arito2{
+  position: absolute;
+  top: -5.2rem;
+  left: 20%;
+  background-color: #ffffff;
+  opacity: 0.2;
+  width: 10.4rem;
+  height: 10.4rem;
+  border-radius: 50%;
+}
+
+.arito3{
+  position: absolute;
+  bottom: -15rem;
+  left: 50%;
+  width: 20.9rem;
+  height: 20.9rem;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.475);
+}
+
 /*Cuerpo principal*/
 .boddy {
+  background-image: linear-gradient(to left bottom, #010813, #051223, #031833, #011e43, #042354);
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-  min-height: 96vh;
+  height: 100vh;
+  overflow: hidden;
 }
-/*EXAGONO*/
-.hexagon {
-  position: absolute;
-  justify-content: center;
+/*EXAGONO ---- corrección -> se escribe con "h"*/
+.form_card {
+  background-color: var(---background-color);
+  color: var(---foreground-color);
+  margin-right: 10rem;
   text-align: center;
-  width: 250px;
-  height: 360px;
-  background-color: rgb(85, 169, 178);
+  width: 25rem;
+  height: 33rem;
   border-radius: 0px;
-  z-index: 2;
+  z-index: 3;
   max-width: 600px;
+  border-radius: 1.7rem;
+  font-weight: 700;
+  overflow: hidden;
 }
-.hexagon::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -92px;
-  width: 0;
-  height: 0;
-  border-right: 92px solid rgb(85, 169, 178);
-  border-top: 180px solid transparent;
-  border-bottom: 180px solid transparent;
+
+/*Logo encabezado*/
+img {
+  width: 100%;
+  height: 14rem;
+  color: #116c80;
 }
-.hexagon::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: -92px;
-  width: 0;
-  height: 0;
-  border-left: 92px solid rgb(85, 169, 178);
-  border-top: 180px solid transparent;
-  border-bottom: 180px solid transparent;
-}
+
 /*Titulo registro*/
-h2 {
-  margin-top: 35px;
-  color: #ffffff;
-  opacity: none;
-  z-index: 1;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  font-style: 900;
-  font-size: 45px;
-  line-height: 72px;
-  line-height: 100%;
-  padding-bottom: 25px;
+.card-text{
+  margin-top: -1.6rem;
+  width: 70%;
+  height: 3rem;
+  background-color: #F2C33E;
+  margin-bottom: 3rem;
+  align-self: center;
+  z-index: 2;
 }
+
+.card-text h2 {
+  color: var(---foreground-color);
+  font-size: 3.5rem;
+  padding-bottom: 25px;
+  font-weight: 500;
+}
+
+/*fila*/
+.row{
+  /*background-color: brown;*/
+  margin-bottom: 1rem;
+}
+
 /*Contenedor boton*/
 .bb {
-  width: 200px;
-  margin-left: 40px;
-
-  width: 60%;
-  height: 50px;
-  margin-left: 49px;
+  width: 10rem;
+  height: 3.0rem;
   border: none;
-  font-size: 22px;
-  background: #116c80;
+  font-size: 1.5rem;
+  background: var(---primry-color);
   cursor: pointer;
   border-radius: 10px;
-  color: white;
-  outline: none;
+  color: var(---background-color);
 }
 /*Boton hover*/
 .bb:hover {
-  box-shadow: inset 0 0 20px rgba(140, 199, 222, 0.5),
-    0 0 20px rgba(141, 160, 168, 0.4);
-  outline-color: rgba(49, 138, 172, 0);
-  outline-offset: 80px;
+  background-color: var(---tertiary-color);
 }
-/*Enlace cambiar contraseña*/
-.hexagon a {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 500;
+
+/*para los inputs*/
+.form-control{
+  height: 1.8rem;
+  width: 13rem;
+  border-radius: 5px;
+  border: 1px solid var(---color-gray);
 }
-/*Cambiar contraseña hover*/
-.hexagon a:hover {
-  text-decoration: underline;
+
+.form-control:focus{
+  outline: 1px solid var(---tertiary-color);
 }
-/*logo*/
-.log {
-  position: absolute;
-  left: 74px;
-  top: -85px;
-  z-index: 1;
-}
-/*Logo encabezado*/
-.log img {
-  height: 100px;
-  color: #116c80;
-}
+
 /*div cambiar contraseña*/
 .cambiar_contra {
-  margin-top: 16px;
+  margin-top: 2rem;
+
+}
+
+.cambiar_contra a{
+  color: var(---foreground-color);
 }
 /*clases de ayuda*/
 .red-icon{
   color: rgb(241, 38, 38);
 }
 .green-icon{
-  color: rgb(2, 156, 158);
+  color: var(---primry-color);
 }
