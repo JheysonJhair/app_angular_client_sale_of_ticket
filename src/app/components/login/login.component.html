@@ -7,8 +7,10 @@
 
     <div class="arito3">
     </div>
+    <div class="dibujo-svg izquierda">
 
-    <div>
+    </div>
+    <div class="derecha">
       <form class="form_card" [formGroup]="accessLogin" (ngSubmit)="accesoStudentAdmin()">
         <div class="card-text">
           <h2>Comedor Universitario</h2>
@@ -22,7 +24,6 @@
               <span class="input-group-text"
                 ><i
                   class="fa-solid fa-user"
-                  [class.green-icon]="this.accessLogin.get('mail')?.valid"
                   [class.red-icon]="
                     accessLogin.get('mail')?.invalid &&
                     accessLogin.get('mail')?.touched
@@ -60,15 +61,16 @@
                 placeholder="Contraseña"
                 aria-label="Contraseña"
                 aria-describedby="basic-addon1"
+                maxlength="8"
               />
             </div>
           </div>
         </div>
         <div class="row">
-          <button type="submit" class="btn bb">Aceptar</button>
+          <button type="submit" class="button">Aceptar</button>
         </div>
 
-        <div class="cambiar_contra">
+        <div class="password">
           <a routerLink="/pass" href="">Cambiar contraseña</a>
         </div>
       </form>

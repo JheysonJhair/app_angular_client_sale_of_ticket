@@ -6,7 +6,7 @@ import { dtoStudent } from 'src/app/interfaces/Student';
 import { StudentService } from 'src/app/services/student.service';
 import { dtoAdministrator } from 'src/app/interfaces/administrator';
 import { AdministratorService } from 'src/app/services/administrator.service';
-
+  
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
