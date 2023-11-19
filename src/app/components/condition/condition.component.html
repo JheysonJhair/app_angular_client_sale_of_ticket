@@ -1,8 +1,8 @@
 <app-navbar></app-navbar>
-<section class="c-exterior">
   <section class="container">
+    <div class="circle-1"></div><div class="circle-2"></div><div class="circle-3"></div><div class="cuad-1"></div><div class="triangle"></div>
     <div class="contenedor_izquierda">
-      <div class="perfil">
+      <div class="cont-perfil">
         <div *ngIf="student">
           <img
             [src]="
@@ -23,18 +23,22 @@
           <i class="fas fa-pencil-alt"></i>
         </label>
       </div>
-      <div *ngIf="student !== undefined" class="h22">
-        <h2 class="titulo">
+      <div *ngIf="student !== undefined" class="cont-title">
+        <h2 class="title">
           {{ student[0].name | titlecase }}
           {{ student[0].lastName | titlecase }}
         </h2>
       </div>
       <div class="content_btn">
-        <div class="b">
-          <a href="">Listar</a>
+        <div class="button">
+          <a href="">
+            <i class="fas fa-list"></i> Listado
+          </a>
         </div>
-        <div class="b">
-          <a href="">Historial</a>
+        <div class="button">
+          <a href="">
+            <i class="fas fa-history"></i> Historial
+          </a>
         </div>
       </div>
     </div>
@@ -42,27 +46,36 @@
       <div *ngIf="period !== undefined">
         <h2>COMEDOR UNAMBA - {{ period[0].name }}</h2>
       </div>
-      <h3>Condicion socio - económica</h3>
-      <div *ngIf="student !== undefined" class="btn_condicionPobreNopobre">
-        {{ student[0].condition === false ? "Pobre" : "No pobre" }}
+      <h3>Condición socio - económica</h3>
+      <p>Limitaciones financieras individuales u alojamiento, alimentación precarios y la falta de acceso a recursos básicos para el estudiantes.</p>
+      <div *ngIf="student !== undefined" class="btn_global">
+        {{ student[0].condition === false ? "No pobre" : "Pobre" }}
       </div>
-      <img src="../../../assets/img/LineSep2.png" alt="" />
+      <hr /> 
+      <h3>Condición de discapacidad</h3>
+      <p>Limitaciones asociadas a la salud y habilidades físicas o mentales. Esto puede incluir barreras de accesibilidad, falta de apoyo especializado..</p>
+      <div *ngIf="student !== undefined" class="btn_global">
+        {{ student[0].disability === false ? "Discapacitado" : "Sin discapacidad" }}
+      </div>
+      <hr /> 
       <h3>Condicion FINAL</h3>
+      <p>Verificación de ambas condiciones de discapacidad y socio económica, validación de datos.</p>
       <div *ngIf="student !== undefined" class="btn_condicionFinal">
         {{ student[0].studentState == true ? "No apto" : "Apto" }}
       </div>
-      <img src="../../../assets/img/LineSep2.png" alt="" />
-      <div *ngIf="opening !== undefined">
+      <hr /> 
+      <div class="align-rigth " style="text-align: right;" *ngIf="opening !== undefined">
         <div *ngIf="student !== undefined">
           <button
             (click)="onButtonClick()"
             [disabled]="student[0].studentState == true"
-            class="btn btn-primary float-end mr"
+            class="float-end button-next"
           >
             Siguiente
           </button>
         </div>
       </div>
+      
     </div>
   </section>
-</section>
+
