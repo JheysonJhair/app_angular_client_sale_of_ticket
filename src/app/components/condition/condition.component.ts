@@ -16,9 +16,7 @@ import { dtoPeriod } from 'src/app/interfaces/period';
 export class ConditionComponent implements OnInit {
   selectedFile: File;
 
-  idPasar: string;
-  codeAdmi: string;
-  public static idS: string;
+  id: string;
 
   student: dtoStudent[] | undefined;
   opening: dtoOpening[] | undefined;
@@ -33,7 +31,7 @@ export class ConditionComponent implements OnInit {
     private toastr: ToastrService
   ) {
     this.aRoute.snapshot.paramMap.get('id');
-    this.idPasar = this.aRoute.snapshot.paramMap.get('id')!;
+    this.id = this.aRoute.snapshot.paramMap.get('id')!;
   }
 
   ngOnInit(): void {
@@ -41,9 +39,9 @@ export class ConditionComponent implements OnInit {
     this.getOpening();
     this.getPeriod();
   }
-
+  // ---------------------------------------------------- STUDENT - OPENNIG - PERIOD
   getStudentCondition() {
-    this._studentService.getStudent(this.idPasar).subscribe((data) => {
+    this._studentService.getStudent(this.id).subscribe((data) => {
       this.student = data;
     });
   }
@@ -63,9 +61,10 @@ export class ConditionComponent implements OnInit {
   }
   onButtonClick() {
     this.toastr.success('Bienvenido!', 'Acceso!');
-    this.router.navigate(['/payment', this.idPasar]);
+    this.router.navigate(['/payment', this.id]);
   }
-
+  
+  // ---------------------------------------------------- UPLOAD IMAGE
   handleFileInput(event: any): void {
     this.selectedFile = event.target.files[0];
     this.uploadFile();
@@ -76,7 +75,7 @@ export class ConditionComponent implements OnInit {
       const formData: FormData = new FormData();
       formData.append('file', this.selectedFile);
 
-      const url = `https://localhost:7282/student/SubirImagen?id=${this.idPasar}`;
+      const url = `https://localhost:7282/student/SubirImagen?id=${this.id}`;
       this.http.post(url, formData).subscribe(
         (response) => {
           location.reload();
