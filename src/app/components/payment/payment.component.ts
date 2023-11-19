@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { ToastrService } from 'ngx-toastr';
 import { dtoPeriod } from 'src/app/interfaces/period';
-import { dtoStudent } from 'src/app/interfaces/Student';
+import { dtoStudent } from 'src/app/interfaces/student';
 import { ProductService } from 'src/app/services/product.service';
 import { StudentService } from 'src/app/services/student.service';
 

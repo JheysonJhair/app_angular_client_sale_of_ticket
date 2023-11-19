@@ -1,11 +1,19 @@
-/* Contenedor exterior*/
-.c-exterior {
-  height: auto;
-  width: 100%;
-  position: relative;
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
 }
 
-/*div perfil*/
+html{
+  font-size: 62.5%;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+}
+
 .perfil {
 
   width: 200px;
@@ -32,13 +40,7 @@
   display: none;
 }
 
-/*contenedor divs*/
-.cont {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 30px;
-}
+
 /*contenedor izqueirda*/
 .contenedor_izquierda {
   justify-content: center;

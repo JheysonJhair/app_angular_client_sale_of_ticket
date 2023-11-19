@@ -2,23 +2,21 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { dtoStudent } from 'src/app/interfaces/Student';
+import { dtoStudent } from 'src/app/interfaces/student';
 import { StudentService } from 'src/app/services/student.service';
 import { dtoAdministrator } from 'src/app/interfaces/administrator';
 import { AdministratorService } from 'src/app/services/administrator.service';
-  
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  public static token: string; //variable para obtener token
+  public static token: string;
   public static idStudent: string;
-
-  public static tokenA: string; //variable para obtener token
   public static idAdministrator: string;
-  data: any; //inyectar
+  data: any;
 
   accessLogin: FormGroup;
   id = '';
@@ -33,32 +31,35 @@ export class LoginComponent {
     private _adminService: AdministratorService,
     private router: Router,
     private aRoute: ActivatedRoute,
-    private toastr: ToastrService,
+    private toastr: ToastrService
   ) {
     this.accessLogin = this.formBuil.group({
       mail: [
         '',
-        [Validators.required, Validators.pattern(/^(\d{6}@unamba\.edu\.pe|.*@gmail\.com)$/)],
+        [
+          Validators.required,
+          Validators.pattern(/^(\d{6}@unamba\.edu\.pe|.*@gmail\.com)$/),
+        ],
       ],
-      password: ['', Validators.required],
+      password: ['', [Validators.required, Validators.pattern(/^[0-9]+$/)]],
     });
     this.aRoute.snapshot.paramMap.get('id');
     this.id = this.aRoute.snapshot.paramMap.get('id')!;
   }
 
-  // Capturando admin y student
-  getStudent(codeAdmin: string) {
-    this._studentService.getStudent(codeAdmin).subscribe((data) => {
+  // ---------------------------------------------------- GET ADMIN AND STUDENT
+  getStudent(id: string) {
+    this._studentService.getStudent(id).subscribe((data) => {
       this.student = data;
     });
   }
-  getAdmin(codeAdminN: string) {
-    this._adminService.getAdmin(codeAdminN).subscribe((data) => {
+  getAdmin(id: string) {
+    this._adminService.getAdmin(id).subscribe((data) => {
       this.admin = data;
     });
   }
 
-  //Dando Acceo
+  // ---------------------------------------------------- ACCESS
   accesoStudentAdmin() {
     let formData = new FormData();
     formData.append('mail', this.accessLogin.get('mail')?.value);
@@ -81,9 +82,10 @@ export class LoginComponent {
     if (this.accessLogin.get('mail')?.value.endsWith('@unamba.edu.pe')) {
       this._studentService.getLogin(student.mail, student.password).subscribe(
         (data) => {
+          console.log(data);
           this.getStudent(data.codeAdmin);
 
-          LoginComponent.token = data.token; //almacenando token
+          LoginComponent.token = data.token;
           LoginComponent.idStudent = data.codeAdmin;
 
           this.toastr.success('Bienvenido!', 'Acceso!');
@@ -101,7 +103,7 @@ export class LoginComponent {
           (data) => {
             this.getAdmin(data.codeAdmin);
 
-            LoginComponent.tokenA = data.token; //almacenando token
+            LoginComponent.token = data.token;
             LoginComponent.idAdministrator = data.codeAdmin;
 
             this.toastr.success('Bienvenido Administrador!', 'Acceso!');

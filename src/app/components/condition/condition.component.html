@@ -1,12 +1,17 @@
 <app-navbar></app-navbar>
 <section class="c-exterior">
-  <section class="cont">
+  <section class="container">
     <div class="contenedor_izquierda">
       <div class="perfil">
         <div *ngIf="student">
-          <img [src]="student[0].profileImg || 'https://i.blogs.es/66b2a4/photo-1511367461989-f85a21fda167/1366_2000.jpeg'"
-               alt="Perfil"
-               class="contenido-imagen-about" />
+          <img
+            [src]="
+              student[0].profileImg ||
+              'https://img.freepik.com/vector-gratis/lindo-astronauta-que-trabaja-ilustracion-icono-vector-dibujos-animados-computadora-ciencia-tecnologia-icono-concepto-aislado-premium-vector-estilo-dibujos-animados-plana_138676-4172.jpg?size=338&ext=jpg&ga=GA1.1.1826414947.1699574400&semt=ais'
+            "
+            alt="Perfil"
+            class="contenido-imagen-about"
+          />
         </div>
         <label for="upload-btn" class="upload-btn-label">
           <input

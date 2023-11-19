@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute } from '@angular/router';
 import { dtoOpening } from 'src/app/interfaces/opening';
-import { dtoStudent } from 'src/app/interfaces/Student';
+import { dtoStudent } from 'src/app/interfaces/student';
 import { AdministratorService } from 'src/app/services/administrator.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ImageDialogComponent } from '../image-dialog/image-dialog.component';

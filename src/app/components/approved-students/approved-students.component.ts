@@ -4,7 +4,7 @@ import { AdministratorService } from 'src/app/services/administrator.service';
 import { ToastrService } from 'ngx-toastr';
 import { SaleService } from 'src/app/services/sale.service';
 import { dtoSale } from 'src/app/interfaces/sale';
-import { dtoStudent } from 'src/app/interfaces/Student';
+import { dtoStudent } from 'src/app/interfaces/student';
 import { StudentService } from 'src/app/services/student.service';
 
 @Component({

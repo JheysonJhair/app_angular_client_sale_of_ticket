@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { dtoOpening } from 'src/app/interfaces/opening';
-import { dtoStudent } from 'src/app/interfaces/Student';
+import { dtoStudent } from 'src/app/interfaces/student';
 import { AdministratorService } from 'src/app/services/administrator.service';
 import { StudentService } from 'src/app/services/student.service';
 import { HttpClient } from '@angular/common/http';

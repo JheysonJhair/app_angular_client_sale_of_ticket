@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { dtoStudent } from 'src/app/interfaces/Student';
+import { dtoStudent } from 'src/app/interfaces/student';
 import { StudentService } from 'src/app/services/student.service';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
