@@ -1,59 +1,167 @@
-/* ver student*/
-a {
-  text-decoration: none;
-  color: black;
-  font-weight: 500;
-}
-/*iconos*/
-.far {
-  cursor: pointer;
-}
-/* tabla*/
-.bol {
-  font-weight: 600;
-}
-/* filas*/
-td {
-  font-weight: 400;
-}
-/*boostrap*/
-.row {
+body {
   margin: 0;
 }
-/*titulo*/
-h3 {
-  font-size: 24px;
-  font-weight: bolder;
+
+html {
+  font-size: 62.5%;
 }
-/*tabla lista*/
-.card {
-  background-color: rgba(240, 248, 255, 0.818);
-  border-radius: 20px;
-  padding: 20px;
-  margin-top: 80px;
-  margin-right: 50px;
+/******************** DESIGN ***************************/
+
+.circle-1,
+.circle-2,
+.circle-3,
+.cuad-1 {
+  position: fixed;
 }
 
-/*contenedor izqueirda*/
-.contenedor_izquierda {
-  margin-top: 80px;
+.circle-1 {
+  top: -10.5rem;
+  left: 70%;
+  width: 38.4rem;
+  height: 38.4rem;
+  border-radius: 50%;
+  background-color: #ffffff;
+  z-index: -1;
+}
+
+.circle-2 {
+  position: absolute;
+  top: -7.2rem;
+  left: 30%;
+  background-color: #ffffff;
+  width: 15.4rem;
+  height: 15.4rem;
+  border-radius: 50%;
+  z-index: -1;
+}
+.circle-3 {
+  position: fixed;
+  bottom: -15rem;
+  left: 50%;
+  background-color: #ffffff;
+  width: 25.4rem;
+  height: 25.4rem;
+  border-radius: 50%;
+  z-index: -1;
+}
+.cuad-1 {
+  position: fixed;
+  top: 75%;
+  left: 6%;
+  width: 12.9rem;
+  height:12.9rem;
+  background-color: #ffffff;
+  transform: rotate(45deg);
+  z-index: -1;
+}
+
+
+/******************** CONTAINERS ***************************/
+.container {
+  display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  margin-left: 30px;
+  margin-top: 1rem;
 }
-/*logo user*/
 .contenedor_izquierda img {
-  height: 180px;
-  margin-left: 0px;
+  height: 18rem;
+  width: 18.8rem;
+  margin-bottom: 1rem;
 }
-/*titulos */
-h2 {
-  font-size: 17px;
-  margin-left: 20px;
+/******************** LEFT ***************************/
+
+.contenedor_izquierda {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding:1.6rem;
+  width: 25%;
 }
-.contenedor_izquierda h2 {
-  margin: 10px;
+h3{
+  font-size: 1.4rem;
+  margin-top: 1rem;;
+}
+
+/******************** RIGHT ***************************/
+
+.contenedor_derecha {
+  background:#ffffff;
+  height: 80%;
+  width: 80%;
+  padding: 2rem;
+  margin: 2rem;
+  border-radius: 1rem;
+  border: .1rem solid #b5edf2;
+  margin-right: 5rem;
+}
+.btn {
+  background: #30a390;
+  padding: .5rem;
+  margin-bottom: .5rem;
+  width: 12rem;
+  font-size: 1rem;
   text-align: center;
-  padding-bottom: 10px;
+  color: #ffffff;
+  border-radius: .3rem;
+  border: none;
+  cursor: pointer;
+}
+.btn_regresar{
+  background: var(---secondary-color);
+}
+.btn_denegado{
+  background:  #6C63FF;
+}
+.contenedor_izquierda .content_btn {
+  display: flex;
+  flex-direction: column;
+  background-color: var(---primary-color);
+  height: 9rem;
+  width: 80%;
+  margin-top: 1.4rem;
+  border-radius: .4rem;
+  justify-content: center;
+  align-items: center;
+    color: #000000;
+}
+
+.button i {
+  margin-right: .5rem;
+}
+/************* TABLA ****************/
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+
+}
+.table-container {
+  max-height: 25rem;
+  overflow-y: auto;
+}
+.table th, .table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.table th {
+  background-color: #f2f2f2;
+}
+
+i {
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.row {
+  margin-top: 20px;
+}
+.text-info{
+  color: #6C63FF;
+}
+.text-danger{
+  color: #FF0000;
 }

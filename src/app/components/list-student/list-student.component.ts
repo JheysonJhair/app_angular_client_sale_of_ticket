@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { dtoStudent } from 'src/app/interfaces/student';
 import { StudentService } from 'src/app/services/student.service';
-
+import { dtoAdministrator } from 'src/app/interfaces/administrator';
+import { AdministratorService } from 'src/app/services/administrator.service';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-list-student',
   templateUrl: './list-student.component.html',
@@ -10,12 +12,29 @@ import { StudentService } from 'src/app/services/student.service';
 })
 export class ListStudentComponent {
   listStudent: dtoStudent[] = [];
+  admin: dtoAdministrator[] | undefined;
+  id: string;
+  id2: string;
   constructor(
     private _studentService: StudentService,
-    private toastr: ToastrService
-  ) {}
+    private _administratorService: AdministratorService,
+    private toastr: ToastrService,
+    private aRoute: ActivatedRoute
+  ) {
+    this.id = this.aRoute.snapshot.paramMap.get('id')!;
+    this.id = this.aRoute.snapshot.paramMap.get('id2')!;
+  }
   ngOnInit(): void {
     this.getStudent();
+    this.getAdmin();
+  }
+
+  //------------------------------------------------------GET -ADMIN - SALE- LISTSALE - STUDENT
+  getAdmin() {
+    this._administratorService.getAdmin(this.id).subscribe((data) => {
+      this.admin = data;
+      console.log(data);
+    });
   }
   getStudent() {
     this._studentService.getListStudent().subscribe(

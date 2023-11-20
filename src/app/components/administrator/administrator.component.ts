@@ -45,7 +45,7 @@ export class AdministratorComponent {
 
   getOpening() {
     this._administratorService
-      .getOpening('3fb8ce38-50b9-4ca8-873e-bbb0c5f4d196')
+      .getOpening('b454687f-048d-4c02-8255-885b52c33633')
       .subscribe((data) => {
         this.opening = data;
       });

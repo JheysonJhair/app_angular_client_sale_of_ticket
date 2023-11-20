@@ -1,16 +1,43 @@
 <app-navbar></app-navbar>
-<div class="row mt -4">
-  <div class="col-lg-4">
-    <div class="contenedor_izquierda">
-      <img
-        src="https://cdn-icons-png.flaticon.com/512/78/78948.png"
-        alt=""
-        class="contenido-imagen-about"
-      />
-      <h2 class="titulo">ADMINISTRADOR</h2>
+
+<div class="container">
+  <div class="circle-1"></div>
+  <div class="circle-2"></div>
+  <div class="circle-3"></div>
+  <div class="cuad-1"></div>
+  <div class="triangle"></div>
+  <div class="contenedor_izquierda">
+    <img
+      src="../../../assets/svg//undraw_approve_qwp7.svg"
+      alt=""
+      class="contenido-imagen-about"
+    />
+    <div *ngIf="admin !== undefined">
+      <h2>{{ admin[0].name }} {{ admin[0].lastName }}</h2>
     </div>
+    <div class="content_btn">
+      <div>
+        <button
+          [routerLink]="['/administrator', id]"
+          class="btn btn_regresar"
+        >
+          <i class="fas fa-arrow-left"></i> Regresar
+        </button>
+      </div>
+
+      <div>
+        <button
+          [routerLink]="['/administrator', id, 'denegados']"
+          class="btn btn_denegado"
+        >
+          <i class="fas fa-times-circle"></i> Denegados
+        </button>
+      </div>
+    </div>
+
   </div>
-  <div class="col-lg-8">
+
+  <div class="contenedor_derecha">
     <div class="card">
       <button [routerLink]="['/administrator','3fb8ce38-50b9-4ca8-873e-bbb0c5f4d196']" class="btn btn-secondary">Admin</button>
       <div class="card-body">

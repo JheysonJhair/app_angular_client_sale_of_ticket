@@ -106,8 +106,7 @@ export class PaymentComponent implements OnInit {
       formData.append('file', this.selectedFile);
       this._saleService.saveSale(formData).subscribe(
         (data) => {
-          console.log("VALIDAR MARCAR COMPRA");
-          this.toastr.success(  
+          this.toastr.success(
             'Pago realizado  con exito',
             'Completado!'
           );

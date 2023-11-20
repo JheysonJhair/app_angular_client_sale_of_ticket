@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { dtoStudent } from 'src/app/interfaces/student';
 import { StudentService } from 'src/app/services/student.service';
+import { AdministratorService } from 'src/app/services/administrator.service';
+import { dtoAdministrator } from 'src/app/interfaces/administrator';
 
 @Component({
   selector: 'app-add-edit-student',
@@ -12,6 +14,7 @@ import { StudentService } from 'src/app/services/student.service';
 })
 export class AddEditStudentComponent implements OnInit {
   addStudent: FormGroup;
+  admin: dtoAdministrator[] | undefined;
   accion = 'Registrar';
   id = '';
   str2 = null;
@@ -21,6 +24,7 @@ export class AddEditStudentComponent implements OnInit {
     private fb: FormBuilder,
     private _studentService: StudentService,
     private router: Router,
+    private _administratorService: AdministratorService,
     private aRoute: ActivatedRoute,
     private toastr: ToastrService
   ) {
@@ -52,8 +56,16 @@ export class AddEditStudentComponent implements OnInit {
   }
   ngOnInit(): void {
     this.esEdit();
+    this.getAdmin();
   }
 
+  //------------------------------------------------------GET -ADMIN - SALE- LISTSALE - STUDENT
+  getAdmin() {
+    this._administratorService.getAdmin(this.id).subscribe((data) => {
+      this.admin = data;
+      console.log(data);
+    });
+  }
   esEdit() {
     if (this.id !== this.str2) {
       this.accion = 'Editar';
