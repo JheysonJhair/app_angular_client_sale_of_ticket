@@ -1,41 +1,66 @@
 <app-navbar></app-navbar>
-<div class="row mt -4">
-  <div class="col-lg-3">
-    <div class="contenedor_izquierda">
-      <img
-        src="https://cdn-icons-png.flaticon.com/512/78/78948.png"
-        alt=""
-        class="contenido-imagen-about"
-      />
-      <div *ngIf="admin !== undefined">
-        <h2>{{admin[0].name}} {{admin[0].lastName}}</h2>
+
+<div class="container">
+  <div class="circle-1"></div>
+  <div class="circle-2"></div>
+  <div class="circle-3"></div>
+  <div class="cuad-1"></div>
+  <div class="triangle"></div>
+  <div class="contenedor_izquierda">
+    <img
+      src="../../../assets/svg/undraw_pic_profile_re_7g2h.svg"
+      alt=""
+      class="contenido-imagen-about"
+    />
+    <div *ngIf="admin !== undefined">
+      <h2>{{ admin[0].name }} {{ admin[0].lastName }}</h2>
+    </div>
+    <div class="content_btn">
+      <div *ngIf="opening !== undefined">
+        <button
+          (click)="updateStateApertura()"
+          [disabled]="opening[0].openState == true"
+          type="button"
+          class="button open-btn"
+        >
+          <i class="fas fa-door-open"></i> APERTURA
+        </button>
       </div>
-      <div class="content_btn">
-        <div *ngIf="opening !== undefined" class="bbb">
-          <button
-            (click)="updateState()"
-            [disabled]="opening[0].openState == true"
-            type="button"
-            class="bvb bi btn btn-success"
-          >
-            APERTURA
-          </button>
-        </div>
-        <div *ngIf="opening !== undefined" class="bbb">
-          <button
-            (click)="updateState2()"
-            type="button "
-            class="bvb bi btn btn-danger"
-          >
-            CIERRE
-          </button>
-        </div>
+
+      <div *ngIf="opening !== undefined">
+        <button
+          (click)="updateStateCierre()"
+          [disabled]="opening[0].openState == false"
+          type="button"
+          class="button close-btn"
+        >
+          <i class="fas fa-door-closed"></i> CIERRE
+        </button>
       </div>
     </div>
   </div>
-  <div class="col-lg-9">
-    <div class="card">
-      <div class="card-body">
+  <div class="contenedor_derecha">
+    <div class="content_list">
+      <div class="container_list">
+        <div class="buttons">
+          <button
+            routerLink="/comedor"
+            type="button"
+            class="btn_list btn-primary"
+          >
+            <i class="fas fa-utensils"></i> Estudiantes con comedor
+          </button>
+          <button type="button" routerLink="/getall" class="btn_list btn-info">
+            <i class="fas fa-list"></i> Listar Estudiantes
+          </button>
+          <button
+            type="button"
+            routerLink="/insert"
+            class="btn_list btn-success"
+          >
+            <i class="fas fa-user-plus"></i> Registar estudiante
+          </button>
+        </div>
         <div class="stock">
           <input
             type="text"
@@ -45,61 +70,51 @@
             [(ngModel)]="inputValue"
           />
         </div>
-        <button routerLink="/comedor" type="button " class="bi btn btn-primary">
-          ESTUDIANTES CON COMEDOR
-        </button>
-        <button type="button " routerLink="/getall" class="bi btn btn-info">
-          Listar Estudiantes
-        </button>
-        <button type="button " routerLink="/insert" class="bi btn btn-info">
-          Registar estudiante
-        </button>
-        <h3>Lista recibo de voucher</h3>
-        <table
-          *ngIf="listSaleDetail.length > 0"
-          class="table table-hover mt-3"
-        >
-          <thead>
-            <tr>
-              <th class="bol">VOUCHER</th>
-              <th class="bol">NOMBRES Y AEPLLIDOS</th>
-              <th class="bol">CODIGO</th>
-              <th class="bol">ESCUELA</th>
-              <th></th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <ng-container *ngFor="let venta of listSaleDetail">
-              <tr *ngIf="!venta.saleState">
+      </div>
+      <h3>Lista recibo de voucher</h3>
+      <table *ngIf="listSaleDetail.length > 0" class="table table-hover mt-3">
+        <thead>
+          <tr>
+            <th class="bol">VOUCHER</th>
+            <th class="bol">NOMBRES Y AEPLLIDOS</th>
+            <th class="bol">CODIGO</th>
+            <th class="bol">ESCUELA</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let venta of listSaleDetail">
+            <tr *ngIf="!venta.saleState">
               <td>
-                <a href="#" (click)="openImageDialog($event, venta.couponImg)">{{
-                  "YAPE: Voucher de pago"
-                }}</a>
+                <a
+                  href="#"
+                  (click)="openImageDialog($event, venta.couponImg)"
+                  >{{ "YAPE: VOUCHER" }}</a
+                >
               </td>
               <td>{{ venta.names }}</td>
               <td>{{ venta.code }}</td>
               <td>{{ venta.school }}</td>
               <td>
                 <i
-                (click)="changeValue(venta.idSale)"
+                  (click)="admitirSale(venta.idSale)"
                   class="fa-solid fa-square-check text-success far"
                 ></i>
               </td>
               <td>
                 <i
-                (click)="deleteSale(venta.idSale)"
+                  (click)="deleteSale(venta.idSale)"
                   class="fa-sharp fa-solid fa-square-xmark text-danger far"
                 ></i>
               </td>
             </tr>
           </ng-container>
-          </tbody>
-        </table>
-      </div>
-      <div *ngIf="listSaleDetail.length == 0" class="row mt-5">
-        <h5>No hay Estudiantes por mostrar.</h5>
-      </div>
+        </tbody>
+      </table>
+    </div>
+    <div *ngIf="listSaleDetail.length == 0" class="row mt-5">
+      <h5>No hay Estudiantes por mostrar.</h5>
     </div>
   </div>
 </div>
