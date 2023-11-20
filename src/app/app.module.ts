@@ -25,7 +25,7 @@ import { ListProductComponent } from './components/list-product/list-product.com
 import { TicketComponent } from './components/ticket/ticket.component';
 import { ImageDialogComponent } from './components/image-dialog/image-dialog.component';
 import { ApprovedStudentsComponent } from './components/approved-students/approved-students.component';
-
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -49,6 +49,7 @@ import { ApprovedStudentsComponent } from './components/approved-students/approv
     MatIconModule,
     MatDialogModule,
     BrowserModule,
+    MatMenuModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,

@@ -26,7 +26,14 @@ html {
   height: inherit;
   overflow: hidden;
 }
+.transparent-background {
+  background-color: transparent;
+  border: none; 
+}
 
+.transparent-background:hover {
+  cursor: pointer; 
+}
 /******************** LOGO ***************************/
 .logo,
 .logo i {

@@ -6,13 +6,12 @@
     </div>
     <div class="header_enlaces">
       <div class="contenedor-icono">
-        <a href="#" target="_blank" class="gmail">
+          <a href="https://www.linkedin.com/in/jheysonjhairpro/" target="_blank" class="gmail">
           <i class="fa-solid fa-bell"></i>
         </a>
       </div>
       <div class="contenedor-icono">
         <a
-          routerLink="/getall"
           href="https://mail.google.com/mail/u/1/#inbox"
           target="_blank"
           class="gmail"
@@ -22,16 +21,22 @@
       </div>
 
       <div class="contenedor-icono">
-        <a href="#" target="_blank" >
+        <a href="https://www.unamba.edu.pe/" target="_blank" >
           <i class="fa-solid fa-location-dot"></i>
         </a>
       </div>
+      <button mat-icon-button [matMenuTriggerFor]="menu" class="transparent-background">
+        <i class="fa-solid fa-bars"></i>
+      </button>
 
-      <div class="contenedor-icono">
-        <a href="index.html" >
-          <i class="fa-solid fa-bars"></i>
-        </a>
-      </div>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="handleChangePassword()">
+          <i class="fa-solid fa-key"></i> Cambiar Contraseña
+        </button>
+        <button mat-menu-item (click)="handleLogout()">
+          <i class="fa-solid fa-sign-out-alt"></i> Salir
+        </button>
+      </mat-menu>
     </div>
   </div>
 </div>
