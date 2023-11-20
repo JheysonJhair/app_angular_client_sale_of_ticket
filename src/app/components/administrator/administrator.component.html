@@ -44,18 +44,19 @@
       <div class="container_list">
         <div class="buttons">
           <button
-            routerLink="/comedor"
-            type="button"
-            class="btn_list btn-primary"
-          >
-            <i class="fas fa-utensils"></i> Estudiantes con comedor
-          </button>
-          <button type="button" routerLink="/getall" class="btn_list btn-info">
+          [routerLink]="'/administrator/' + id + '/listComedor'"
+          type="button"
+          class="btn_list btn-primary"
+        >
+          <i class="fas fa-utensils"></i> Estudiantes con comedor
+        </button>
+
+          <button type="button" [routerLink]="'/administrator/' + id + '/getall'" class="btn_list btn-info">
             <i class="fas fa-list"></i> Listar Estudiantes
           </button>
           <button
             type="button"
-            routerLink="/insert"
+            [routerLink]="'/administrator/' + id + '/insert'"
             class="btn_list btn-success"
           >
             <i class="fas fa-user-plus"></i> Registar estudiante

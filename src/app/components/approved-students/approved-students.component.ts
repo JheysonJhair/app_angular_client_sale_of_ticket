@@ -1,36 +1,50 @@
 import { Component } from '@angular/core';
 import { dtoSaleDetail } from 'src/app/interfaces/saleDetail';
 import { AdministratorService } from 'src/app/services/administrator.service';
+import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { SaleService } from 'src/app/services/sale.service';
-import { dtoSale } from 'src/app/interfaces/sale';
+import { dtoAdministrator } from 'src/app/interfaces/administrator';
 import { dtoStudent } from 'src/app/interfaces/student';
 import { StudentService } from 'src/app/services/student.service';
 
 @Component({
   selector: 'app-approved-students',
   templateUrl: './approved-students.component.html',
-  styleUrls: ['./approved-students.component.css']
+  styleUrls: ['./approved-students.component.css'],
 })
 export class ApprovedStudentsComponent {
   listSaleDetail: dtoSaleDetail[] = [];
   listStudent: dtoStudent[] = [];
+  admin: dtoAdministrator[] | undefined;
+  id: string;
   student: dtoStudent[] | undefined;
   idPasar: any;
   idStudent: any;
-  pru:any;
+  pru: any;
 
   constructor(
     private _administratorService: AdministratorService,
     private _saleService: SaleService,
     private toastr: ToastrService,
+    private aRoute: ActivatedRoute,
     private _studentService: StudentService
-  ){
-
+  ) {
+    this.id = this.aRoute.snapshot.paramMap.get('id')!;
   }
   ngOnInit(): void {
     this.getSale();
+    this.getAdmin();
   }
+
+  //------------------------------------------------------GET -ADMIN - SALE- LISTSALE - STUDENT
+  getAdmin() {
+    this._administratorService.getAdmin(this.id).subscribe((data) => {
+      this.admin = data;
+      console.log(data);
+    });
+  }
+
   getSale() {
     this._administratorService.getSaleDetail().subscribe(
       (data) => {
@@ -44,7 +58,7 @@ export class ApprovedStudentsComponent {
       }
     );
   }
-  getListSale(id:any) {
+  getListSale(id: any) {
     this._saleService.getSaleId(id).subscribe(
       (data) => {
         this.listStudent = data;
@@ -57,10 +71,10 @@ export class ApprovedStudentsComponent {
       }
     );
   }
-  getStudent(id:any){
-    this._studentService.getStudent(id).subscribe(data =>{
+  getStudent(id: any) {
+    this._studentService.getStudent(id).subscribe((data) => {
       this.student = data;
       this.pru = this.student![0].idStudent;
-    })
+    });
   }
 }
