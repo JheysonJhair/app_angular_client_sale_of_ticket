@@ -1,26 +1,48 @@
 <app-navbar></app-navbar>
 <main>
   <section class="c-exterior">
-    <form class="cont">
+    <div class="circle-1"></div>
+    <div class="circle-2"></div>
+    <div class="circle-3"></div>
+    <div class="cuad-1"></div>
+    <div class="triangle"></div>
+    <form class="container">
       <div class="contenedor_izquierda">
-        <h2>MÉTODO DE PAGO</h2>
-        <div class="cc yap">
-          <img src="../../../assets/img/Yape.png" alt="" />
+        <h2>MÉTODOS DE PAGO</h2>
+        <div class="cont-yape">
+          <h3>Número de yape</h3>
+          <div class="yape-info">
+            <i class="fas fa-phone"></i>
+            <span>+51 983 805 438</span>
+          </div>
         </div>
-        <div class="cc qr">
-          <img src="../../../assets/img/Group 1.png" alt="" />
+
+        <div class="cont-qr">
+          <div>
+            <img src="../../../assets/img/Group 1.png" alt="" />
+          </div>
+          <div>
+            <img
+              src="../../../assets/svg/undraw_stripe_payments_re_chlm.svg"
+              alt="Pinguino saludando"
+            />
+          </div>
         </div>
-        <div class="cc target">
-          <img src="../../../assets/img/Yape2.png" alt="" />
+
+        <div class="cont-yape">
+          <h3>Depósito a cuenta bancaria</h3>
+          <div class="yape-info">
+            <i class="fa-solid fa-credit-card"></i>
+            <span>200 40 50 80 8786</span>
+          </div>
         </div>
       </div>
       <div class="contenedor_derecha">
         <h2>Resumen</h2>
-        <div class="inp">
-          <span class="icon-comed"></span>
+        <div class="row">
+          <i class="fa-solid fa-utensils"></i>
           <h3>Compra de ticket para el comedor</h3>
         </div>
-        <img src="../../../assets/img/LineSep2.png" alt="" />
         <fieldset>
           <legend>Pago a realizar</legend>
           <div *ngFor="let product of listProduct">
@@ -34,9 +56,9 @@
             <label for="">{{ product.name }} S./{{ product.price }}</label>
           </div>
         </fieldset>
-        <img src="../../../assets/img/LineSep2.png" alt="" />
+        <br />
         <div *ngIf="student !== undefined">
-          <div class="es">
+          <div class="padd">
             <label style="margin-right: 20px; font-weight: bold"
               >Estudiante:
             </label>
@@ -45,26 +67,26 @@
               {{ student[0].lastName | titlecase }}</label
             >
           </div>
-          <div class="es">
+          <div class="padd">
             <label style="margin-right: 45px; font-weight: bold"
               >Codigo:
             </label>
             <label for="codigo"> {{ student[0].code }}</label>
           </div>
         </div>
-        <img src="../../../assets/img/LineSep2.png" alt="" />
+        <hr />
         <div *ngIf="periodo !== undefined" class="date">
-          <div class="dt1">
-            <label for="fInicio">Fecha fin:</label>
+          <div class="date-init">
+            <label for="fInicio">Fecha inicio: </label>
             <p>{{ periodo[0].startDate | date : "yyyy-MM-dd" }}</p>
           </div>
-          <div class="dt2">
-            <label for="fInicio">Fecha fin:</label>
+          <div class="date-end">
+            <label for="fFin">Fecha fin: </label>
             <p>{{ periodo[0].endDate | date : "yyyy-MM-dd" }}</p>
           </div>
         </div>
-        <img src="../../../assets/img/LineSep2.png" alt="" />
-        <div class="to">
+        <hr />
+        <div class="row">
           <div class="lblprice">
             <label>TOTAL: </label>
           </div>
@@ -72,21 +94,35 @@
             <label for="estudiante">{{ total }}</label>
           </div>
         </div>
-        <div class="btns">
+        <div class="row">
           <div class="archivo">
+            <label for="fileInput" class="file-label">Subir Archivo</label>
             <input
               type="file"
+              id="fileInput"
               accept="image/png, image/jpeg"
               (change)="handleFileInput($event)"
             />
           </div>
-          <div *ngIf="student !== undefined ">
-            <button class="btn btn-primary"  (click)="Cargar()" type="submit" [disabled]="total == 0 || !selectedFile || saleSateHelp === false">Enviar</button>
+
+          <div *ngIf="student !== undefined">
+            <button
+              class="btn_ btn-yellow"
+              (click)="buy()"
+              type="submit"
+              [disabled]="total == 0 || !selectedFile || saleStateHelp === true"
+            >
+              Enviar
+            </button>
           </div>
         </div>
-        <div *ngIf="saleSateHelp !== false ">
-          <p class="compra_realizada">Usted ya realizo la compra, por favor verifique su voucher</p>
-          <button class="btn_imp" (click)="Cargar()">IMPRIMIR</button>
+        <div *ngIf="saleStateHelp === true">
+          <p class="compra_realizada">
+            Usted ya realizo la compra, por favor verifique su voucher
+          </p>
+          <button class="btn_imp" (click)="ticket()">
+            <i class="fas fa-print"></i> IMPRIMIR
+          </button>
         </div>
       </div>
     </form>

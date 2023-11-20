@@ -5,6 +5,7 @@ body {
 html {
   font-size: 62.5%;
 }
+/******************** DESIGN ***************************/
 .circle-1,
 .circle-2,
 .circle-3,
@@ -65,7 +66,6 @@ html {
 /******************** LEFT ***************************/
 
 .contenedor_izquierda {
-
   display: flex;
   flex-direction: column;
   justify-content: center;

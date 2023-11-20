@@ -8,9 +8,7 @@ import { ProductService } from 'src/app/services/product.service';
 import { StudentService } from 'src/app/services/student.service';
 
 import { DatePipe } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
 import { SaleService } from 'src/app/services/sale.service';
-import { dtoSale } from 'src/app/interfaces/sale';
 
 @Component({
   selector: 'app-payment',
@@ -19,18 +17,17 @@ import { dtoSale } from 'src/app/interfaces/sale';
   providers: [DatePipe],
 })
 export class PaymentComponent implements OnInit {
-  idPasar: string;
+  id: string;
   codeAdmi: string;
-  public static idS: string;
 
   total: number = 0;
   student: dtoStudent[] | undefined;
   periodo: dtoPeriod[] | undefined;
-  saleSateHelp:boolean = true;
-  //listProduct: dtoProduct[] = []
+  saleStateHelp: boolean = false;
+
   listProduct = [
-    { name: 'Desayuno', price: 10, selected: false },
-    { name: 'Almuerzo', price: 15, selected: false },
+    { name: 'Desayuno', price: 2, selected: false },
+    { name: 'Almuerzo', price: 10, selected: false },
   ];
 
   selectedFile: any;
@@ -44,42 +41,33 @@ export class PaymentComponent implements OnInit {
     private toastr: ToastrService
   ) {
     this.aRoute.snapshot.paramMap.get('id');
-    this.idPasar = this.aRoute.snapshot.paramMap.get('id')!;
+    this.id = this.aRoute.snapshot.paramMap.get('id')!;
 
   }
 
   ngOnInit(): void {
-    this.getStudentCondition();
+    this.getStudent();
     this.getAlmuerzoDesayuno();
     this.getFecha();
   }
-
+  // ---------------------------------------------------- GET PRODUCTO - STUDENT -FECHA
   getAlmuerzoDesayuno() {
     this._productService.getListProduct().subscribe(
       (data) => {
         this.listProduct = data.listDtoProduct;
       },
       (error) => {
-        this.toastr.error('Opss ocurrio un error', 'Error');
         console.log(error);
       }
     );
   }
-  getStudentCondition() {
-    this._studentService.getStudent(this.idPasar).subscribe((data) => {
+
+  getStudent() {
+    this._studentService.getStudent(this.id).subscribe((data) => {
       this.student = data;
     });
   }
-  getSaleAll(){
 
-  }
-  onCheckboxChange(event: any) {
-    if (event.target.checked) {
-      this.total += parseFloat(event.target.value);
-    } else {
-      this.total -= parseFloat(event.target.value);
-    }
-  }
   getFecha() {
     this._productService
       .getFecha('101b3361-0aac-410b-9bf4-f9cd00a95f23')
@@ -88,14 +76,28 @@ export class PaymentComponent implements OnInit {
         this.periodo!.forEach((element) => {});
       });
   }
+  // ---------------------------------------------------- CHECKBOX
+  onCheckboxChange(event: any) {
+    if (event.target.checked) {
+      this.total += parseFloat(event.target.value);
+    } else {
+      this.total -= parseFloat(event.target.value);
+    }
+  }
 
   handleFileInput(event: any): void {
     this.selectedFile = event.target.files[0];
   }
-  Cargar(): void {
+  // ---------------------------------------------------- TRAER TICKET
+  ticket(){
+    console.log("MI TICKET");
+  }
+
+  // ---------------------------------------------------- DATOS BACK
+  buy(): void {
     if (this.selectedFile) {
       const formData: FormData = new FormData();
-      formData.append('dtoSale.idStudent', this.idPasar);
+      formData.append('dtoSale.idStudent', this.id);
       formData.append(
         'dtoSale.idPeriod',
         '101b3361-0aac-410b-9bf4-f9cd00a95f23'
@@ -104,12 +106,12 @@ export class PaymentComponent implements OnInit {
       formData.append('file', this.selectedFile);
       this._saleService.saveSale(formData).subscribe(
         (data) => {
-
-          this.toastr.success(
+          console.log("VALIDAR MARCAR COMPRA");
+          this.toastr.success(  
             'Pago realizado  con exito',
             'Completado!'
           );
-          this.router.navigate(['/ticket', this.idPasar, this.total]);
+          this.router.navigate(['/ticket', this.id, this.total]);
         },
         (error) => {
           this.toastr.error('Opss ocurrio un error', 'Error');

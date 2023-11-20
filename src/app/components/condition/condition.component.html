@@ -55,7 +55,7 @@
       <h3>Condición de discapacidad</h3>
       <p>Limitaciones asociadas a la salud y habilidades físicas o mentales. Esto puede incluir barreras de accesibilidad, falta de apoyo especializado..</p>
       <div *ngIf="student !== undefined" class="btn_global">
-        {{ student[0].disability === false ? "Discapacitado" : "Sin discapacidad" }}
+        {{ student[0].disability === true ? "Discapacitado" : "Sin discapacidad" }}
       </div>
       <hr /> 
       <h3>Condicion FINAL</h3>
