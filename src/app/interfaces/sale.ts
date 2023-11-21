@@ -4,5 +4,5 @@ export interface dtoSale{
   idPeriod: string,
   couponImg: string,
   total: number,
-  saleState: boolean
+  saleState: number
 }

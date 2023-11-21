@@ -2,6 +2,7 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { LoginComponent } from '../components/login/login.component';
+import { insertStudent } from '../interfaces/student';
 
 @Injectable({
   providedIn: 'root'
@@ -28,9 +29,11 @@ export class StudentService {
   deleteStudent(id: string): Observable<any>{
     return this.http.delete(this.myAppUrl + this.myUrlDelete + id)
   }
-  saveStudent(dtoStudent: FormData): Observable<any>{
-    return this.http.post(this.myAppUrl + this.myApiInsert,dtoStudent);
+  saveStudent(dtoStudent: insertStudent): Observable<any> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.post(this.myAppUrl + this.myApiInsert, JSON.stringify(dtoStudent), { headers });
   }
+
   getStudent(id: string): Observable<any>{
     const headers = new HttpHeaders({
     'Authorization': 'Bearer ' + LoginComponent.token

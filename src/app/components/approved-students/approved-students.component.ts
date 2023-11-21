@@ -6,7 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { SaleService } from 'src/app/services/sale.service';
 import { dtoAdministrator } from 'src/app/interfaces/administrator';
 import { dtoStudent } from 'src/app/interfaces/student';
-import { StudentService } from 'src/app/services/student.service';
+import { ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-approved-students',
@@ -14,34 +14,33 @@ import { StudentService } from 'src/app/services/student.service';
   styleUrls: ['./approved-students.component.css'],
 })
 export class ApprovedStudentsComponent {
+  id: string;
+
   listSaleDetail: dtoSaleDetail[] = [];
   listStudent: dtoStudent[] = [];
   admin: dtoAdministrator[] | undefined;
-  id: string;
-  student: dtoStudent[] | undefined;
-  idPasar: any;
-  idStudent: any;
-  pru: any;
 
+  idListSale: any;
+  pdfUrl = '../../../assets/pdf/DENEGADOS.pdf';
+  @ViewChild('denegadosButton') denegadosButton: ElementRef;
   constructor(
     private _administratorService: AdministratorService,
     private _saleService: SaleService,
     private toastr: ToastrService,
     private aRoute: ActivatedRoute,
-    private _studentService: StudentService
+
   ) {
-    this.id = this.aRoute.snapshot.paramMap.get('id')!;
+    this.id = this.aRoute.snapshot.paramMap.get('id_a')!;
   }
   ngOnInit(): void {
     this.getSale();
     this.getAdmin();
   }
 
-  //------------------------------------------------------GET -ADMIN - SALE- LISTSALE - STUDENT
+  //------------------------------------------------------GET -ADMIN - SALE- LISTSALE
   getAdmin() {
     this._administratorService.getAdmin(this.id).subscribe((data) => {
       this.admin = data;
-      console.log(data);
     });
   }
 
@@ -49,8 +48,8 @@ export class ApprovedStudentsComponent {
     this._administratorService.getSaleDetail().subscribe(
       (data) => {
         this.listSaleDetail = data;
-        this.idPasar = this.listSaleDetail[0].idSale;
-        this.getListSale(this.idPasar);
+        this.idListSale = this.listSaleDetail[0].idSale;
+        this.getListSale(this.idListSale);
       },
       (error) => {
         this.toastr.error('Opss ocurrio un error', 'Error');
@@ -62,8 +61,6 @@ export class ApprovedStudentsComponent {
     this._saleService.getSaleId(id).subscribe(
       (data) => {
         this.listStudent = data;
-        this.idStudent = this.listStudent[0].idStudent;
-        this.getStudent(this.idStudent);
       },
       (error) => {
         this.toastr.error('Opss ocurrio un error', 'Error');
@@ -71,10 +68,9 @@ export class ApprovedStudentsComponent {
       }
     );
   }
-  getStudent(id: any) {
-    this._studentService.getStudent(id).subscribe((data) => {
-      this.student = data;
-      this.pru = this.student![0].idStudent;
-    });
+
+  //------------------------------------------------------DONWLOAD PDF
+  descargarPDF() {
+    this.denegadosButton.nativeElement.click();
   }
 }

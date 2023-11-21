@@ -18,12 +18,11 @@ import { SaleService } from 'src/app/services/sale.service';
 })
 export class PaymentComponent implements OnInit {
   id: string;
-  codeAdmi: string;
-
   total: number = 0;
+  saleStateHelp: boolean = false;
+
   student: dtoStudent[] | undefined;
   periodo: dtoPeriod[] | undefined;
-  saleStateHelp: boolean = false;
 
   listProduct = [
     { name: 'Desayuno', price: 2, selected: false },
@@ -70,7 +69,7 @@ export class PaymentComponent implements OnInit {
 
   getFecha() {
     this._productService
-      .getFecha('101b3361-0aac-410b-9bf4-f9cd00a95f23')
+      .getFecha('c4dcbaf6-63b9-4d95-bc33-9d428e0a5113')
       .subscribe((data) => {
         this.periodo = data;
         this.periodo!.forEach((element) => {});
@@ -100,7 +99,7 @@ export class PaymentComponent implements OnInit {
       formData.append('dtoSale.idStudent', this.id);
       formData.append(
         'dtoSale.idPeriod',
-        '101b3361-0aac-410b-9bf4-f9cd00a95f23'
+        'c4dcbaf6-63b9-4d95-bc33-9d428e0a5113'
       );
       formData.append('dtoSale.total', ''+this.total);
       formData.append('file', this.selectedFile);

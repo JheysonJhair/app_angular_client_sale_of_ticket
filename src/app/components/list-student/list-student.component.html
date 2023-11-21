@@ -12,13 +12,16 @@
       alt=""
       class="contenido-imagen-about"
     />
-    <div *ngIf="admin !== undefined">
-      <h2>{{ admin[0].name }} {{ admin[0].lastName }}</h2>
+    <div class="row" *ngIf="admin !== undefined">
+      <div class="center-content">
+        <h2><span>ADMINISTRADOR</span></h2>
+        <h2>{{ admin[0].name }} {{ admin[0].lastName }}</h2>
+      </div>
     </div>
     <div class="content_btn">
       <div>
         <button
-          [routerLink]="['/administrator', id]"
+          [routerLink]="['/administrator', id_a]"
           class="btn btn_regresar"
         >
           <i class="fas fa-arrow-left"></i> Regresar
@@ -26,12 +29,11 @@
       </div>
 
       <div>
-        <button
-          [routerLink]="['/administrator', id, 'denegados']"
-          class="btn btn_denegado"
-        >
-          <i class="fas fa-times-circle"></i> Denegados
-        </button>
+        <a [href]="pdfUrl" download="Estudiantes_denegados">
+          <button class="btn btn_denegado">
+            <i class="fas fa-times-circle"></i> Denegados
+          </button>
+        </a>
       </div>
     </div>
 
@@ -42,7 +44,7 @@
     <div class="content_list">
       <div class="card-body">
         <h3><i class="fas fa-users"></i> Listado de Estudiantes</h3>
-        <button [routerLink]="'/administrator/' + id + '/insert'" class="btn btn-primary float-end">
+        <button [routerLink]="'/administrator/' + id_a + '/insert'" class="btn btn-primary float-end">
           Nuevo Registro
         </button>
         <div class="table-container">
@@ -78,9 +80,10 @@
               <td>{{ student.code }}</td>
               <td>
                 <i
-                  [routerLink]="['/update', student.idStudent]"
-                  class="far fa-solid fa-pen-to-square text-info"
-                ></i>
+                [routerLink]="'/administrator/' + id_a + '/update/'+student.idStudent"
+
+                class="far fa-solid fa-pen-to-square text-info"
+              ></i>
               </td>
               <td>
                 <i

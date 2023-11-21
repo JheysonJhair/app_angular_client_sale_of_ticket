@@ -12,9 +12,13 @@
       alt=""
       class="contenido-imagen-about"
     />
-    <div *ngIf="admin !== undefined">
-      <h2>{{ admin[0].name }} {{ admin[0].lastName }}</h2>
+    <div class="row" *ngIf="admin !== undefined">
+      <div class="center-content">
+        <h2><span>ADMINISTRADOR</span></h2>
+        <h2>{{ admin[0].name }} {{ admin[0].lastName }}</h2>
+      </div>
     </div>
+
     <div class="content_btn">
       <div *ngIf="opening !== undefined">
         <button
@@ -44,14 +48,18 @@
       <div class="container_list">
         <div class="buttons">
           <button
-          [routerLink]="'/administrator/' + id + '/listComedor'"
-          type="button"
-          class="btn_list btn-primary"
-        >
-          <i class="fas fa-utensils"></i> Estudiantes con comedor
-        </button>
+            [routerLink]="'/administrator/' + id + '/listComedor'"
+            type="button"
+            class="btn_list btn-primary"
+          >
+            <i class="fas fa-utensils"></i> Estudiantes con comedor
+          </button>
 
-          <button type="button" [routerLink]="'/administrator/' + id + '/getall'" class="btn_list btn-info">
+          <button
+            type="button"
+            [routerLink]="'/administrator/' + id + '/getall'"
+            class="btn_list btn-info"
+          >
             <i class="fas fa-list"></i> Listar Estudiantes
           </button>
           <button
@@ -77,9 +85,9 @@
         <thead>
           <tr>
             <th class="bol">VOUCHER</th>
-            <th class="bol">NOMBRES Y AEPLLIDOS</th>
-            <th class="bol">CODIGO</th>
-            <th class="bol">ESCUELA</th>
+            <th class="bol">NOMBRES Y APELLIDOS</th>
+            <th class="bol">CÓDIGO</th>
+            <th class="bol">ESCUELA PROFESIONAL</th>
             <th></th>
             <th></th>
           </tr>

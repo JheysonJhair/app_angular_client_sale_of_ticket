@@ -20,7 +20,7 @@ html {
   width: 38.4rem;
   height: 38.4rem;
   border-radius: 50%;
-  border: .4rem solid white;
+  border: 0.4rem solid white;
   z-index: -1;
 }
 
@@ -38,7 +38,7 @@ html {
   position: fixed;
   bottom: -7.2rem;
   left: 50%;
-  border: .4rem solid white;
+  border: 0.4rem solid white;
   width: 25.4rem;
   height: 25.4rem;
   border-radius: 50%;
@@ -49,9 +49,9 @@ html {
   top: 45%;
   left: 6%;
   width: 20.9rem;
-  height:20.9rem;
-  border: .4rem solid white;
-  transform: rotate(45deg); 
+  height: 20.9rem;
+  border: 0.4rem solid white;
+  transform: rotate(45deg);
   z-index: -1;
 }
 .triangle {
@@ -63,7 +63,7 @@ html {
   position: fixed;
   top: 2%;
   left: 0%;
-  transform: rotate(33deg); 
+  transform: rotate(33deg);
   z-index: -1;
 }
 .c-exterior {
@@ -86,19 +86,17 @@ html {
   border-radius: 2rem;
   display: flex;
   flex-direction: column;
-  
 }
 .contenedor_izquierda h2 {
   font-size: 25px;
   margin-bottom: 10px;
-
 }
 /********* SUB CONTAINER ***************/
 .cont-yape {
   text-align: left;
-  background-color: #F7F9FA;
+  background-color: #f7f9fa;
   border: 1px solid gray;
-  padding: .5rem;
+  padding: 0.5rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
@@ -122,20 +120,19 @@ html {
   width: 50rem;
 }
 .cont-qr img {
-  max-width: 100%; 
+  max-width: 100%;
   height: auto;
 }
 
-
 /******************** CONTAINERS ***************************/
 .contenedor_derecha {
-  background:#ffffff;
+  background: #ffffff;
   height: 80%;
   width: 50%;
   padding: 2rem;
   margin: 2rem;
   border-radius: 1rem;
-  border: .1rem solid #b5edf2; 
+  border: 0.1rem solid #b5edf2;
 }
 
 .contenedor_derecha h2 {
@@ -178,8 +175,8 @@ fieldset {
   margin-bottom: 0px;
 }
 
-.contenedor_derecha .padd{
-  padding: .3rem;
+.contenedor_derecha .padd {
+  padding: 0.3rem;
 }
 
 legend {
@@ -211,29 +208,29 @@ legend {
 
 .date-init p,
 .date-end p {
-  margin-left: .4rem;
+  margin-left: 0.4rem;
 }
 /******* TOTAL *********/
-.price, .lblprice {
-  width: 50%; 
-  box-sizing: border-box; 
+.price,
+.lblprice {
+  width: 50%;
+  box-sizing: border-box;
 }
-.price{
+.price {
   text-align: end;
 }
 /******* UPLOAD FILE *********/
 .archivo {
-  flex: 1; 
+  flex: 1;
 }
 
 .right-container {
-  margin-left: auto; 
+  margin-left: auto;
 }
 
-
 .file-label {
-  background-color: #30a390;
-  color: #fff; 
+  background-color: var(---green-color);
+  color: #fff;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
@@ -248,7 +245,7 @@ input[type="file"] {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s; 
+  transition: background-color 0.3s;
 }
 
 .btn-yellow {
@@ -262,12 +259,12 @@ input[type="file"] {
 }
 
 .btn_:hover {
-  background-color: #f8e71c; 
+  opacity: 0.8;
 }
 
 /******* IMP *********/
-.compra_realizada{
-  color: rgb(225, 60, 60);
+.compra_realizada {
+  color: var(---red-color);
   font-weight: 600;
 }
 
@@ -275,8 +272,8 @@ input[type="file"] {
   width: 100%;
   display: inline-block;
   padding: 10px 20px;
-  background-color: #3498db; 
-  color: #fff; 
+  background-color: var(---blue-color);
+  color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -284,10 +281,9 @@ input[type="file"] {
 }
 
 .btn_imp:hover {
-  background-color: #2980b9; 
+  opacity: 0.9;
 }
 
-
 .btn_imp i {
-  margin-right: 5px; 
+  margin-right: 5px;
 }

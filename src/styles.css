@@ -5,15 +5,17 @@
 :root{
   ---primary-color: #042354;
   ---secondary-color: #F2C33E;
-  ---extra-color: #3F656E;
   ---tertiary-color: #164a7c;
+
+  ---red-color: #C63346;
+  ---green-color: #30a390;;
+  ---purple-color: #6C63FF;
+  ---green-blue-color: #176E7A;
+  ---blue-color:  #2985CB;
+
   ---background-color: #f3f3f3;
   ---foreground-color: #010813;
   ---color-gray: #dfe1e8;
-  ---color-b1: #f8fafb;
-  ---color-b2: #EFF6FF;
-  ---color-b3:#F0F1F3;
-
 }
 
 html, body { height: 100%; }

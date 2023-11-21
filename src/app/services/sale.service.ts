@@ -12,6 +12,7 @@ export class SaleService {
 
   private myUrlGet = 'sale/getall/';
   private myUrlId = 'sale/getbyid?id=';
+  private myUrlDecrease = 'opening/decreaseQuantity';
   constructor(private http: HttpClient) { }
 
   saveSale(dtoSale: FormData): Observable<any>{
@@ -22,5 +23,12 @@ export class SaleService {
   }
   getSaleId(id: string): Observable<any>{
     return this.http.get(this.myAppUrl + this.myUrlId + id);
+  }
+  decreaseQuantity(data: any): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    return this.http.post(this.myAppUrl + this.myUrlDecrease, data, { headers: headers });
   }
 }

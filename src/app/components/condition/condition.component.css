@@ -79,8 +79,8 @@ html {
 }
 
 .contenedor_izquierda img {
-  height: 18rem;
-  width: 18.8rem;
+  height: 19rem;
+  width: 19.8rem;
   border-radius: 50%;
 }
 
@@ -128,7 +128,6 @@ html {
 }
 
 .button {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   background: #ffffff;
   margin: .5rem;
   cursor: pointer;
@@ -137,10 +136,13 @@ html {
   color: #ffffff;
   border-radius: .4rem;
 }
-
+.button-next:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 .button a {
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #000000;
   font-weight: bold;
   margin: .5rem;
@@ -184,7 +186,7 @@ html {
 }
 
 .btn_global{
-  background: #2985cb;
+  background: var(---blue-color);
   padding: .8rem;
   margin: .5rem;
   margin-bottom: 2rem;
@@ -197,7 +199,7 @@ html {
 }
 
 .btn_condicionFinal {
-  background: #30a390;
+  background: var(---green-color);
   padding: .5rem;
   margin: .5rem;
   margin-bottom: 2rem;
@@ -221,5 +223,5 @@ html {
 }
 
 .button-next:hover {
-  background-color: #FFD966;
+  opacity: .8;
 }

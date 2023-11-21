@@ -14,15 +14,15 @@ import { ApprovedStudentsComponent } from './components/approved-students/approv
 const routes: Routes =[
   { path: '' , component: LoginComponent},
   { path: 'pass' , component: ChangePasswordComponent},
-  { path: 'administrator/:id/getall', component: ListStudentComponent },
-  { path: 'administrator/:id/insert', component: AddEditStudentComponent},
-  { path: 'update/:id', component: AddEditStudentComponent},
+  { path: 'administrator/:id_a/getall', component: ListStudentComponent },
+  { path: 'administrator/:id_a/insert', component: AddEditStudentComponent},
+  { path: 'administrator/:id_a/update/:id', component: AddEditStudentComponent},
   { path: 'see/:id', component: SeeStudentComponent},
   { path: 'condition/:id', component: ConditionComponent},
   { path: 'payment/:id', component: PaymentComponent},
   { path: 'ticket/:id/:total', component: TicketComponent},
-  { path: 'administrator/:id', component: AdministratorComponent},
-  { path: 'administrator/:id/listComedor', component: ApprovedStudentsComponent },
+  { path: 'administrator/:id_a', component: AdministratorComponent},
+  { path: 'administrator/:id_a/listComedor', component: ApprovedStudentsComponent },
   { path: '**', redirectTo: '/', pathMatch:'full'}
 ];
 @NgModule({

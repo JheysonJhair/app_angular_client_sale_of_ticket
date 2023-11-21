@@ -49,12 +49,11 @@ html {
   top: 75%;
   left: 6%;
   width: 12.9rem;
-  height:12.9rem;
+  height: 12.9rem;
   background-color: #ffffff;
   transform: rotate(45deg);
   z-index: -1;
 }
-
 
 /******************** CONTAINERS ***************************/
 .container {
@@ -75,37 +74,54 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding:1.6rem;
+  padding: 1.6rem;
   width: 30%;
 }
-h3{
+h3 {
   font-size: 1.2rem;
-  margin-top: 1rem;;
+  margin-top: 1rem;
 }
 
 /******************** LEFT ***************************/
 
 .contenedor_derecha {
-  background:#ffffff;
+  background: #ffffff;
   height: 80%;
   width: 70%;
   padding: 2rem;
   margin: 2rem;
   border-radius: 1rem;
-  border: .1rem solid #b5edf2;
+  border: 0.1rem solid #b5edf2;
   margin-right: 9rem;
 }
 .btn {
   background: #30a390;
-  padding: .5rem;
-  margin: .5rem;
+  padding: 0.5rem;
+  margin: 0.5rem;
   width: 12rem;
   font-size: 1rem;
   text-align: center;
   color: #ffffff;
-  border-radius: .3rem;
+  border-radius: 0.3rem;
   border: none;
   cursor: pointer;
+}
+.btn_regresar {
+  background: var(---secondary-color);
+}
+.btn_denegado {
+  background: var(---purple-color);
+}
+h2 {
+  margin: 0;
+}
+h2 span {
+  text-align: center;
+  font-weight: bold;
+}
+.center-content {
+  text-align: center;
+  margin: auto;
 }
 .contenedor_izquierda .content_btn {
   display: flex;
@@ -114,14 +130,14 @@ h3{
   height: 9rem;
   width: 80%;
   margin-top: 1.4rem;
-  border-radius: .4rem;
+  border-radius: 0.4rem;
   justify-content: center;
   align-items: center;
-    color: #000000;
+  color: #000000;
 }
 
 .button i {
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 }
 /************* TABLA ****************/
 
@@ -129,10 +145,10 @@ h3{
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
-
 }
 
-.table th, .table td {
+.table th,
+.table td {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: left;
@@ -150,4 +166,3 @@ i {
 .row {
   margin-top: 20px;
 }
-

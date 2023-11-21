@@ -7,6 +7,7 @@ import { AdministratorService } from 'src/app/services/administrator.service';
 import { StudentService } from 'src/app/services/student.service';
 import { HttpClient } from '@angular/common/http';
 import { dtoPeriod } from 'src/app/interfaces/period';
+import { ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-condition',
@@ -17,7 +18,9 @@ export class ConditionComponent implements OnInit {
   selectedFile: File;
 
   id: string;
-
+  pdfUrl = '../../../assets/pdf/DENEGADOS.pdf';
+  pdfUrl2 = '../../../assets/pdf/DENEGADOS.pdf';
+  @ViewChild('denegadosButton') denegadosButton: ElementRef;
   student: dtoStudent[] | undefined;
   opening: dtoOpening[] | undefined;
   period: dtoPeriod[] | undefined;
@@ -47,14 +50,14 @@ export class ConditionComponent implements OnInit {
   }
   getOpening() {
     this._administratorService
-      .getOpening('b454687f-048d-4c02-8255-885b52c33633')
+      .getOpening('3c16f152-cf20-4937-bd3a-87d7408c4fcd')
       .subscribe((data) => {
         this.opening = data;
       });
   }
   getPeriod() {
     this._administratorService
-      .getPeriod('101b3361-0aac-410b-9bf4-f9cd00a95f23')
+      .getPeriod('c4dcbaf6-63b9-4d95-bc33-9d428e0a5113')
       .subscribe((data) => {
         this.period = data;
       });
@@ -63,7 +66,7 @@ export class ConditionComponent implements OnInit {
     this.toastr.success('Bienvenido!', 'Acceso!');
     this.router.navigate(['/payment', this.id]);
   }
-  
+
   // ---------------------------------------------------- UPLOAD IMAGE
   handleFileInput(event: any): void {
     this.selectedFile = event.target.files[0];
@@ -86,5 +89,10 @@ export class ConditionComponent implements OnInit {
         }
       );
     }
+  }
+
+  // ---------------------------------------------------- DONWLOAD PDF
+  descargarPDF() {
+    this.denegadosButton.nativeElement.click();
   }
 }

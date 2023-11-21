@@ -1,14 +1,13 @@
-
 body {
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
-html{
+html {
   font-size: 62.5%;
 }
 /******************* DESIGN ************************/
-.circle-1{
+.circle-1 {
   position: absolute;
   top: -10.5rem;
   left: 80%;
@@ -16,10 +15,9 @@ html{
   height: 28.4rem;
   border-radius: 50%;
   border: 4px solid rgba(255, 255, 255, 0.475);
-
 }
 
-.circle-2{
+.circle-2 {
   position: absolute;
   top: -7.2rem;
   left: 30%;
@@ -30,7 +28,7 @@ html{
   border-radius: 50%;
 }
 
-.circle-3{
+.circle-3 {
   position: absolute;
   bottom: -15rem;
   left: 50%;
@@ -42,7 +40,14 @@ html{
 
 /********************** BODY ***********************/
 .boddy {
-  background-image: linear-gradient(to bottom, #03183a, #02204d, #012860, #023074, #063888);
+  background-image: linear-gradient(
+    to bottom,
+    #03183a,
+    #02204d,
+    #012860,
+    #023074,
+    #063888
+  );
   position: relative;
   display: flex;
   justify-content: flex-end;
@@ -52,28 +57,27 @@ html{
 }
 /****************** SVG ***************************/
 .dibujo-svg {
-  background-image: url('../../../assets/svg/undraw_special_event_-4-aj8.svg'); 
-  background-size: cover; 
-  background-position: center; 
+  background-image: url("../../../assets/svg/undraw_special_event_-4-aj8.svg");
+  background-size: cover;
+  background-position: center;
   margin-left: 20rem;
   text-align: center;
   width: 50rem;
   height: 40rem;
 }
 
-
 .derecha {
   position: absolute;
-  top: 50%; 
-  right: 10%; 
+  top: 50%;
+  right: 10%;
   transform: translate(50%, -50%);
 }
 
 .izquierda {
   position: absolute;
-  top: 50%; 
-  left: 10%; 
-  transform: translate(-50%, -50%); 
+  top: 50%;
+  left: 10%;
+  transform: translate(-50%, -50%);
 }
 
 /******************** FORM ***************************/
@@ -101,16 +105,17 @@ img {
   margin-bottom: 5rem;
 }
 
-.card-text{
+.card-text {
   position: absolute;
   top: 10rem;
   left: 10%;
   width: 80%;
   height: 6rem;
-  background-color:var(---primary-color);
+  background-color: var(---primary-color);
   margin: 0 auto;
   border-radius: 10px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .card-text h2 {
@@ -121,7 +126,7 @@ img {
   margin-top: 0.4rem;
 }
 
-.row{
+.row {
   margin-bottom: 1.3rem;
 }
 
@@ -142,22 +147,22 @@ img {
   transform: scale(1.1);
 }
 
-.form-control{
+.form-control {
   height: 1.8rem;
   width: 13rem;
   border-radius: 5px;
   border: 1px solid var(---color-gray);
   margin-left: 0.7rem;
   font-size: 0.9rem;
-  text-align:start;
+  text-align: start;
   transition: transform 0.3s ease;
 }
 
-.form-control:hover{
+.form-control:hover {
   transform: scale(1.01);
 }
 
-.form-control:focus{
+.form-control:focus {
   outline: 1px solid var(---tertiary-color);
 }
 
@@ -165,7 +170,7 @@ img {
   margin-top: 1rem;
 }
 
-.password a{
+.password a {
   color: var(---primary-color);
   font-style: italic;
   text-decoration: none;

@@ -49,12 +49,11 @@ html {
   top: 75%;
   left: 6%;
   width: 12.9rem;
-  height:12.9rem;
+  height: 12.9rem;
   background-color: #ffffff;
   transform: rotate(45deg);
   z-index: -1;
 }
-
 
 /******************** CONTAINERS ***************************/
 .container {
@@ -75,7 +74,7 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding:1.6rem;
+  padding: 1.6rem;
   width: 30%;
 }
 
@@ -87,10 +86,10 @@ html {
 }
 
 .open-btn {
-  background-color: #30a390;
+  background-color: var(---green-color);
   color: #fff;
   width: 12rem;
-  border: 1px solid #30a390;
+  border: 1px solid var(---green-color);
 }
 
 .open-btn:disabled,
@@ -102,10 +101,10 @@ html {
 }
 
 .close-btn {
-  background-color: #dc3545;
+  background-color: var(---red-color);
   color: #fff;
   width: 12rem;
-  border: 1px solid #c82333;
+  border: 1px solid var(---red-color);
 }
 /******************** BTN *************/
 .contenedor_izquierda .content_btn {
@@ -115,25 +114,36 @@ html {
   height: 9rem;
   width: 80%;
   margin-top: 1.4rem;
-  border-radius: .4rem;
+  border-radius: 0.4rem;
   justify-content: center;
   align-items: center;
-    color: #000000;
+  color: #000000;
 }
 
 .button i {
-  margin-right: .5rem;
+  margin-right: 0.5rem;
+}
+h2 {
+  margin: 0;
+}
+h2 span {
+  text-align: center;
+  font-weight: bold;
+}
+.center-content {
+  text-align: center;
+  margin: auto;
 }
 /******************** LEFT ***************************/
 
 .contenedor_derecha {
-  background:#ffffff;
+  background: #ffffff;
   height: 80%;
   width: 70%;
   padding: 2rem;
   margin: 2rem;
   border-radius: 1rem;
-  border: .1rem solid #b5edf2;
+  border: 0.1rem solid #b5edf2;
 }
 
 /********* CONTENT BUTTONS *********/
@@ -150,35 +160,35 @@ html {
   padding: 10px 15px;
   font-size: 16px;
   border: none;
-  border-radius: .3rem;
+  border-radius: 0.3rem;
 }
 
 .btn-primary {
-  background-color: #007bff;
+  background-color: var(---blue-color);
   color: #fff;
   cursor: pointer;
 }
 
 .btn-info {
-  background-color: #1d8c9d;
+  background-color: var(---green-blue-color);
   color: #fff;
   cursor: pointer;
 }
 
 .btn-success {
-  background-color: #30a390;
+  background-color: var(---green-color);
   color: #fff;
   cursor: pointer;
 }
 .btn-primary:hover {
   background-color: #0056b3;
 }
-.button:hover{
-  opacity: .9;
+.button:hover {
+  opacity: 0.9;
 }
 
 .btn-info:hover {
-  background-color: #176e7a;
+  background-color: #0c5c67;
 }
 
 .btn-success:hover {
@@ -200,9 +210,9 @@ html {
   text-align: center;
   height: 28px;
 }
-h3{
+h3 {
   font-size: 1.2rem;
-  margin-top: 1rem;;
+  margin-top: 1rem;
 }
 
 /************* TABLA ****************/
@@ -211,10 +221,10 @@ h3{
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
-
 }
 
-.table th, .table td {
+.table th,
+.table td {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: left;
@@ -242,14 +252,13 @@ h5 {
 }
 
 a {
-  color: #007bff;
+  color: var(---blue-color);
   text-decoration: none;
 }
 
-.text-success{
-  color: #30a390;
-
+.text-success {
+  color: var(---green-color);
 }
-.text-danger{
-  color: red;
+.text-danger {
+  color: var(---red-color);
 }

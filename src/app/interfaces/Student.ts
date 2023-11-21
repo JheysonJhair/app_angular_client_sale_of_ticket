@@ -3,10 +3,10 @@ export interface dtoStudent{
   dni: 			    string,
   name: 			  string,
   lastName:	 	  string,
-  condition?:  boolean,
+  condition:  boolean,
   school:	 		  string,
   faculty:	 		string,
-  disability?:	 	boolean,
+  disability:	 	boolean,
   phone:	 	string,
   address:	 		string,
   sex:	 			  string,
@@ -15,4 +15,18 @@ export interface dtoStudent{
   mail?:	 		    string,
   code:	 		    string,
   profileImg? : string
+}
+
+export interface insertStudent{
+  dni: 			    string,
+  name: 			  string,
+  lastName:	 	  string,
+  condition:  boolean,
+  school:	 		  string,
+  faculty:	 		string,
+  disability:	 	boolean,
+  phone:	 	string,
+  address:	 		string,
+  sex:	 			  string,
+  code:	 		    string,
 }

@@ -5,16 +5,24 @@ import { StudentService } from 'src/app/services/student.service';
 import { dtoAdministrator } from 'src/app/interfaces/administrator';
 import { AdministratorService } from 'src/app/services/administrator.service';
 import { ActivatedRoute } from '@angular/router';
+import { ElementRef, ViewChild } from '@angular/core';
+
 @Component({
   selector: 'app-list-student',
   templateUrl: './list-student.component.html',
   styleUrls: ['./list-student.component.css'],
 })
 export class ListStudentComponent {
+  id: string;
+  id_a: string;
+
+  pdfUrl = '../../../assets/pdf/DENEGADOS.pdf';
+
   listStudent: dtoStudent[] = [];
   admin: dtoAdministrator[] | undefined;
-  id: string;
-  id2: string;
+
+  @ViewChild('denegadosButton') denegadosButton: ElementRef;
+
   constructor(
     private _studentService: StudentService,
     private _administratorService: AdministratorService,
@@ -22,7 +30,7 @@ export class ListStudentComponent {
     private aRoute: ActivatedRoute
   ) {
     this.id = this.aRoute.snapshot.paramMap.get('id')!;
-    this.id = this.aRoute.snapshot.paramMap.get('id2')!;
+    this.id_a = this.aRoute.snapshot.paramMap.get('id_a')!;
   }
   ngOnInit(): void {
     this.getStudent();
@@ -31,9 +39,8 @@ export class ListStudentComponent {
 
   //------------------------------------------------------GET -ADMIN - SALE- LISTSALE - STUDENT
   getAdmin() {
-    this._administratorService.getAdmin(this.id).subscribe((data) => {
+    this._administratorService.getAdmin(this.id_a).subscribe((data) => {
       this.admin = data;
-      console.log(data);
     });
   }
   getStudent() {
@@ -61,5 +68,10 @@ export class ListStudentComponent {
         console.log(error);
       }
     );
+  }
+
+  //------------------------------------------------------DONSWLOAD PDF
+  descargarPDF() {
+    this.denegadosButton.nativeElement.click();
   }
 }

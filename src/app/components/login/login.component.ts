@@ -16,12 +16,10 @@ export class LoginComponent {
   public static token: string;
   public static idStudent: string;
   public static idAdministrator: string;
-  data: any;
 
   accessLogin: FormGroup;
-  id = '';
-  idPasar: string;
-  listStudentAcces: dtoStudent[];
+  id: String;
+
   student: dtoStudent | undefined;
   admin: dtoAdministrator | undefined;
 
@@ -69,9 +67,11 @@ export class LoginComponent {
       dni: this.accessLogin.get('')?.value,
       name: this.accessLogin.get('')?.value,
       lastName: this.accessLogin.get('')?.value,
+      condition: this.accessLogin.get('')?.value,
       code: this.accessLogin.get('')?.value,
       sex: this.accessLogin.get('')?.value,
       phone: this.accessLogin.get('')?.value,
+      disability: this.accessLogin.get('')?.value,
       address: this.accessLogin.get('')?.value,
       school: this.accessLogin.get('')?.value,
       faculty: this.accessLogin.get('')?.value,

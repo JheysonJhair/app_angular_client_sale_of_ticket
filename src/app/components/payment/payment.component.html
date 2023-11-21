@@ -1,7 +1,11 @@
 <app-navbar></app-navbar>
 <main>
   <section class="c-exterior">
-    <div class="circle-1"></div><div class="circle-2"></div><div class="circle-3"></div><div class="cuad-1"></div><div class="triangle"></div>
+    <div class="circle-1"></div>
+    <div class="circle-2"></div>
+    <div class="circle-3"></div>
+    <div class="cuad-1"></div>
+    <div class="triangle"></div>
     <form class="container">
       <div class="contenedor_izquierda">
         <h2>MÉTODOS DE PAGO</h2>
@@ -101,15 +105,17 @@
             />
           </div>
 
-          <div *ngIf="student !== undefined">
-            <button
-              class="btn_ btn-yellow"
-              (click)="buy()"
-              type="submit"
-              [disabled]="total == 0 || !selectedFile || saleStateHelp === true"
-            >
-              Enviar
-            </button>
+          <div *ngIf="saleStateHelp !== true">
+            <div *ngIf="student !== undefined">
+              <button
+                class="btn_ btn-yellow"
+                (click)="buy()"
+                type="submit"
+                [disabled]="total == 0 || !selectedFile"
+              >
+                Enviar
+              </button>
+            </div>
           </div>
         </div>
         <div *ngIf="saleStateHelp === true">

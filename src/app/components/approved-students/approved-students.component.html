@@ -12,33 +12,30 @@
       alt=""
       class="contenido-imagen-about"
     />
-    <div *ngIf="admin !== undefined">
-      <h2>{{ admin[0].name }} {{ admin[0].lastName }}</h2>
+    <div class="row" *ngIf="admin !== undefined">
+      <div class="center-content">
+        <h2><span>ADMINISTRADOR</span></h2>
+        <h2>{{ admin[0].name }} {{ admin[0].lastName }}</h2>
+      </div>
     </div>
     <div class="content_btn">
       <div>
-        <button
-          [routerLink]="['/administrator', id]"
-          class="btn"
-        >
+        <button [routerLink]="['/administrator', id]" class="btn btn_regresar">
           <i class="fas fa-arrow-left"></i> Regresar
         </button>
       </div>
 
       <div>
-        <button
-          [routerLink]="['/administrator', id, 'denegados']"
-          class="btn"
-        >
-          <i class="fas fa-times-circle"></i> Denegados
-        </button>
+        <a [href]="pdfUrl" download="Estudiantes_denegados">
+          <button class="btn btn_denegado">
+            <i class="fas fa-times-circle"></i> Denegados
+          </button>
+        </a>
       </div>
     </div>
-
   </div>
 
   <div class="contenedor_derecha">
-
     <div class="content_list">
       <div class="card-body">
         <h3>Listado de Estudiantes con comedor</h3>

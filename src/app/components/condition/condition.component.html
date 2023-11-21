@@ -31,12 +31,13 @@
       </div>
       <div class="content_btn">
         <div class="button">
-          <a href="">
+          <a [href]="pdfUrl" download="Listado_Estudiantes">
             <i class="fas fa-list"></i> Listado
           </a>
         </div>
+
         <div class="button">
-          <a href="">
+          <a [href]="pdfUrl" download="Estudiante_Historial">
             <i class="fas fa-history"></i> Historial
           </a>
         </div>
@@ -51,31 +52,31 @@
       <div *ngIf="student !== undefined" class="btn_global">
         {{ student[0].condition === false ? "No pobre" : "Pobre" }}
       </div>
-      <hr /> 
+      <hr />
       <h3>Condición de discapacidad</h3>
       <p>Limitaciones asociadas a la salud y habilidades físicas o mentales. Esto puede incluir barreras de accesibilidad, falta de apoyo especializado..</p>
       <div *ngIf="student !== undefined" class="btn_global">
         {{ student[0].disability === true ? "Discapacitado" : "Sin discapacidad" }}
       </div>
-      <hr /> 
+      <hr />
       <h3>Condicion FINAL</h3>
       <p>Verificación de ambas condiciones de discapacidad y socio económica, validación de datos.</p>
       <div *ngIf="student !== undefined" class="btn_condicionFinal">
-        {{ student[0].studentState == true ? "No apto" : "Apto" }}
+        {{ student[0].studentState == true ? "Apto" : "No Apto" }}
       </div>
-      <hr /> 
+      <hr />
       <div class="align-rigth " style="text-align: right;" *ngIf="opening !== undefined">
         <div *ngIf="student !== undefined">
           <button
             (click)="onButtonClick()"
-            [disabled]="student[0].studentState == true"
+            [disabled]="student[0].studentState !== false  || opening![0].openState == false"
             class="float-end button-next"
           >
             Siguiente
           </button>
         </div>
       </div>
-      
+
     </div>
   </section>
 
