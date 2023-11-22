@@ -1,7 +1,89 @@
-p,
-h2,
-h3 {
+body {
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+/******************** DESIGN ***************************/
+
+.circle-1,
+.circle-2,
+.circle-3,
+.cuad-1 {
+  position: fixed;
+}
+
+.circle-1 {
+  top: -10.5rem;
+  left: 70%;
+  width: 38.4rem;
+  height: 38.4rem;
+  border-radius: 50%;
+  background-color: #ffffff;
+  z-index: -1;
+}
+
+.circle-2 {
+  position: absolute;
+  top: -7.2rem;
+  left: 30%;
+  background-color: #ffffff;
+  width: 15.4rem;
+  height: 15.4rem;
+  border-radius: 50%;
+  z-index: -1;
+}
+.circle-3 {
+  position: fixed;
+  bottom: -15rem;
+  left: 50%;
+  background-color: #ffffff;
+  width: 25.4rem;
+  height: 25.4rem;
+  border-radius: 50%;
+  z-index: -1;
+}
+.cuad-1 {
+  position: fixed;
+  top: 59%;
+  left: 13%;
+  width: 12.9rem;
+  height: 12.9rem;
+  background-color: #ffffff;
+  transform: rotate(45deg);
+  z-index: -1;
+}
+.cuad-2 {
+  position: fixed;
+  top: 10%;
+  left: -100px;
+  width: 15.9rem;
+  height: 15.9rem;
+  background-color: #ffffff;
+  transform: rotate(20deg);
+  z-index: -1;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 4rem;
   text-align: center;
+}
+
+.vaucher {
+  order: 1;
+  border: 2px solid black;
+  width: 290px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background: rgba(255, 255, 255, 0.748);
+  text-align: center;
+}
+.btn_salir {
+  order: 3;
 }
 p {
   margin: 3px 0;
@@ -9,33 +91,45 @@ p {
 .vaucher table {
   width: 90%;
 }
-.oculto-impresion1 {
-  margin-top: 20px;
-  margin-bottom: 10px;
-  margin-left: 5px;
-}
-.oculto-impresion1:hover {
-  background-color: rgb(216, 210, 202);
-}
-.container {
-  padding-top: 60px;
-}
-.vaucher {
-  border: 2px solid black;
-  width: 290px;
-  background: rgba(255, 255, 255, 0.748);
+.btn {
+  background: var(---blue-color);
+  padding: 0.8rem;
+  margin: 0.5rem;
+  margin-bottom: 2rem;
+  width: auto;
+  font-size: 1.3rem;
   text-align: center;
-  margin-left: 500px;
+  color: #ffffff;
+  border-radius: 0.3rem;
+  border: none;
+  cursor: pointer;
 }
-#p1,
-#p2,
-#p5 {
+.btn_imp {
+  background: var(---green-color);
+}
+.btns {
+  order: 2;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 290px;
+}
+.btn-impresion:hover {
+  background-color: rgb(33, 95, 142);
+}
+.btn_imp:hover {
+  background-color: rgb(33, 142, 127);
+}
+span {
   font-weight: bold;
 }
 
-td,
-th,
-tr,
+thead {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
 table {
   border-top: 1px solid black;
   border-collapse: collapse;
@@ -51,20 +145,16 @@ th.producto {
 }
 td.importe,
 th.importe {
-  width: 70px;
+  width: 20px;
   max-width: 70px;
   text-align: center;
+  margin-right: 6px;
 }
 
 @media print {
-  .vaucher {
-    margin: 150px 200px;
-  }
-
-  .oculto-impresion1,
-  .contenedor-nav,
-  .contenedor-nav *,
-  .oculto-impresion1 * {
-    display: none !important;
+  #voucher {
+    position: absolute;
+    left: 0;
+    top: 0;
   }
 }

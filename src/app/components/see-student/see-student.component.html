@@ -1,10 +1,13 @@
-<div *ngIf="student !== undefined">
-  <h3>Mostrando detalles del alumno</h3>
-  <h5>{{student[0].name}} {{student[0].lastName}}</h5>
-  <ul>
-    <li>Escuela professional: {{student[0].school}}</li>
-    <li>Facutlad: {{student[0].faculty}}</li>
-    <li>Código: {{student[0].profileImg}}</li>
-    <li>Dni: {{student[0].dni}}</li>
-  </ul>
+<app-navbar></app-navbar>
+<div class="container">
+  <div *ngIf="student !== undefined">
+    <h3>Mostrando detalles del alumno</h3>
+    <h5>{{student[0].name}} {{student[0].lastName}}</h5>
+    <ul>
+      <li>Escuela professional: {{student[0].school}}</li>
+      <li>Facutlad: {{student[0].faculty}}</li>
+      <li>Código: {{student[0].profileImg}}</li>
+      <li>Dni: {{student[0].dni}}</li>
+    </ul>
+  </div>
 </div>

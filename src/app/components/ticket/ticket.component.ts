@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { dtoStudent } from 'src/app/interfaces/student';
 import { StudentService } from 'src/app/services/student.service';
-import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -41,7 +40,18 @@ export class TicketComponent implements OnInit {
       }
     );
   }
-  aler() {
-    window.print();
+  printDiv() {
+    let voucher = document.getElementById('voucher');
+    if (voucher) {
+      let printContents = voucher.outerHTML;
+      let originalContents = document.body.innerHTML;
+      document.body.innerHTML = printContents;
+      window.print();
+      document.body.innerHTML = originalContents;
+    } else {
+      console.log('El objeto con el ID "voucher" no existe.');
+    }
   }
+
+
 }

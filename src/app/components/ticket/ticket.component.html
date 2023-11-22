@@ -1,17 +1,24 @@
+<app-navbar></app-navbar>
 <div class="container">
-  <div class="vaucher">
-    <p id="p1">UNIVERSIDAD NACIONAL</p>
-    <p id="p2">MICAELA BASTIDAS</p>
-    <p id="p3">Direccion</p>
-    <p id="p4">Abancay-Av. Inca Garcilazo de la Vega</p>
-    <p id="p5">RUC: 20527056579</p>
-    <p id="p6">BOLETA DE VENTA ELECTRONICA</p>
-    <p id="p7">Fecha</p>
-    <p id="p8">{{ fechaActual }}</p>
+  <div class="circle-1"></div>
+  <div class="circle-2"></div>
+  <div class="circle-3"></div>
+  <div class="cuad-1"></div>
+  <div class="cuad-2"></div>
+  <div class="triangle"></div>
+  <div id="voucher" class="vaucher">
+    <p><span>UNIVERSIDAD NACIONAL</span></p>
+    <p><span>MICAELA BASTIDAS</span></p>
+    <p>Direccion</p>
+    <p>Abancay-Av. Inca Garcilazo de la Vega</p>
+    <p><span>RUC: 20527056579</span></p>
+    <p>BOLETA DE VENTA ELECTRONICA</p>
+    <p>Fecha</p>
+    <p>{{ fechaActual }}</p>
     <table>
       <thead>
         <tr>
-          <th class="producto">Cliente</th>
+          <th class="producto">Estudiante</th>
           <th class="importe">Código</th>
         </tr>
       </thead>
@@ -21,6 +28,24 @@
             {{ student.name | titlecase }} {{ student.lastName | titlecase }}
           </td>
           <td class="importe">{{ student.code }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <table>
+      <thead>
+        <tr>
+          <th class="producto">Producto</th>
+          <th class="importe">Precio</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="producto">Desayuno</td>
+          <td class="importe">S/2.00</td>
+        </tr>
+        <tr>
+          <td class="producto">Almuerzo</td>
+          <td class="importe">S/10.00</td>
         </tr>
       </tbody>
     </table>
@@ -38,11 +63,19 @@
         </tr>
       </tbody>
     </table>
-    <p id="p15">¡GRACIAS POR SU COMPRA!</p>
-    <p id="p16">CONSERVE ESTE COMPROVANTE</p>
-    <p id="p17">EN CASO DE RECLAMO</p>
-
-    <button class="oculto-impresion1" (click)="aler()">Imprimir</button>
+    <p>¡GRACIAS POR SU COMPRA!</p>
+    <p>CONSERVE ESTE COMPROVANTE</p>
+    <p>EN CASO DE RECLAMO</p>
   </div>
-  <button routerLink="" class="btn btn-primary">salir</button>
+  <div class="btns">
+    <button class="btn btn_imp" (click)="printDiv()">
+      <i class="fas fa-print"></i>
+    </button>
+    <button [routerLink]="'/payment/' + idPasar" class="btn btn-impresion" class="btn btn-impresion">
+      <i class="fa-solid fa-rotate-left"></i>
+    </button>
+    <button routerLink="/" class="btn btn-impresion">
+      <i class="fas fa-sign-out-alt"></i>
+    </button>
+  </div>
 </div>
