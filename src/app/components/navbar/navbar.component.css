@@ -28,11 +28,11 @@ html {
 }
 .transparent-background {
   background-color: transparent;
-  border: none; 
+  border: none;
 }
 
 .transparent-background:hover {
-  cursor: pointer; 
+  cursor: pointer;
 }
 /******************** LOGO ***************************/
 .logo,
@@ -68,9 +68,25 @@ html {
 .contenedor-icono {
   margin: 10px 20px 10px 0px;
 }
-
+.contenedor-icono span{
+  color:white;
+  font-weight: bold;
+}
 .header_enlaces i {
   font-size: 20px;
   color: white;
   margin-right: 5px;
+}
+
+.contador-notificaciones {
+  display: inline-block;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  width: 17px;
+  height: 17px;
+  line-height: 20px;
+  text-align: center;
+  font-size: 10px;
+  font-weight: bold;
 }

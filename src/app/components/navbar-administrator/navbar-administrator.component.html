@@ -6,21 +6,8 @@
     </div>
     <div class="header_enlaces">
       <div class="contenedor-icono">
-        <button mat-icon-button [matMenuTriggerFor]="notificacionesMenu" class="transparent-background" xPosition="before">
-          <i class="fa-solid fa-bell"></i>
-          <span *ngIf="notificacionesCount > 0" class="contador-notificaciones">{{ notificacionesCount }}</span>
-        </button>
-
-        <mat-menu #notificacionesMenu="matMenu">
-          <button mat-menu-item *ngFor="let notificacion of notificaciones" (click)="handleSubMenuClick(notificacion.mensaje)">
-            {{ notificacion.mensaje }}
-          </button>
-          <div *ngIf="notificaciones.length === 0" class="no-notificaciones">No hay notificaciones</div>
-        </mat-menu>
-      </div>
-      <div class="contenedor-icono">
-        <a href="https://mail.google.com/mail/u/1/#inbox" target="_blank" class="gmail">
-          <i class="fas fa-envelope"></i>
+        <a href="https://mail.google.com/mail/u/1/#inbox" target="_blank" class="configuracion">
+          <i class="fas fa-cog"></i>
         </a>
       </div>
 

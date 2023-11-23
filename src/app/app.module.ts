@@ -26,6 +26,7 @@ import { TicketComponent } from './components/ticket/ticket.component';
 import { ImageDialogComponent } from './components/image-dialog/image-dialog.component';
 import { ApprovedStudentsComponent } from './components/approved-students/approved-students.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { NavbarAdministratorComponent } from './components/navbar-administrator/navbar-administrator.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { MatMenuModule } from '@angular/material/menu';
     ListProductComponent,
     TicketComponent,
     ImageDialogComponent,
-    ApprovedStudentsComponent
+    ApprovedStudentsComponent,
+    NavbarAdministratorComponent
   ],
   imports: [
     MatIconModule,

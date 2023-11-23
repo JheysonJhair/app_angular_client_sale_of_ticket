@@ -1,0 +1,92 @@
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  html {
+    font-size: 62.5%;
+  }
+
+  .container {
+    width: 100%;
+    height: 2.5rem;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-color: rgb(22, 74, 124);
+  }
+
+  /******************** HEADER ***************************/
+  .contenedor-nav {
+    display: flex;
+    margin: auto;
+    width: 85%;
+    justify-content: space-between;
+    align-items: center;
+    height: inherit;
+    overflow: hidden;
+  }
+  .transparent-background {
+    background-color: transparent;
+    border: none;
+  }
+
+  .transparent-background:hover {
+    cursor: pointer;
+  }
+  /******************** LOGO ***************************/
+  .logo,
+  .logo i {
+    display: flex;
+    height: 1.8rem;
+  }
+
+  .logo h3 {
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    padding-left: 10px;
+    color: white;
+  }
+
+  .logo,
+  .logo i:hover {
+    cursor: pointer;
+  }
+
+  /******************** LINKS ***************************/
+  .header_enlaces {
+    margin-left: 100px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+    color: white;
+  }
+
+  .contenedor-icono {
+    margin: 10px 20px 10px 0px;
+  }
+  .contenedor-icono span{
+    color:white;
+    font-weight: bold;
+  }
+  .header_enlaces i {
+    font-size: 20px;
+    color: white;
+    margin-right: 5px;
+  }
+
+  .contador-notificaciones {
+    display: inline-block;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+    width: 17px;
+    height: 17px;
+    line-height: 20px;
+    text-align: center;
+    font-size: 10px;
+    font-weight: bold;
+  }
