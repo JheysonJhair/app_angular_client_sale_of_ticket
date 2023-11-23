@@ -17,15 +17,12 @@ export class ApprovedStudentsComponent {
   id: string;
 
   listSaleDetail: dtoSaleDetail[] = [];
-  listStudent: dtoStudent[] = [];
   admin: dtoAdministrator[] | undefined;
 
-  idListSale: any;
   pdfUrl = '../../../assets/pdf/DENEGADOS.pdf';
   @ViewChild('denegadosButton') denegadosButton: ElementRef;
   constructor(
     private _administratorService: AdministratorService,
-    private _saleService: SaleService,
     private toastr: ToastrService,
     private aRoute: ActivatedRoute,
 
@@ -48,8 +45,6 @@ export class ApprovedStudentsComponent {
     this._administratorService.getSaleDetail().subscribe(
       (data) => {
         this.listSaleDetail = data;
-        this.idListSale = this.listSaleDetail[0].idSale;
-        this.getListSale(this.idListSale);
       },
       (error) => {
         this.toastr.error('Opss ocurrio un error', 'Error');
@@ -57,17 +52,7 @@ export class ApprovedStudentsComponent {
       }
     );
   }
-  getListSale(id: any) {
-    this._saleService.getSaleId(id).subscribe(
-      (data) => {
-        this.listStudent = data;
-      },
-      (error) => {
-        this.toastr.error('Opss ocurrio un error', 'Error');
-        console.log(error);
-      }
-    );
-  }
+
 
   //------------------------------------------------------DONWLOAD PDF
   descargarPDF() {

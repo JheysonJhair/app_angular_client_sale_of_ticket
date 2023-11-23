@@ -65,16 +65,16 @@ export class AdministratorComponent {
 
   //------------------------------------------------------DELETE VOUCHER
   deleteSale(id: any) {
-    this._administratorService.deleteSaleDetail(id).subscribe(
-      (data) => {
-        this.getSale();
-        this.toastr.error('Estudiante no admitido', 'Eliminado!');
-      },
+    this._saleService.getSaleModifyStateFail(id).subscribe(
+      (data) => {},
       (error) => {
-        this.toastr.error('Opss ocurrio un error', 'Error');
         console.log(error);
       }
     );
+    this.toastr.error('Estudiante no admitido', 'Eliminado!');
+    setTimeout(function () {
+      location.reload();
+    }, 1500);
   }
 
   //------------------------------------------------------ SEE VOUCHER

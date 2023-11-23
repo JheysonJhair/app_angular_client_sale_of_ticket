@@ -93,7 +93,7 @@
         </thead>
         <tbody>
           <ng-container *ngFor="let venta of listSaleDetail">
-            <tr *ngIf="!venta.saleState">
+            <tr *ngIf="venta.saleState == 1">
               <td>
                 <a
                   href="#"

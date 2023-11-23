@@ -93,6 +93,7 @@ h3 {
   border-radius: 1rem;
   border: 0.1rem solid #b5edf2;
   margin-right: 9rem;
+  overflow: hidden;
 }
 .btn {
   background: #30a390;
@@ -140,7 +141,10 @@ h2 span {
   margin-right: 0.5rem;
 }
 /************* TABLA ****************/
-
+.table-wrapper {
+  max-height: 460px; /* Ajusta según tus necesidades */
+  overflow-y: auto;
+}
 .table {
   width: 100%;
   border-collapse: collapse;

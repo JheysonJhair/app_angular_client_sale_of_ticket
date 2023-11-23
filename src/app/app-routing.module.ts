@@ -20,7 +20,7 @@ const routes: Routes =[
   { path: 'see/:id', component: SeeStudentComponent},
   { path: 'condition/:id', component: ConditionComponent},
   { path: 'payment/:id', component: PaymentComponent},
-  { path: 'ticket/:id/:total', component: TicketComponent},
+  { path: 'ticket/:id', component: TicketComponent},
   { path: 'administrator/:id_a', component: AdministratorComponent},
   { path: 'administrator/:id_a/listComedor', component: ApprovedStudentsComponent },
   { path: '**', redirectTo: '/', pathMatch:'full'}

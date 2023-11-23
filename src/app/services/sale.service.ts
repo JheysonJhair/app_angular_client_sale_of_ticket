@@ -11,7 +11,10 @@ export class SaleService {
   private myApiInsert = 'sale/insert/';
 
   private myUrlGet = 'sale/getall/';
+  private myUrlStateFail = 'sale/ModifyStateFail?idSale=';
+  private myUrlTicket = 'sale/getticket?idStudent=';
   private myUrlId = 'sale/getbyid?id=';
+  private myUrlIdStudent = 'sale/getbyidstudent?idStudent=';
   private myUrlDecrease = 'opening/decreaseQuantity';
   constructor(private http: HttpClient) { }
 
@@ -30,5 +33,14 @@ export class SaleService {
     });
 
     return this.http.post(this.myAppUrl + this.myUrlDecrease, data, { headers: headers });
+  }
+  getSaleModifyStateFail(id: string): Observable<any>{
+    return this.http.get(this.myAppUrl + this.myUrlStateFail + id);
+  }
+  getSaleGeyByIdStudent(id: string): Observable<any>{
+    return this.http.get(this.myAppUrl + this.myUrlIdStudent + id);
+  }
+  getTicket(id: string): Observable<any>{
+    return this.http.get(this.myAppUrl + this.myUrlTicket + id);
   }
 }

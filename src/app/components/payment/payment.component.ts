@@ -9,6 +9,7 @@ import { StudentService } from 'src/app/services/student.service';
 
 import { DatePipe } from '@angular/common';
 import { SaleService } from 'src/app/services/sale.service';
+import { dtoSaleDetail } from 'src/app/interfaces/saleDetail';
 
 @Component({
   selector: 'app-payment',
@@ -19,10 +20,13 @@ import { SaleService } from 'src/app/services/sale.service';
 export class PaymentComponent implements OnInit {
   id: string;
   total: number = 0;
-  saleStateHelp: boolean = false;
+  saleStateHelp: number;
+
+  message: string;
 
   student: dtoStudent[] | undefined;
   periodo: dtoPeriod[] | undefined;
+  listSaleDetail: dtoSaleDetail[] = [];
 
   listProduct = [
     { name: 'Desayuno', price: 2, selected: false },
@@ -48,6 +52,7 @@ export class PaymentComponent implements OnInit {
     this.getStudent();
     this.getAlmuerzoDesayuno();
     this.getFecha();
+    this.getStateStudent();
   }
   // ---------------------------------------------------- GET PRODUCTO - STUDENT -FECHA
   getAlmuerzoDesayuno() {
@@ -75,6 +80,21 @@ export class PaymentComponent implements OnInit {
         this.periodo!.forEach((element) => {});
       });
   }
+  getStateStudent(){
+    this._saleService.getSaleGeyByIdStudent(this.id).subscribe((data) => {
+      this.listSaleDetail = data;
+      this.saleStateHelp = (this.listSaleDetail[0].saleState)
+      if(this.saleStateHelp == 2){
+        this.message = "Compra realizada";
+      }else if(this.saleStateHelp == 1){
+        this.message = "Compra en proceso";
+      }else if(this.saleStateHelp == 0){
+        this.message = "";
+      }else{
+        this.message = "Compra rechzada";
+      }
+    });
+  }
   // ---------------------------------------------------- CHECKBOX
   onCheckboxChange(event: any) {
     if (event.target.checked) {
@@ -89,7 +109,7 @@ export class PaymentComponent implements OnInit {
   }
   // ---------------------------------------------------- TRAER TICKET
   ticket(){
-    console.log("MI TICKET");
+    this.router.navigate(['/ticket', this.id]);
   }
 
   // ---------------------------------------------------- DATOS BACK
@@ -109,7 +129,6 @@ export class PaymentComponent implements OnInit {
             'Pago realizado  con exito',
             'Completado!'
           );
-          this.router.navigate(['/ticket', this.id, this.total]);
         },
         (error) => {
           this.toastr.error('Opss ocurrio un error', 'Error');

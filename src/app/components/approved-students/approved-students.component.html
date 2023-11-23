@@ -35,30 +35,32 @@
   </div>
 
   <div class="contenedor_derecha">
-    <div class="content_list">
-      <div class="card-body">
-        <h3>Listado de Estudiantes con comedor</h3>
-        <table *ngIf="listSaleDetail.length > 0" class="table table-hover mt-3">
-          <thead>
-            <tr>
-              <th class="bol">CÓDIGO</th>
-              <th class="bol">NOMBRES Y APELLIDOS</th>
-              <th class="bol">ESCUELA PROFESIONAL</th>
-            </tr>
-          </thead>
-          <tbody>
-            <ng-container *ngFor="let venta of listSaleDetail">
-              <tr *ngIf="venta.saleState">
-                <td>{{ venta.code }}</td>
-                <td>{{ venta.names | titlecase }}</td>
-                <td>{{ venta.school | titlecase }}</td>
+    <div class="table-wrapper">
+      <div class="content_list">
+        <div class="card-body">
+          <h3>Listado de Estudiantes con comedor</h3>
+          <table *ngIf="listSaleDetail.length > 0" class="table table-hover mt-3">
+            <thead>
+              <tr>
+                <th class="bol">CÓDIGO</th>
+                <th class="bol">NOMBRES Y APELLIDOS</th>
+                <th class="bol">ESCUELA PROFESIONAL</th>
               </tr>
-            </ng-container>
-          </tbody>
-        </table>
-      </div>
-      <div *ngIf="listSaleDetail.length == 0" class="row mt-5">
-        <h5>No hay Estudiantes por mostrar.</h5>
+            </thead>
+            <tbody>
+              <ng-container *ngFor="let venta of listSaleDetail">
+                <tr *ngIf="venta.saleState === 2">
+                  <td>{{ venta.code }}</td>
+                  <td>{{ venta.names | titlecase }}</td>
+                  <td>{{ venta.school | titlecase }}</td>
+                </tr>
+              </ng-container>
+            </tbody>
+          </table>
+        </div>
+        <div *ngIf="listSaleDetail.length == 0" class="row mt-5">
+          <h5>No hay Estudiantes por mostrar.</h5>
+        </div>
       </div>
     </div>
   </div>

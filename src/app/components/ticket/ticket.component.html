@@ -13,8 +13,8 @@
     <p>Abancay-Av. Inca Garcilazo de la Vega</p>
     <p><span>RUC: 20527056579</span></p>
     <p>BOLETA DE VENTA ELECTRONICA</p>
-    <p>Fecha</p>
-    <p>{{ fechaActual }}</p>
+    <p>Fecha:</p>
+    <p *ngIf="ticket !== undefined">{{ ticket.dateGo | date:'yyyy-MM-dd' }}</p>
     <table>
       <thead>
         <tr>
@@ -23,11 +23,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let student of listStudent">
+        <tr *ngIf="ticket !== undefined">
           <td class="producto">
-            {{ student.name | titlecase }} {{ student.lastName | titlecase }}
+            {{ ticket.name | titlecase }} {{ ticket.lastName | titlecase }}
           </td>
-          <td class="importe">{{ student.code }}</td>
+          <td class="importe">{{ ticket.code }}</td>
         </tr>
       </tbody>
     </table>
@@ -38,17 +38,34 @@
           <th class="importe">Precio</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
+      <tbody *ngIf="ticket !== undefined">
+        <tr *ngIf="ticket.total == 2">
           <td class="producto">Desayuno</td>
-          <td class="importe">S/2.00</td>
+          <td class="importe">S/02.00</td>
         </tr>
-        <tr>
+        <tr *ngIf="ticket.total == 10">
           <td class="producto">Almuerzo</td>
           <td class="importe">S/10.00</td>
         </tr>
+        <ng-container *ngIf="ticket.total == 12; else otroCaso">
+          <tr>
+            <td class="producto">Desayuno</td>
+            <td class="importe">S/02.00</td>
+          </tr>
+          <tr>
+            <td class="producto">Almuerzo</td>
+            <td class="importe">S/10.00</td>
+          </tr>
+        </ng-container>
+        <ng-template #otroCaso>
+          <tr>
+            <td class="producto">Otro Producto</td>
+            <td class="importe">S/00.00</td>
+          </tr>
+        </ng-template>
       </tbody>
     </table>
+
     <table>
       <thead>
         <tr>
@@ -57,9 +74,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <tr *ngIf="ticket !== undefined">
           <td class="producto">Total</td>
-          <td class="importe">S/ {{ totalPasar }}.00</td>
+          <td class="importe">S/ {{ ticket.total }}.00</td>
         </tr>
       </tbody>
     </table>
@@ -71,7 +88,11 @@
     <button class="btn btn_imp" (click)="printDiv()">
       <i class="fas fa-print"></i>
     </button>
-    <button [routerLink]="'/payment/' + idPasar" class="btn btn-impresion" class="btn btn-impresion">
+    <button
+      [routerLink]="'/payment/' + id"
+      class="btn btn-impresion"
+      class="btn btn-impresion"
+    >
       <i class="fa-solid fa-rotate-left"></i>
     </button>
     <button routerLink="/" class="btn btn-impresion">

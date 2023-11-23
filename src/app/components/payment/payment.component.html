@@ -105,7 +105,7 @@
             />
           </div>
 
-          <div *ngIf="saleStateHelp !== true">
+          <div *ngIf="saleStateHelp == 1 || saleStateHelp == 3  || saleStateHelp == undefined ">
             <div *ngIf="student !== undefined">
               <button
                 class="btn_ btn-yellow"
@@ -118,10 +118,12 @@
             </div>
           </div>
         </div>
-        <div *ngIf="saleStateHelp === true">
+        <div *ngIf="saleStateHelp != 0">
           <p class="compra_realizada">
-            Usted ya realizo la compra, por favor verifique su voucher
+            {{message}}
           </p>
+        </div>
+        <div *ngIf="saleStateHelp == 2">
           <button class="btn_imp" (click)="ticket()">
             <i class="fas fa-print"></i> IMPRIMIR
           </button>

@@ -4,5 +4,5 @@ export interface dtoSaleDetail{
   code: string,
   names:string,
   school:string,
-  saleState: boolean
+  saleState: number
 }

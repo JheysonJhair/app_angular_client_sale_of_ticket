@@ -3,36 +3,36 @@ import { ToastrService } from 'ngx-toastr';
 import { dtoStudent } from 'src/app/interfaces/student';
 import { StudentService } from 'src/app/services/student.service';
 import { ActivatedRoute } from '@angular/router';
-
+import { SaleService } from 'src/app/services/sale.service';
+import { dtoTicket } from 'src/app/interfaces/ticket';
 @Component({
   selector: 'app-ticket',
   templateUrl: './ticket.component.html',
   styleUrls: ['./ticket.component.css'],
 })
 export class TicketComponent implements OnInit {
-  fechaActual: string;
-  idPasar: string;
+  id: string;
   totalPasar: string;
-  listStudent: dtoStudent[] = [];
+  ticket: dtoTicket;
 
   constructor(
-    private _studentService: StudentService,
+    private _saleService: SaleService,
     private toastr: ToastrService,
     private aRoute: ActivatedRoute
   ) {
     const fecha = new Date();
-    this.fechaActual = fecha.toLocaleDateString();
     this.aRoute.snapshot.paramMap.get('id');
-    this.idPasar = this.aRoute.snapshot.paramMap.get('id')!;
-    this.totalPasar = this.aRoute.snapshot.paramMap.get('total')!;
+    this.id = this.aRoute.snapshot.paramMap.get('id')!;
+
   }
   ngOnInit() {
-    this.getStudent(this.idPasar);
+    this.getTicket(this.id);
   }
-  getStudent(id: any) {
-    this._studentService.getStudent(id).subscribe(
+  // ---------------------------------------------------- TRAER TICKET
+  getTicket(id: any) {
+    this._saleService.getTicket(id).subscribe(
       (data) => {
-        this.listStudent = data;
+        this.ticket = data;
       },
       (error) => {
         this.toastr.error('Opss ocurrio un error', 'Error');
@@ -40,6 +40,7 @@ export class TicketComponent implements OnInit {
       }
     );
   }
+  // ---------------------------------------------------- IMPRIMIR
   printDiv() {
     let voucher = document.getElementById('voucher');
     if (voucher) {
@@ -52,6 +53,4 @@ export class TicketComponent implements OnInit {
       console.log('El objeto con el ID "voucher" no existe.');
     }
   }
-
-
 }
