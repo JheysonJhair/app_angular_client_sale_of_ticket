@@ -21,7 +21,8 @@ export class PaymentComponent implements OnInit {
   id: string;
   total: number = 0;
   saleStateHelp: number;
-
+  ayudaCompra: boolean = false;
+  idSale:  string;
   message: string;
 
   student: dtoStudent[] | undefined;
@@ -74,24 +75,32 @@ export class PaymentComponent implements OnInit {
 
   getFecha() {
     this._productService
-      .getFecha('c4dcbaf6-63b9-4d95-bc33-9d428e0a5113')
+      .getFecha('P3r10d05-63b9-4d95-bc33-9d428e0a5113')
       .subscribe((data) => {
         this.periodo = data;
         this.periodo!.forEach((element) => {});
       });
   }
-  getStateStudent(){
+  getStateStudent() {
     this._saleService.getSaleGeyByIdStudent(this.id).subscribe((data) => {
       this.listSaleDetail = data;
-      this.saleStateHelp = (this.listSaleDetail[0].saleState)
-      if(this.saleStateHelp == 2){
-        this.message = "Compra realizada";
-      }else if(this.saleStateHelp == 1){
-        this.message = "Compra en proceso";
-      }else if(this.saleStateHelp == 0){
-        this.message = "";
-      }else{
-        this.message = "Compra rechzada";
+      this.idSale= data[0].idSale;
+
+      if (this.listSaleDetail.length > 0) {
+        console.log("valor" + this.listSaleDetail[0].saleState)
+        this.saleStateHelp = this.listSaleDetail[0].saleState;
+
+        if (this.saleStateHelp == 2) {
+          this.message = "Compra realizada";
+        } else if (this.saleStateHelp == 1) {
+          this.message = "Compra en proceso";
+        } else if (this.saleStateHelp == 0) {
+          this.message = "";
+        } else {
+          this.message = "Compra rechazada";
+          this.ayudaCompra = true;
+        }
+      } else {
       }
     });
   }
@@ -114,12 +123,12 @@ export class PaymentComponent implements OnInit {
 
   // ---------------------------------------------------- DATOS BACK
   buy(): void {
-    if (this.selectedFile) {
+    if (this.selectedFile && this.ayudaCompra == false) {
       const formData: FormData = new FormData();
       formData.append('dtoSale.idStudent', this.id);
       formData.append(
         'dtoSale.idPeriod',
-        'c4dcbaf6-63b9-4d95-bc33-9d428e0a5113'
+        'P3r10d05-63b9-4d95-bc33-9d428e0a5113'
       );
       formData.append('dtoSale.total', ''+this.total);
       formData.append('file', this.selectedFile);
@@ -135,6 +144,34 @@ export class PaymentComponent implements OnInit {
           console.log(error);
         }
       );
+      setTimeout(function () {
+        location.reload();
+      }, 1500);
+    }else if(this.ayudaCompra == true){
+      const formData: FormData = new FormData();
+      formData.append('dtoSale.idSale', this.idSale);
+      formData.append('dtoSale.idStudent', this.id);
+      formData.append(
+        'dtoSale.idPeriod',
+        'P3r10d05-63b9-4d95-bc33-9d428e0a5113'
+      );
+      formData.append('dtoSale.total', ''+this.total);
+      formData.append('file', this.selectedFile);
+      this._saleService.updateSale(formData).subscribe(
+        (data) => {
+          this.toastr.success(
+            'Pago nuevo realizado  con exito',
+            'Completado!'
+          );
+        },
+        (error) => {
+          this.toastr.error('Opss ocurrio un error', 'Error');
+          console.log(error);
+        }
+      );
+      setTimeout(function () {
+        location.reload();
+      }, 1500);
     }
   }
 }

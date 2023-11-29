@@ -198,7 +198,11 @@ input{
   border-radius: 5px;
   padding: .9rem;
 }
-
+select{
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  padding: .5rem;
+}
 
 .input-group-text i.green-icon {
   color: var(---green-color);

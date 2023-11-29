@@ -82,7 +82,6 @@ export class LoginComponent {
     if (this.accessLogin.get('mail')?.value.endsWith('@unamba.edu.pe')) {
       this._studentService.getLogin(student.mail, student.password).subscribe(
         (data) => {
-          console.log(data);
           this.getStudent(data.codeAdmin);
 
           LoginComponent.token = data.token;

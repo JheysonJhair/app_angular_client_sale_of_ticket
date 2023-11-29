@@ -7,7 +7,8 @@ import { dtoSaleDetail } from 'src/app/interfaces/saleDetail';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {  saleStateHelp: number;
+export class NavbarComponent implements OnInit {
+  saleStateHelp: number | undefined;
   notificacionesCount: number = 0;
   notificaciones: any[] = [];
   showNotifications: boolean = false;  message: string;
@@ -27,38 +28,49 @@ export class NavbarComponent implements OnInit {  saleStateHelp: number;
     this.notificacionesCount = this.notificaciones.length;
   }
 
-  getStateStudent(){
+  getStateStudent() {
     this._saleService.getSaleGeyByIdStudent(this.id).subscribe((data) => {
       this.listSaleDetail = data;
-      this.saleStateHelp = (this.listSaleDetail[0].saleState)
-      if(this.listSaleDetail[0].saleState != 0){
-        this.notificacionesCount = 2;
-      }
-      if(this.saleStateHelp == 2){
-        this.notificaciones = [
-          { mensaje: 'Notificación de gmail.' },
-          { mensaje: 'Compra realizada con exito...' },
-        ];
 
-      }else if(this.saleStateHelp == 1){
-        this.notificaciones = [
-          { mensaje: 'Notificación de gmail.' },
-          { mensaje: 'Su compra esta en proceso...' },
-        ];
-      }else if(this.saleStateHelp == 0){
-        this.notificaciones = [
-          { mensaje: 'Notificación de gmail.' },
-          { mensaje: 'No realizo aun la compra...' },
-        ];
-        this.message = "";
-      }else{
-        this.notificaciones = [
-          { mensaje: 'Notificación de gmail.' },
-          { mensaje: 'Su compra fue rechazada...' },
-        ];
+      if (this.listSaleDetail.length > 0) {
+        this.saleStateHelp = this.listSaleDetail[0].saleState;
+        console.log("valor" + this.saleStateHelp);
+
+        if (this.listSaleDetail[0].saleState != 0) {
+          this.notificacionesCount = 2;
+        }
+
+        if (this.saleStateHelp == 2) {
+          this.setNotifications([
+            { mensaje: 'Notificación de gmail.' },
+            { mensaje: 'Compra realizada con éxito...' },
+          ]);
+        } else if (this.saleStateHelp == 1) {
+          this.setNotifications([
+            { mensaje: 'Notificación de gmail.' },
+            { mensaje: 'Su compra está en proceso...' },
+          ]);
+        } else if (this.saleStateHelp == 0 || this.listSaleDetail[0].saleState == undefined) {
+          this.setNotifications([
+            { mensaje: 'Notificación de gmail.' },
+            { mensaje: 'No realizó aún la compra...' },
+          ]);
+        } else if (this.saleStateHelp == 3) {
+          this.setNotifications([
+            { mensaje: 'Notificación de gmail.' },
+            { mensaje: 'Su compra fue rechazada...' },
+          ]);
+        }
+      } else {
       }
     });
   }
+
+  setNotifications(notifications: any[]) {
+    this.notificaciones = notifications;
+    this.message = "";
+  }
+
   handleNotificacionesClick(event: Event) {
     event.stopPropagation();
     this.showNotifications = !this.showNotifications;

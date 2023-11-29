@@ -43,6 +43,80 @@
     </div>
   </div>
   <div class="contenedor_derecha">
+    <h2>Semestre y cantidad de ticket.</h2>
+    <div class="form-container">
+      <div class="form-left">
+        <form [formGroup]="addPeriod" (ngSubmit)="postPeriodo()">
+          <label for="semestre">Semestre:</label>
+          <input
+            class="form-control"
+            formControlName="name"
+            type="text"
+            id="semestre"
+            name="semestre"
+          />
+
+          <div class="date-inputs">
+            <label for="fecha-inicial">Fecha Inicial:</label>
+            <input
+              class="form-control"
+              formControlName="startDate"
+              type="text"
+              id="fecha-inicial"
+              name="fecha-inicial"
+            />
+
+            <label for="fecha-final">Fecha Final:</label>
+            <input
+              class="form-control"
+              formControlName="endDate"
+              type="text"
+              id="fecha-final"
+              name="fecha-final"
+            />
+          </div>
+          <div *ngIf="opening !== undefined">
+          <button
+            type="submit"
+            [disabled]="addPeriod.invalid || opening[0].openState == false || opening[0].openState == true"
+            class="btn_list1 btn-primary1"
+          >
+            Enviar
+          </button></div>
+        </form>
+      </div>
+
+      <div class="form-right">
+        <form [formGroup]="addOpening" (ngSubmit)="postOpening()">
+          <div *ngIf="opening !== undefined">
+            <div
+              class="date-inputs"
+              *ngIf="
+                opening[0].openState == false || opening[0].openState == true
+              "
+            >
+              <label for="cantidad">Cantidad:</label>
+              <input formControlName="quantity" type="text" id="cantidad" name="cantidad" />
+
+              <label for="cantidad-prioritaria">Cantidad Prioritaria:</label>
+              <input
+              formControlName="priorityQuantity"
+                type="text"
+                id="cantidad-prioritaria"
+                name="cantidad-prioritaria"
+              />
+            </div>
+            <button
+              type="submit"
+              [disabled]="addPeriod.invalid || opening[0].openState == false || opening[0].openState == true"
+              class="btn_list1 btn-primary1"
+            >
+              Enviar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
     <div class="content_list">
       <div class="container_list">
         <div class="buttons">

@@ -134,7 +134,6 @@ export class AddEditStudentComponent implements OnInit {
       );
     }
     if (this.id !== null)  {
-      console.log("asdsadasdsadsadsadsadasd")
       let formData = new FormData();
       formData.append('dtoStudent.idStudent', this.id);
       formData.append('dtoStudent.dni', this.addStudent.get('dni')?.value);

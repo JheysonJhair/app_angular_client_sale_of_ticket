@@ -159,16 +159,11 @@
                       "
                     ></i
                   ></span>
-                  <input
-                    pattern="^((M||F)||(m||f))$"
-                    maxlength="1"
-                    formControlName="sex"
-                    type="text"
-                    class="form-control"
-                    placeholder="M/F"
-                    aria-label="Sexo"
-                    aria-describedby="basic-addon1"
-                  />
+                  <select formControlName="sex" class="form-control" aria-label="Sexo" aria-describedby="basic-addon1">
+                    <option value="" disabled selected hidden>Género:</option>
+                    <option value="M">Masculino</option>
+                    <option value="F">Femenino</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -185,15 +180,18 @@
                       "
                     ></i
                   ></span>
-                  <input
-                    pattern="^(([Ñña-zA-ZÁ-Úá-ú]){2,30}\.?)(((\s)[Ñña-zA-ZÁ-Úá-ú]{1,30})?){1,4}$"
-                    formControlName="school"
-                    type="text"
-                    class="form-control"
-                    placeholder="Escuela Profesional"
-                    aria-label="Carrera Profesional"
-                    aria-describedby="basic-addon1"
-                  />
+                  <select formControlName="school" class="form-control" aria-label="school" aria-describedby="basic-addon1">
+                    <option value="" disabled selected hidden>Escuela Académica profesional:</option>
+                    <option value="Administración">Administración</option>
+                    <option value="Ingeniería de Minas">Ingeniería de Minas</option>
+                    <option value="Ciencia Política y Gobernabilidad">Ciencia Política y Gobernabilidad</option>
+                    <option value="Ingeniería Agroindustrial">Ingeniería Agroindustrial</option>
+                    <option value="Ingeniería Civil">Ingeniería Civil</option>
+                    <option value="Ingeniería Informática y Sistemas">Ingeniería Informática y Sistemas</option>
+                    <option value="Ingeniería Agroecológica  y Desarollo Rural">Ingeniería Agroecológica  y Desarollo Rural</option>
+                    <option value="Educación Inicial intercultural y bilingue 1ra y 2da infancia">Educación Inicial intercultural y bilingue 1ra y 2da infancia</option>
+                    <option value="Medicina Veterinaria y zootécnia">Medicina Veterinaria y zootécnia</option>
+                  </select>
                 </div>
               </div>
               <div class="input_label">
@@ -208,15 +206,13 @@
                       "
                     ></i
                   ></span>
-                  <input
-                    pattern="^(([Ñña-zA-ZÁ-Úá-ú]){2,30}\.?)(((\s)[Ñña-zA-ZÁ-Úá-ú]{1,30})?){1,4}$"
-                    formControlName="faculty"
-                    type="text"
-                    class="form-control"
-                    placeholder="Facultad"
-                    aria-label="Facultad"
-                    aria-describedby="basic-addon1"
-                  />
+                  <select formControlName="faculty" class="form-control" aria-label="faculty" aria-describedby="basic-addon1">
+                    <option value="" disabled selected hidden>Facultad:</option>
+                    <option value="Ingeniería">Ingeniería</option>
+                    <option value="Administración">Administración</option>
+                    <option value="Educación y Ciencias sociales">Educación y Ciencias sociales</option>
+                    <option value="Medicina Veterinaria">Medicina Veterinaria</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -284,16 +280,11 @@
                       "
                     ></i
                   ></span>
-                  <input
-                    pattern=""
-                    maxlength="6"
-                    formControlName="condition"
-                    type="text"
-                    class="form-control"
-                    placeholder="Condición"
-                    aria-label="Condición"
-                    aria-describedby="basic-addon1"
-                  />
+                  <select formControlName="condition" class="form-control" aria-label="condition" aria-describedby="basic-addon1">
+                    <option value="" disabled selected hidden>Condición Socioeconómica:</option>
+                    <option value="false">Pobre</option>
+                    <option value="true">No Pobre</option>
+                  </select>
                 </div>
               </div>
               <div class="input_label">
@@ -310,15 +301,11 @@
                       "
                     ></i
                   ></span>
-                  <input
-                    pattern=""
-                    formControlName="disability"
-                    type="text"
-                    class="form-control"
-                    placeholder="Invalido"
-                    aria-label="Invalido"
-                    aria-describedby="basic-addon1"
-                  />
+                  <select formControlName="disability" class="form-control" aria-label="disability" aria-describedby="basic-addon1">
+                    <option value="" disabled selected hidden>Discapacidad:</option>
+                    <option value="true">Discapacitado</option>
+                    <option value="false">Sin Discapacidad</option>
+                  </select>
                 </div>
               </div>
             </div>

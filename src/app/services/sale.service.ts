@@ -9,6 +9,7 @@ export class SaleService {
 
   private myAppUrl = 'https://localhost:7282/';
   private myApiInsert = 'sale/insert/';
+  private myApiUpdate = 'sale/update/';
 
   private myUrlGet = 'sale/getall/';
   private myUrlStateFail = 'sale/ModifyStateFail?idSale=';
@@ -19,7 +20,10 @@ export class SaleService {
   constructor(private http: HttpClient) { }
 
   saveSale(dtoSale: FormData): Observable<any>{
-    return this.http.post(this.myAppUrl + this.myApiInsert,dtoSale);
+    return this.http.post(this.myAppUrl + this.myApiInsert, dtoSale);
+  }
+  updateSale(dtoSale: FormData): Observable<any>{
+    return this.http.post(this.myAppUrl + this.myApiUpdate, dtoSale);
   }
   getListSale(): Observable<any>{
     return this.http.get(this.myAppUrl + this.myUrlGet);

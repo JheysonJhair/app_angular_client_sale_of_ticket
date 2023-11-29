@@ -50,14 +50,14 @@ export class ConditionComponent implements OnInit {
   }
   getOpening() {
     this._administratorService
-      .getOpening('3c16f152-cf20-4937-bd3a-87d7408c4fcd')
+      .getOpening('4p3rtur4-cf20-4937-bd3a-87d7408c4f3i')
       .subscribe((data) => {
         this.opening = data;
       });
   }
   getPeriod() {
     this._administratorService
-      .getPeriod('c4dcbaf6-63b9-4d95-bc33-9d428e0a5113')
+      .getPeriod('P3r10d05-63b9-4d95-bc33-9d428e0a5113')
       .subscribe((data) => {
         this.period = data;
       });

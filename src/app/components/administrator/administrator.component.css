@@ -168,7 +168,25 @@ h2 span {
   color: #fff;
   cursor: pointer;
 }
-
+.btn-primary1 {
+  background-color: #6C63FF;
+  color: #fff;
+  cursor: pointer;
+}
+.btn_list1 {
+  margin-top: 10px;
+  padding: 6px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 0.3rem;
+}
+.btn-primary1:disabled,
+.btn_list1:disabled {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  cursor: not-allowed;
+  color: rgb(174, 170, 170);
+}
 .btn-info {
   background-color: var(---green-blue-color);
   color: #fff;
@@ -261,4 +279,46 @@ a {
 }
 .text-danger {
   color: var(---red-color);
+}.form-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.form-left,
+.form-right {
+  width: 48%;
+}
+
+.form-left form,
+.form-right {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+}
+
+.form-left label,
+.form-right label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.date-inputs {
+  display: flex;
+  gap: 10px;
+}
+
+.date-inputs label {
+  margin: 0 5px 0 0;
+}
+
+.form-left input,
+.form-right input {
+  width: 95.8%;
+  padding: 8px;
+  margin-bottom: 6px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  padding: .5rem;
 }

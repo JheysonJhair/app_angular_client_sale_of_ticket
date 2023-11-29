@@ -62,14 +62,14 @@
       <h3>Condicion FINAL</h3>
       <p>Verificación de ambas condiciones de discapacidad y socio económica, validación de datos.</p>
       <div *ngIf="student !== undefined" class="btn_condicionFinal">
-        {{ student[0].studentState == true ? "Apto" : "No Apto" }}
+        {{ student[0].condition == true ? "Apto" : "No Apto" }}
       </div>
       <hr />
       <div class="align-rigth " style="text-align: right;" *ngIf="opening !== undefined">
         <div *ngIf="student !== undefined">
           <button
             (click)="onButtonClick()"
-            [disabled]="student[0].studentState !== false  || opening![0].openState == false"
+            [disabled]="student[0].condition == false  || opening![0].openState == false"
             class="float-end button-next"
           >
             Siguiente
