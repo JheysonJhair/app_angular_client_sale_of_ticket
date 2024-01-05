@@ -33,7 +33,7 @@ Este proyecto utiliza las siguientes tecnologías:
 - BACKEND:
 
 ```bash
-git clone https://github.com/JheysonJhair/sale_of_ticket_v1.git
+git clone https://github.com/Edsghot/Sale_of_ticket
 ```
 
 ## Cómo levantar el proyecto
