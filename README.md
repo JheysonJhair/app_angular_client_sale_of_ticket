@@ -1,24 +1,65 @@
-## Programador - desarrollador web y diseñador UI/UX
-**Mr. Jheyson Jhair**
+<div align="center">
+    <a href="https://github.com/JheysonJhair/sale_of_ticket_v1.git">
+      <img src="public/logo.jpg" width="148px" />
+    </a>
+    <h1>Unamba - Comedor Universitario</h1>
+    <p align="center">
+        Frontend Developer Jhair
+    </p>
+</div>
 
-## SaleOFTicket UNAMBA
-[![Header](https://nombre.vukki.net/significado/imagen/0-0-0-0-0/M/jhair.jpg "Header")]()
+## Preview
 
-[![instagram](https://img.shields.io/static/v1?label=&message=instagram&color=5B51D8&logo=instagram&logoColor=white&style=for-the-badge)](https://www.instagram.com/jheyson_jhair_aa/)
-[![discord](https://img.shields.io/static/v1?label=&message=discord&color=7289da&logo=discord&logoColor=white&style=for-the-badge)](https://discord.gg/2J7dPnURHc)
-[![github](https://img.shields.io/static/v1?label=&message=github&color=171515&logo=github&logoColor=white&style=for-the-badge)](https://github.com/JheysonJhair)
+![Preview](public/preview.png)
 
-## 👉 Descripción
-Es un proyecto creado en el entorno de Angular, que como tal es un sistema web que permite la compra de ticket para la venta del comedor en la Universidad Nacional Micaela Bastidas de Apurímac.
+## Módulos
 
-## Instalación
-Este proyecto no necesita instalación. Simplemente habre la carpeta y doble click en el .html
+- Módulo de Estudiante
+- Módulo de Productos
+- Módulo de Periodo
+- Módulo de Administrador
+- Módulo de Venta
+- Módulo de Reportes
+- Módulo de Usuarios
+- Módulo de Autenticación
 
-## Contratación
-Si quieres contratarme puedes escribirme  a jhair2003unamba@gmail.com para consultas.
+## Tecnologías
 
-## 📝 Elementos utilizados:
-- [HTML]
-- [CSS]
-- [TS]
-- [JS]
+Este proyecto utiliza las siguientes tecnologías:
+
+- Angular
+- TypeScript
+- CSS
+- BACKEND:
+
+```bash
+git clone https://github.com/JheysonJhair/sale_of_ticket_v1.git
+```
+
+## Cómo levantar el proyecto
+
+1. Clona el repositorio.
+
+```bash
+git clone https://github.com/JheysonJhair/sale_of_ticket_v1.git
+```
+
+```bash
+cd sale_of_ticket_v1
+```
+
+2. Instala las dependencias con `npm install`.
+
+```bash
+npm install
+```
+
+3. Ejecuta el comando `ng serve` para iniciar el servidor de desarrollo.
+
+```bash
+ng serve
+```
+
+4. Abre tu navegador y visita `http://localhost:4200/`.
+
+¡Listo! Ahora puedes comenzar a trabajar en el Sistema sin problemas.
